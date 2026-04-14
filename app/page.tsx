@@ -67,7 +67,9 @@ export default function Home() {
   return (
     <div className={`${styles.page} ${dmSans.variable} ${playfair.variable}`}>
       <nav className={styles.nav}>
-        <div className={styles.navLogo}>Rakhine Water Festival - Des Moines</div>
+        <div className={styles.navLogo}>
+          Rakhine Water Festival - Des Moines
+        </div>
         <ul className={styles.navLinks}>
           <li>
             <Link href="/">Home</Link>
@@ -119,13 +121,15 @@ export default function Home() {
         <div className={`${styles.container} ${styles.aboutGrid}`}>
           <div>
             <p className={styles.sectionLabel}>Our Story</p>
-            <h2 className={styles.sectionTitle}>A Tradition Born Far From Home</h2>
+            <h2 className={styles.sectionTitle}>
+              A Tradition Born Far From Home
+            </h2>
             <p className={styles.sectionBody}>
               Since 2015, the Rakhine community of Des Moines has gathered every
               year to celebrate Thingyan - the Burmese New Year water festival.
               What began as a small community gathering has grown into one of
-              Iowa&apos;s most vibrant cultural celebrations, honoring our heritage
-              and welcoming neighbors of all backgrounds.
+              Iowa&apos;s most vibrant cultural celebrations, honoring our
+              heritage and welcoming neighbors of all backgrounds.
             </p>
             <p className={`${styles.sectionBody} ${styles.sectionBodySpacing}`}>
               The festival is organized by the Rakhine Water Festival Committee,
@@ -160,11 +164,16 @@ export default function Home() {
           </p>
           <div className={styles.scheduleGrid}>
             {scheduleItems.map((item) => (
-              <article className={styles.eventCard} key={`${item.time}-${item.name}`}>
+              <article
+                className={styles.eventCard}
+                key={`${item.time}-${item.name}`}
+              >
                 <div className={styles.eventTime}>{item.time}</div>
                 <div className={styles.eventName}>{item.name}</div>
                 <div className={styles.eventDesc}>{item.description}</div>
-                <span className={`${styles.eventTag} ${item.tagClass}`}>{item.tag}</span>
+                <span className={`${styles.eventTag} ${item.tagClass}`}>
+                  {item.tag}
+                </span>
               </article>
             ))}
           </div>
@@ -176,8 +185,8 @@ export default function Home() {
           <p className={styles.sectionLabel}>Our Supporters</p>
           <h2 className={styles.sectionTitle}>Festival Sponsors</h2>
           <p className={styles.sectionBody}>
-            We&apos;re grateful to the local businesses and organizations that make
-            this festival possible. Interested in sponsoring?{" "}
+            We&apos;re grateful to the local businesses and organizations that
+            make this festival possible. Interested in sponsoring?{" "}
             <a href="#contact" className={styles.inlineLink}>
               Get in touch.
             </a>
@@ -224,34 +233,6 @@ export default function Home() {
                   Supporter
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.raffle} id="raffle">
-        <div className={styles.container}>
-          <p className={styles.sectionLabel}>Win Big</p>
-          <h2 className={styles.sectionTitle}>Raffle Prizes</h2>
-          <p className={styles.sectionBody}>
-            Purchase raffle tickets at the event for a chance to win. All
-            proceeds support the festival and our community programs.
-          </p>
-          <div className={styles.raffleGrid}>
-            <div className={styles.prizeCard}>
-              <div className={styles.prizeRank}>1st</div>
-              <div className={styles.prizeName}>Grand Prize</div>
-              <div className={styles.prizeVal}>TBD - Announced at event</div>
-            </div>
-            <div className={styles.prizeCard}>
-              <div className={styles.prizeRank}>2nd</div>
-              <div className={styles.prizeName}>Second Prize</div>
-              <div className={styles.prizeVal}>TBD - Announced at event</div>
-            </div>
-            <div className={styles.prizeCard}>
-              <div className={styles.prizeRank}>3rd</div>
-              <div className={styles.prizeName}>Third Prize</div>
-              <div className={styles.prizeVal}>TBD - Announced at event</div>
             </div>
           </div>
         </div>
