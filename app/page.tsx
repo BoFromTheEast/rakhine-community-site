@@ -84,9 +84,6 @@ export default function Home() {
             <Link href="/contact">Contact</Link>
           </li>
         </ul>
-        <Link href="/contact" className={styles.navCta}>
-          Get Tickets
-        </Link>
       </nav>
 
       <section className={styles.hero} id="home">
