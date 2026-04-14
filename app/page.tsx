@@ -1,65 +1,287 @@
-import Image from "next/image";
+import { DM_Sans, Playfair_Display } from "next/font/google";
+import Link from "next/link";
+import styles from "./page.module.css";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
+
+const scheduleItems = [
+  {
+    time: "10:00 AM",
+    name: "Opening Ceremony",
+    description:
+      "Traditional prayers and blessings to welcome the New Year with elders leading the ritual.",
+    tag: "Cultural",
+    tagClass: styles.tagCulture,
+  },
+  {
+    time: "11:00 AM",
+    name: "Water Splashing Begins",
+    description:
+      "The main event! Bring your water guns, buckets, and smiles - everyone gets soaked.",
+    tag: "Water",
+    tagClass: styles.tagWater,
+  },
+  {
+    time: "12:30 PM",
+    name: "Traditional Food Stalls",
+    description:
+      "Enjoy authentic Rakhine dishes prepared by community members - mohinga, samosa, and more.",
+    tag: "Food",
+    tagClass: styles.tagFood,
+  },
+  {
+    time: "2:00 PM",
+    name: "Live Music and Karaoke",
+    description:
+      "Traditional and contemporary performances on our main stage, plus open karaoke sessions.",
+    tag: "Cultural",
+    tagClass: styles.tagCulture,
+  },
+  {
+    time: "3:30 PM",
+    name: "Raffle Drawing",
+    description:
+      "Win exciting prizes! Tickets available at the event. Must be present to win.",
+    tag: "Raffle",
+    tagClass: styles.tagCulture,
+  },
+  {
+    time: "5:00 PM",
+    name: "Closing and Community Dinner",
+    description:
+      "Join us to wrap up the day with a shared meal and community celebration.",
+    tag: "Food",
+    tagClass: styles.tagFood,
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className={`${styles.page} ${dmSans.variable} ${playfair.variable}`}>
+      <nav className={styles.nav}>
+        <div className={styles.navLogo}>Rakhine Water Festival - Des Moines</div>
+        <ul className={styles.navLinks}>
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/about">About</Link>
+          </li>
+          <li>
+            <Link href="/festival">Festival</Link>
+          </li>
+          <li>
+            <Link href="/contact">Contact</Link>
+          </li>
+        </ul>
+        <Link href="/contact" className={styles.navCta}>
+          Get Tickets
+        </Link>
+      </nav>
+
+      <section className={styles.hero} id="home">
+        <div className={styles.drops} aria-hidden="true">
+          <div className={`${styles.drop} ${styles.dropA}`} />
+          <div className={`${styles.drop} ${styles.dropB}`} />
+          <div className={`${styles.drop} ${styles.dropC}`} />
+          <div className={`${styles.drop} ${styles.dropD}`} />
+          <div className={`${styles.drop} ${styles.dropE}`} />
+        </div>
+        <div className={styles.heroTag}>Thingyan - Des Moines 2026</div>
+        <h1 className={styles.heroTitle}>
+          Rakhine <br />
+          <em>Water Festival</em>
+        </h1>
+        <p className={styles.heroSub}>
+          Celebrate renewal, community, and the joy of Thingyan - a tradition
+          carried from Rakhine to the heart of Iowa.
+        </p>
+        <div className={styles.heroDate}>April 2026 - Des Moines, Iowa</div>
+        <div className={styles.heroButtons}>
+          <Link href="/contact" className={styles.btnPrimary}>
+            Get Your Tickets
+          </Link>
+          <Link href="/festival" className={styles.btnOutline}>
+            Learn More
+          </Link>
+        </div>
+      </section>
+
+      <section className={styles.about} id="about">
+        <div className={`${styles.container} ${styles.aboutGrid}`}>
+          <div>
+            <p className={styles.sectionLabel}>Our Story</p>
+            <h2 className={styles.sectionTitle}>A Tradition Born Far From Home</h2>
+            <p className={styles.sectionBody}>
+              Since 2015, the Rakhine community of Des Moines has gathered every
+              year to celebrate Thingyan - the Burmese New Year water festival.
+              What began as a small community gathering has grown into one of
+              Iowa&apos;s most vibrant cultural celebrations, honoring our heritage
+              and welcoming neighbors of all backgrounds.
+            </p>
+            <p className={`${styles.sectionBody} ${styles.sectionBodySpacing}`}>
+              The festival is organized by the Rakhine Water Festival Committee,
+              a group of young community members dedicated to keeping this
+              tradition alive for generations to come.
+            </p>
+          </div>
+          <div className={styles.aboutVisual}>
+            <div className={styles.stat}>
+              <div className={styles.statNum}>10+</div>
+              <div className={styles.statLabel}>Years of Celebration</div>
+            </div>
+            <div className={styles.stat}>
+              <div className={styles.statNum}>Est. 2015</div>
+              <div className={styles.statLabel}>Des Moines, Iowa</div>
+            </div>
+            <div className={styles.stat}>
+              <div className={styles.statNum}>Community</div>
+              <div className={styles.statLabel}>Open to Everyone</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.schedule} id="schedule">
+        <div className={styles.container}>
+          <p className={styles.sectionLabel}>What to Expect</p>
+          <h2 className={styles.sectionTitle}>Festival Schedule</h2>
+          <p className={styles.sectionBody}>
+            A full day of water, music, food, and cultural celebration - all are
+            welcome.
           </p>
+          <div className={styles.scheduleGrid}>
+            {scheduleItems.map((item) => (
+              <article className={styles.eventCard} key={`${item.time}-${item.name}`}>
+                <div className={styles.eventTime}>{item.time}</div>
+                <div className={styles.eventName}>{item.name}</div>
+                <div className={styles.eventDesc}>{item.description}</div>
+                <span className={`${styles.eventTag} ${item.tagClass}`}>{item.tag}</span>
+              </article>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className={styles.sponsors} id="sponsors">
+        <div className={styles.container}>
+          <p className={styles.sectionLabel}>Our Supporters</p>
+          <h2 className={styles.sectionTitle}>Festival Sponsors</h2>
+          <p className={styles.sectionBody}>
+            We&apos;re grateful to the local businesses and organizations that make
+            this festival possible. Interested in sponsoring?{" "}
+            <a href="#contact" className={styles.inlineLink}>
+              Get in touch.
+            </a>
+          </p>
+          <div className={styles.sponsorTiers}>
+            <div>
+              <div className={styles.tierLabel}>Gold Sponsors</div>
+              <div className={styles.sponsorRow}>
+                <div className={`${styles.sponsorSlot} ${styles.goldTier}`}>
+                  Your Logo Here
+                </div>
+                <div className={`${styles.sponsorSlot} ${styles.goldTier}`}>
+                  Your Logo Here
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className={styles.tierLabel}>Silver Sponsors</div>
+              <div className={styles.sponsorRow}>
+                <div className={`${styles.sponsorSlot} ${styles.silverTier}`}>
+                  Sponsor
+                </div>
+                <div className={`${styles.sponsorSlot} ${styles.silverTier}`}>
+                  Sponsor
+                </div>
+                <div className={`${styles.sponsorSlot} ${styles.silverTier}`}>
+                  Sponsor
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className={styles.tierLabel}>Community Supporters</div>
+              <div className={styles.sponsorRow}>
+                <div className={`${styles.sponsorSlot} ${styles.bronzeTier}`}>
+                  Supporter
+                </div>
+                <div className={`${styles.sponsorSlot} ${styles.bronzeTier}`}>
+                  Supporter
+                </div>
+                <div className={`${styles.sponsorSlot} ${styles.bronzeTier}`}>
+                  Supporter
+                </div>
+                <div className={`${styles.sponsorSlot} ${styles.bronzeTier}`}>
+                  Supporter
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
+      </section>
+
+      <section className={styles.raffle} id="raffle">
+        <div className={styles.container}>
+          <p className={styles.sectionLabel}>Win Big</p>
+          <h2 className={styles.sectionTitle}>Raffle Prizes</h2>
+          <p className={styles.sectionBody}>
+            Purchase raffle tickets at the event for a chance to win. All
+            proceeds support the festival and our community programs.
+          </p>
+          <div className={styles.raffleGrid}>
+            <div className={styles.prizeCard}>
+              <div className={styles.prizeRank}>1st</div>
+              <div className={styles.prizeName}>Grand Prize</div>
+              <div className={styles.prizeVal}>TBD - Announced at event</div>
+            </div>
+            <div className={styles.prizeCard}>
+              <div className={styles.prizeRank}>2nd</div>
+              <div className={styles.prizeName}>Second Prize</div>
+              <div className={styles.prizeVal}>TBD - Announced at event</div>
+            </div>
+            <div className={styles.prizeCard}>
+              <div className={styles.prizeRank}>3rd</div>
+              <div className={styles.prizeName}>Third Prize</div>
+              <div className={styles.prizeVal}>TBD - Announced at event</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.contact} id="contact">
+        <div className={styles.container}>
+          <p className={styles.sectionLabel}>Get In Touch</p>
+          <h2 className={styles.sectionTitle}>Contact Us</h2>
+          <p className={styles.contactSub}>
+            Questions about the festival, sponsorship opportunities, or
+            volunteering? We&apos;d love to hear from you.
+          </p>
+          <form className={styles.contactForm}>
+            <input type="text" placeholder="Your name" />
+            <input type="email" placeholder="Your email" />
+            <textarea placeholder="Your message..." />
+            <button className={styles.btnPrimary} type="button">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <footer className={styles.footer}>
+        <p>
+          Copyright 2026 <span>Rakhine Water Festival Committee</span> - Des
+          Moines, Iowa - All Rights Reserved
+        </p>
+      </footer>
     </div>
   );
 }

@@ -1,0 +1,43 @@
+.page {
+  min-height: 100vh;
+  background: #fdf6ec;
+  color: #1c1c1c;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.nav a {
+  color: #0b2d4e;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  color: #c8922a;
+}
+
+.title {
+  margin: 0.75rem 0 1.25rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #0b2d4e;
+}
+
+.body {
+  max-width: 720px;
+  line-height: 1.8;
+  color: #4a4a4a;
+}
