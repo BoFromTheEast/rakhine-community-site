@@ -2,42 +2,179 @@
   min-height: 100vh;
   background: #fdf6ec;
   color: #1c1c1c;
-}
-
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  padding: 0.9rem 1.5rem;
+  background: rgb(11 45 78 / 96%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 30;
+}
+
+.navLogo {
+  font-size: 0.95rem;
+  color: #f0c96b;
+  letter-spacing: 0.04em;
+  font-family: var(--font-playfair), serif;
+}
+
+.navLinks {
   display: flex;
   gap: 1rem;
-  margin-bottom: 2.5rem;
 }
 
-.nav a {
-  color: #0b2d4e;
+.navLinks a {
+  color: rgb(255 255 255 / 65%);
   text-decoration: none;
-  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.eyebrow {
+.navLinks .navLinkActive {
+  color: #f0c96b;
+  font-weight: 700;
+}
+
+.floatingYears {
+  position: fixed;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.8rem 0.6rem;
+  background: rgb(11 45 78 / 18%);
+  border: 1px solid rgb(11 45 78 / 15%);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  z-index: 20;
+}
+
+.yearButton {
+  border: 0;
+  background: transparent;
+  color: rgb(11 45 78 / 40%);
+  font-size: 0.95rem;
+  font-family: var(--font-playfair), serif;
+  padding: 0.2rem 0.4rem;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.15s ease;
+}
+
+.yearButton:hover {
+  color: rgb(11 45 78 / 70%);
+}
+
+.yearButtonActive {
+  color: #0b2d4e;
+  font-weight: 700;
+}
+
+.content {
+  margin-top: 56px;
+  margin-left: 120px;
+  padding: 3rem 2rem;
+}
+
+.edition {
   margin: 0;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.8rem;
+  letter-spacing: 0.14em;
   color: #c8922a;
+  font-size: 0.75rem;
 }
 
 .title {
-  margin: 0.75rem 0 1.25rem;
-  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0.8rem 0 0.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   color: #0b2d4e;
+  font-family: var(--font-playfair), serif;
 }
 
-.body {
-  max-width: 720px;
-  line-height: 1.8;
+.subtitle {
+  margin: 0 0 1.5rem;
   color: #4a4a4a;
+  line-height: 1.7;
+}
+
+.mediaGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 240px 160px;
+  gap: 0.8rem;
+}
+
+.mediaCard {
+  background: #0b2d4e;
+  color: rgb(255 255 255 / 70%);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
+.mediaCard:first-child {
+  grid-row: 1 / 3;
+}
+
+.videoCard {
+  background: #102f4f;
+}
+
+.noteBox {
+  margin-top: 1.25rem;
+  border-left: 3px solid #c8922a;
+  padding-left: 1rem;
+  color: #4a4a4a;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .floatingYears {
+    left: 0.6rem;
+  }
+
+  .content {
+    margin-left: 96px;
+  }
+}
+
+@media (max-width: 700px) {
+  .floatingYears {
+    position: static;
+    transform: none;
+    margin: 72px 1rem 0.5rem;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .content {
+    margin-left: 0;
+    margin-top: 0;
+    padding-top: 1rem;
+  }
+
+  .mediaGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 160px);
+  }
+
+  .mediaCard:first-child {
+    grid-row: auto;
+  }
 }
