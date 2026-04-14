@@ -90,13 +90,6 @@ export default function Home() {
       </nav>
 
       <section className={styles.hero} id="home">
-        <div className={styles.drops} aria-hidden="true">
-          <div className={`${styles.drop} ${styles.dropA}`} />
-          <div className={`${styles.drop} ${styles.dropB}`} />
-          <div className={`${styles.drop} ${styles.dropC}`} />
-          <div className={`${styles.drop} ${styles.dropD}`} />
-          <div className={`${styles.drop} ${styles.dropE}`} />
-        </div>
         <div className={styles.heroTag}>Thingyan - Des Moines 2026</div>
         <h1 className={styles.heroTitle}>
           Rakhine <br />
