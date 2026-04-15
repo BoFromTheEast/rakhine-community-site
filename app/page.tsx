@@ -106,7 +106,7 @@ export default function Home() {
               <div className={styles.statLabel}>Years of Celebration</div>
             </div>
             <div className={styles.stat}>
-              <div className={styles.statNum}>Est. 2015</div>
+              <div className={styles.statNum}>Since 2015</div>
               <div className={styles.statLabel}>Des Moines, Iowa</div>
             </div>
             <div className={styles.stat}>
