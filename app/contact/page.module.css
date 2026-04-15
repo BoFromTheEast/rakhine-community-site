@@ -6,52 +6,6 @@
   overflow-x: hidden;
 }
 
-/* ── Nav ─────────────────────────────────────────────────── */
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.1rem 3rem;
-  background: rgb(11 45 78 / 92%);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.navLogo {
-  font-family: var(--font-playfair), serif;
-  color: #f0c96b;
-  font-size: 1.1rem;
-  letter-spacing: 0.04em;
-}
-
-.navLinks {
-  display: flex;
-  gap: 2rem;
-}
-
-.navLinks a {
-  color: rgb(255 255 255 / 75%);
-  text-decoration: none;
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-
-.navLinks a:hover {
-  color: #f0c96b;
-}
-
-.navLinks .navLinkActive {
-  color: #f0c96b;
-  font-weight: 700;
-}
 
 /* ── Two-column layout ───────────────────────────────────── */
 .layout {

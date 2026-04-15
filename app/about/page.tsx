@@ -1,21 +1,12 @@
 import Link from "next/link";
+import Navbar from "../_components/Navbar";
+import Footer from "../_components/Footer";
 import styles from "./page.module.css";
 
 export default function AboutPage() {
   return (
     <main className={styles.page}>
-      <nav className={styles.nav}>
-        <div className={styles.navLogo}>Rakhine Water Festival - Des Moines</div>
-        <div className={styles.navLinks}>
-          <Link href="/">Home</Link>
-
-          <Link href="/festival">Festival</Link>
-          <Link href="/about" className={styles.navLinkActive}>
-            About
-          </Link>
-          <Link href="/contact">Contact</Link>
-        </div>
-      </nav>
+      <Navbar activePage="about" />
 
       <section className={styles.hero}>
         <span className={styles.ghostText} aria-hidden="true">
@@ -94,6 +85,7 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

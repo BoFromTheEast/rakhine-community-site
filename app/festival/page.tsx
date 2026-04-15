@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import Navbar from "../_components/Navbar";
+import Footer from "../_components/Footer";
 import styles from "./page.module.css";
 
 type YearEntry = {
@@ -81,18 +82,7 @@ export default function FestivalPage() {
 
   return (
     <main className={styles.page}>
-      <nav className={styles.nav}>
-        <div className={styles.navLogo}>Rakhine Festival Archive</div>
-        <div className={styles.navLinks}>
-          <Link href="/">Home</Link>
-          <Link href="/festival" className={styles.navLinkActive}>
-            Festival
-          </Link>
-          <Link href="/about">About</Link>
-
-          <Link href="/contact">Contact</Link>
-        </div>
-      </nav>
+      <Navbar activePage="festival" />
 
       <aside
         className={styles.floatingYears}
@@ -137,6 +127,7 @@ export default function FestivalPage() {
           <p>{activeYear.note}</p>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

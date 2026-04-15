@@ -1,20 +1,11 @@
-import Link from "next/link";
+import Navbar from "../_components/Navbar";
+import Footer from "../_components/Footer";
 import styles from "./page.module.css";
 
 export default function ContactPage() {
   return (
     <main className={styles.page}>
-      <nav className={styles.nav}>
-        <div className={styles.navLogo}>Rakhine Water Festival - Des Moines</div>
-        <div className={styles.navLinks}>
-          <Link href="/">Home</Link>
-          <Link href="/festival">Festival</Link>
-          <Link href="/about">About</Link>
-          <Link href="/contact" className={styles.navLinkActive}>
-            Contact
-          </Link>
-        </div>
-      </nav>
+      <Navbar activePage="contact" />
 
       <div className={styles.layout}>
         <aside className={styles.info}>
@@ -74,6 +65,7 @@ export default function ContactPage() {
           </form>
         </section>
       </div>
+      <Footer />
     </main>
   );
 }
