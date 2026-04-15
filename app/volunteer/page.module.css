@@ -6,7 +6,6 @@
   overflow-x: hidden;
 }
 
-
 /* ── Two-column layout ───────────────────────────────────── */
 .layout {
   display: grid;
@@ -31,7 +30,8 @@
   top: 50%;
   left: -0.06em;
   transform: translateY(-60%);
-  font-size: clamp(8rem, 16vw, 16rem);
+  /* "Volunteer" is longer — scale down so the V lands at the left edge */
+  font-size: clamp(4.5rem, 9vw, 9rem);
   font-family: var(--font-playfair), serif;
   font-weight: 900;
   color: transparent;
@@ -87,31 +87,43 @@
   max-width: 380px;
 }
 
-.details {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+/* ── Roles list ──────────────────────────────────────────── */
+.rolesSection {
   border-top: 1px solid #e8dfd4;
   padding-top: 2rem;
 }
 
-.details li {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  font-size: 0.85rem;
-  color: #4a4a4a;
-}
-
-.detailLabel {
+.rolesLabel {
+  margin: 0 0 0.9rem;
   font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: #c8922a;
   font-weight: 500;
+}
+
+.rolesList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.rolesList li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: #4a4a4a;
+}
+
+.rolesList li::before {
+  content: "—";
+  color: #c8922a;
+  font-size: 0.72rem;
+  flex-shrink: 0;
 }
 
 /* ── Right form pane (dark navy) ─────────────────────────── */
@@ -143,8 +155,16 @@
   color: #f0c96b;
 }
 
+.labelOptional {
+  text-transform: none;
+  letter-spacing: 0;
+  color: rgb(240 201 107 / 45%);
+  font-size: 0.65rem;
+}
+
 .form input,
-.form textarea {
+.form textarea,
+.form select {
   width: 100%;
   background: rgb(255 255 255 / 7%);
   border: 1px solid rgb(255 255 255 / 12%);
@@ -164,18 +184,46 @@
 }
 
 .form input:focus,
-.form textarea:focus {
+.form textarea:focus,
+.form select:focus {
   background: rgb(255 255 255 / 10%);
   border-color: rgb(240 201 107 / 50%);
   box-shadow: 0 0 0 3px rgb(240 201 107 / 10%);
 }
 
 .form textarea {
-  min-height: 130px;
+  min-height: 110px;
   resize: none;
   line-height: 1.6;
 }
 
+/* ── Select wrapper + custom chevron ─────────────────────── */
+.selectWrapper {
+  position: relative;
+}
+
+.selectWrapper::after {
+  content: "";
+  position: absolute;
+  right: 1.15rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid rgb(240 201 107 / 55%);
+  pointer-events: none;
+}
+
+.form select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-right: 2.5rem;
+}
+
+/* ── Submit button ───────────────────────────────────────── */
 .submit {
   align-self: flex-start;
   margin-top: 0.25rem;
@@ -200,42 +248,9 @@
   transform: scale(0.98);
 }
 
-.submit:hover {
-  background: #b57e22;
-}
-
-/* ── Tablet ──────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .layout {
-    grid-template-columns: 1fr;
-  }
-
-  .info {
-    border-right: none;
-    border-bottom: 1px solid #e8dfd4;
-    padding: 4rem 2.5rem 3.5rem;
-    align-items: flex-start;
-  }
-
-  .formSection {
-    padding: 3.5rem 2.5rem;
-    align-items: flex-start;
-  }
-}
-
-/* ── Mobile ──────────────────────────────────────────────── */
-@media (max-width: 640px) {
-  .info {
-    padding: 3rem 1.25rem;
-  }
-
-  .ghostText {
-    font-size: clamp(5rem, 32vw, 8rem);
-  }
-
-  .formSection {
-    padding: 2.5rem 1.25rem;
-  }
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* ── Form feedback states ────────────────────────────────── */
@@ -269,7 +284,36 @@
   line-height: 1.5;
 }
 
-.submit:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+/* ── Tablet ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .info {
+    border-right: none;
+    border-bottom: 1px solid #e8dfd4;
+    padding: 4rem 2.5rem 3.5rem;
+    align-items: flex-start;
+  }
+
+  .formSection {
+    padding: 3.5rem 2.5rem;
+    align-items: flex-start;
+  }
+}
+
+/* ── Mobile ──────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .info {
+    padding: 3rem 1.25rem;
+  }
+
+  .ghostText {
+    font-size: clamp(3rem, 22vw, 5rem);
+  }
+
+  .formSection {
+    padding: 2.5rem 1.25rem;
+  }
 }

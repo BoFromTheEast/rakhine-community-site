@@ -1,0 +1,104 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 720px;
+}
+
+.item {
+  border-bottom: 1px solid #e8dfd4;
+}
+
+.item:first-child {
+  border-top: 1px solid #e8dfd4;
+}
+
+/* ── Question button ─────────────────────────────────────── */
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.2rem 0;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 0.93rem;
+  color: #0b2d4e;
+  font-weight: 500;
+  gap: 1.25rem;
+  transition: color 0.2s;
+}
+
+.question:hover {
+  color: #c8922a;
+}
+
+.questionOpen {
+  color: #c8922a;
+}
+
+/* ── Plus/minus icon ─────────────────────────────────────── */
+.icon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.icon::before,
+.icon::after {
+  content: "";
+  position: absolute;
+  background: #c8922a;
+  border-radius: 1px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* horizontal bar */
+.icon::before {
+  width: 14px;
+  height: 1.5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* vertical bar */
+.icon::after {
+  width: 1.5px;
+  height: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.iconOpen::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+
+/* ── Expandable answer ───────────────────────────────────── */
+.answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s ease;
+}
+
+.answerOpen {
+  grid-template-rows: 1fr;
+}
+
+.answerInner {
+  overflow: hidden;
+}
+
+.answerInner p {
+  margin: 0;
+  padding: 0 2rem 1.25rem 0;
+  font-size: 0.88rem;
+  line-height: 1.85;
+  color: #4a4a4a;
+}

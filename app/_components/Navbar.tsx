@@ -18,6 +18,8 @@ const links: { label: string; href: string; page: ActivePage }[] = [
   { label: "Home", href: "/", page: "home" },
   { label: "Festival", href: "/festival", page: "festival" },
   { label: "About", href: "/about", page: "about" },
+  { label: "FAQ", href: "/faq", page: "faq" },
+  { label: "Volunteer", href: "/volunteer", page: "volunteer" },
   { label: "Contact", href: "/contact", page: "contact" },
 ];
 
