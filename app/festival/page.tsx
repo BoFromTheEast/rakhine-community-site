@@ -35,12 +35,12 @@ const yearOverrides: Record<number, Partial<YearEntry>> = {
   2025: {
     edition: "Coming Soon",
     title: "This Year's Festival",
-    subtitle: "April 2025 - Des Moines, Iowa",
+    subtitle: "July 2025 - Des Moines, Iowa",
   },
   2026: {
     edition: "Current Year",
     title: "Current Festival Year",
-    subtitle: "April 2026 - Des Moines, Iowa",
+    subtitle: "July 2026 - Des Moines, Iowa",
   },
 };
 
@@ -66,7 +66,7 @@ const archiveYears: YearEntry[] = Array.from(
       note: `Add photos, videos, and a short note for ${year}.`,
     };
     return { ...defaultEntry, ...yearOverrides[year] };
-  }
+  },
 );
 
 export default function FestivalPage() {
@@ -85,10 +85,11 @@ export default function FestivalPage() {
         <div className={styles.navLogo}>Rakhine Festival Archive</div>
         <div className={styles.navLinks}>
           <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
           <Link href="/festival" className={styles.navLinkActive}>
             Festival
           </Link>
+          <Link href="/about">About</Link>
+
           <Link href="/contact">Contact</Link>
         </div>
       </nav>
@@ -112,9 +113,17 @@ export default function FestivalPage() {
       </aside>
 
       <section className={styles.content}>
-        <p className={styles.edition}>{activeYear.edition}</p>
-        <h1 className={styles.title}>{activeYear.title}</h1>
-        <p className={styles.subtitle}>{activeYear.subtitle}</p>
+        <span className={styles.ghostYear} aria-hidden="true">
+          {activeYear.year}
+        </span>
+
+        <div className={styles.header}>
+          <p className={styles.edition}>{activeYear.edition}</p>
+          <h1 className={styles.title}>{activeYear.title}</h1>
+          <p className={styles.subtitle}>{activeYear.subtitle}</p>
+        </div>
+
+        <div className={styles.divider} />
 
         <div className={styles.mediaGrid}>
           <div className={styles.mediaCard}>Featured photo</div>
