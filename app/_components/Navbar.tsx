@@ -11,18 +11,14 @@ export type ActivePage =
   | "festival"
   | "about"
   | "contact"
-  | "volunteer"
   | "donate"
-  | "sponsor"
-  | "faq";
+  | "get-involved";
 
 const linkDefs: { key: string; href: string; page: ActivePage }[] = [
   { key: "nav.home", href: "/", page: "home" },
   { key: "nav.festival", href: "/festival", page: "festival" },
   { key: "nav.about", href: "/about", page: "about" },
-  { key: "nav.faq", href: "/faq", page: "faq" },
-  { key: "nav.volunteer", href: "/volunteer", page: "volunteer" },
-  { key: "nav.sponsor", href: "/sponsor", page: "sponsor" },
+  { key: "nav.get_involved", href: "/get-involved", page: "get-involved" },
   { key: "nav.contact", href: "/contact", page: "contact" },
 ];
 

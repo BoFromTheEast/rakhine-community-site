@@ -2,6 +2,7 @@ import Link from "next/link";
 import { cookies } from "next/headers";
 import Navbar from "./_components/Navbar";
 import Footer from "./_components/Footer";
+import FaqAccordion from "./faq/_components/FaqAccordion";
 import styles from "./page.module.css";
 import { getTranslation, type Locale } from "@/lib/useTranslation";
 import en from "@/locales/en.json";
@@ -21,6 +22,7 @@ export default async function Home() {
   const locale = (cookieStore.get("NEXT_LOCALE")?.value ?? "en") as Locale;
   const { t } = getTranslation(locale);
   const scheduleItems = dicts[locale].schedule.items;
+  const faqCategories = dicts[locale].faq.categories;
 
   return (
     <div className={styles.page}>
@@ -134,7 +136,7 @@ export default async function Home() {
               <div className={styles.involveIcon}>✦</div>
               <h3 className={styles.involveTitle}>{t("involve.volunteer_title")}</h3>
               <p className={styles.involveBody}>{t("involve.volunteer_body")}</p>
-              <Link href="/contact" className={styles.involveLink}>
+              <Link href="/get-involved#volunteer" className={styles.involveLink}>
                 {t("involve.volunteer_link")}
               </Link>
             </div>
@@ -142,7 +144,7 @@ export default async function Home() {
               <div className={styles.involveIcon}>◈</div>
               <h3 className={styles.involveTitle}>{t("involve.sponsor_title")}</h3>
               <p className={styles.involveBody}>{t("involve.sponsor_body")}</p>
-              <Link href="/contact" className={styles.involveLink}>
+              <Link href="/get-involved#sponsor" className={styles.involveLink}>
                 {t("involve.sponsor_link")}
               </Link>
             </div>
@@ -154,6 +156,21 @@ export default async function Home() {
                 {t("involve.perform_link")}
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.faq} id="faq">
+        <div className={styles.container}>
+          <p className={styles.sectionLabel}>Questions &amp; Answers</p>
+          <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
+          <div className={styles.faqCategories}>
+            {faqCategories.map((cat) => (
+              <div key={cat.label} className={styles.faqCategory}>
+                <p className={styles.faqCategoryLabel}>{cat.label}</p>
+                <FaqAccordion items={cat.items} />
+              </div>
+            ))}
           </div>
         </div>
       </section>
