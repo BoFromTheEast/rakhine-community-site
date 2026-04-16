@@ -4,6 +4,8 @@ import { useMemo, useState } from "react";
 import Navbar from "../_components/Navbar";
 import Footer from "../_components/Footer";
 import styles from "./page.module.css";
+import { useLocale } from "@/lib/LocaleProvider";
+import { useTranslation } from "@/lib/useTranslation";
 
 type YearEntry = {
   year: number;
@@ -16,35 +18,6 @@ type YearEntry = {
 const START_YEAR = 2015;
 const CURRENT_YEAR = 2026;
 
-const yearOverrides: Record<number, Partial<YearEntry>> = {
-  2015: {
-    title: "Where It All Began",
-    subtitle: "The first Rakhine Water Festival in Des Moines.",
-  },
-  2019: {
-    title: "Half a Decade Strong",
-    subtitle: "A milestone year for the community.",
-  },
-  2022: {
-    title: "Full Force",
-    subtitle: "Back to a full celebration with family and friends.",
-  },
-  2024: {
-    title: "A Decade of Thingyan",
-    subtitle: "Ten years of water, joy, and community in Iowa.",
-  },
-  2025: {
-    edition: "Coming Soon",
-    title: "This Year's Festival",
-    subtitle: "July 2025 - Des Moines, Iowa",
-  },
-  2026: {
-    edition: "Current Year",
-    title: "Current Festival Year",
-    subtitle: "July 2026 - Des Moines, Iowa",
-  },
-};
-
 function getOrdinal(value: number): string {
   const mod100 = value % 100;
   if (mod100 >= 11 && mod100 <= 13) return `${value}th`;
@@ -54,30 +27,62 @@ function getOrdinal(value: number): string {
   return `${value}th`;
 }
 
-const archiveYears: YearEntry[] = Array.from(
-  { length: CURRENT_YEAR - START_YEAR + 1 },
-  (_, index) => {
-    const year = START_YEAR + index;
-    const editionNumber = year - START_YEAR + 1;
-    const defaultEntry: YearEntry = {
-      year,
-      edition: `${getOrdinal(editionNumber)} Annual`,
-      title: `${year} Festival Highlights`,
-      subtitle: `Rakhine Water Festival celebration in Des Moines.`,
-      note: `Add photos, videos, and a short note for ${year}.`,
-    };
-    return { ...defaultEntry, ...yearOverrides[year] };
-  },
-);
-
 export default function FestivalPage() {
   const [selectedYear, setSelectedYear] = useState<number>(CURRENT_YEAR);
+  const { locale } = useLocale();
+  const { t } = useTranslation(locale);
+
+  const yearOverrides: Record<number, Partial<YearEntry>> = {
+    2015: {
+      title: t("festival.year_2015_title"),
+      subtitle: t("festival.year_2015_subtitle"),
+    },
+    2019: {
+      title: t("festival.year_2019_title"),
+      subtitle: t("festival.year_2019_subtitle"),
+    },
+    2022: {
+      title: t("festival.year_2022_title"),
+      subtitle: t("festival.year_2022_subtitle"),
+    },
+    2024: {
+      title: t("festival.year_2024_title"),
+      subtitle: t("festival.year_2024_subtitle"),
+    },
+    2025: {
+      edition: t("festival.year_2025_edition"),
+      title: t("festival.year_2025_title"),
+      subtitle: t("festival.year_2025_subtitle"),
+    },
+    2026: {
+      edition: t("festival.year_2026_edition"),
+      title: t("festival.year_2026_title"),
+      subtitle: t("festival.year_2026_subtitle"),
+    },
+  };
+
+  const archiveYears: YearEntry[] = Array.from(
+    { length: CURRENT_YEAR - START_YEAR + 1 },
+    (_, index) => {
+      const year = START_YEAR + index;
+      const editionNumber = year - START_YEAR + 1;
+      const defaultEntry: YearEntry = {
+        year,
+        edition: `${getOrdinal(editionNumber)} Annual`,
+        title: `${year} ${t("festival.default_title_suffix")}`,
+        subtitle: t("festival.default_subtitle"),
+        note: `${t("festival.default_note_prefix")} ${year}.`,
+      };
+      return { ...defaultEntry, ...yearOverrides[year] };
+    },
+  );
 
   const activeYear = useMemo(
     () =>
       archiveYears.find((item) => item.year === selectedYear) ??
       archiveYears[0],
-    [selectedYear],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [selectedYear, locale],
   );
 
   return (
@@ -86,7 +91,7 @@ export default function FestivalPage() {
 
       <aside
         className={styles.floatingYears}
-        aria-label="Festival year selector"
+        aria-label={t("festival.year_aria")}
       >
         {archiveYears.map((entry) => (
           <button
@@ -116,10 +121,10 @@ export default function FestivalPage() {
         <div className={styles.divider} />
 
         <div className={styles.mediaGrid}>
-          <div className={styles.mediaCard}>Featured photo</div>
-          <div className={styles.mediaCard}>Photo slot</div>
+          <div className={styles.mediaCard}>{t("festival.media_featured")}</div>
+          <div className={styles.mediaCard}>{t("festival.media_photo")}</div>
           <div className={`${styles.mediaCard} ${styles.videoCard}`}>
-            Video slot
+            {t("festival.media_video")}
           </div>
         </div>
 

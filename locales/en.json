@@ -1,0 +1,207 @@
+{
+  "hero": {
+    "tag": "Thingyan - Des Moines 2026",
+    "title_main": "Rakhine",
+    "title_em": "Water Festival",
+    "subtitle": "Celebrate renewal, community, and the joy of Thingyan — a tradition carried from Rakhine to the heart of Iowa.",
+    "date": "July 2026 - Des Moines, Iowa",
+    "btn_tickets": "Get Your Tickets",
+    "btn_learn": "Learn More"
+  },
+  "about": {
+    "label": "Our Story",
+    "title": "A Tradition Born Far From Home",
+    "body1": "Since 2015, the Rakhine community of Des Moines has gathered every year to celebrate Thingyan — the Burmese New Year water festival. What began as a small community gathering has grown into one of Iowa's most vibrant cultural celebrations, honoring our heritage and welcoming neighbors of all backgrounds.",
+    "body2": "The festival is organized by the Rakhine Water Festival Committee, a group of young community members dedicated to keeping this tradition alive for generations to come.",
+    "stat_years_num": "10+",
+    "stat_years_label": "Years of Celebration",
+    "stat_since_num": "Since 2015",
+    "stat_since_label": "Des Moines, Iowa",
+    "stat_community_num": "Community",
+    "stat_community_label": "Open to Everyone"
+  },
+  "gallery": {
+    "label": "Festival Moments",
+    "title": "A Decade of Memories",
+    "photo_2024": "2024 — Water Splashing",
+    "photo_2023": "2023 — Opening Ceremony",
+    "photo_2022": "2022 — Community Dinner",
+    "photo_2021": "2021 — Live Music",
+    "photo_2019": "2019 — Half a Decade Strong",
+    "btn": "View Full Archive"
+  },
+  "schedule": {
+    "label": "What to Expect",
+    "title": "Festival Schedule",
+    "subtitle": "A full day of water, music, food, and cultural celebration — all are welcome.",
+    "items": [
+      {
+        "time": "10:00 AM",
+        "name": "Opening Ceremony",
+        "description": "Traditional prayers and blessings to welcome the New Year with elders leading the ritual.",
+        "tag": "Cultural",
+        "tagType": "Cultural"
+      },
+      {
+        "time": "11:00 AM",
+        "name": "Water Splashing Begins",
+        "description": "The main event! Bring your water guns, buckets, and smiles — everyone gets soaked.",
+        "tag": "Water",
+        "tagType": "Water"
+      },
+      {
+        "time": "12:30 PM",
+        "name": "Traditional Food Stalls",
+        "description": "Enjoy authentic Rakhine dishes prepared by community members — mohinga, samosa, and more.",
+        "tag": "Food",
+        "tagType": "Food"
+      },
+      {
+        "time": "2:00 PM",
+        "name": "Live Music and Karaoke",
+        "description": "Traditional and contemporary performances on our main stage, plus open karaoke sessions.",
+        "tag": "Cultural",
+        "tagType": "Cultural"
+      },
+      {
+        "time": "3:30 PM",
+        "name": "Raffle Drawing",
+        "description": "Win exciting prizes! Tickets available at the event. Must be present to win.",
+        "tag": "Raffle",
+        "tagType": "Raffle"
+      },
+      {
+        "time": "5:00 PM",
+        "name": "Closing and Community Dinner",
+        "description": "Join us to wrap up the day with a shared meal and community celebration.",
+        "tag": "Food",
+        "tagType": "Food"
+      }
+    ]
+  },
+  "involve": {
+    "label": "Be Part of It",
+    "title": "Get Involved",
+    "volunteer_title": "Volunteer",
+    "volunteer_body": "Help set up, run food stalls, manage the stage, or welcome guests. Every pair of hands makes the festival better.",
+    "volunteer_link": "Sign Up to Volunteer",
+    "sponsor_title": "Sponsor",
+    "sponsor_body": "Support the community as a local business or organization. Sponsorship packages are available for all sizes.",
+    "sponsor_link": "Become a Sponsor",
+    "perform_title": "Perform",
+    "perform_body": "Musicians, dancers, and cultural groups are welcome to perform on our main stage. Reach out to join the lineup.",
+    "perform_link": "Apply to Perform"
+  },
+  "sponsors": {
+    "label": "Our Supporters",
+    "title": "Festival Sponsors",
+    "body": "We're grateful to the local businesses and organizations that make this festival possible. Interested in sponsoring?",
+    "contact_link": "Get in touch.",
+    "gold_label": "Gold Sponsors",
+    "silver_label": "Silver Sponsors",
+    "community_label": "Community Supporters",
+    "placeholder_logo": "Your Logo Here",
+    "placeholder_sponsor": "Sponsor",
+    "placeholder_supporter": "Supporter"
+  },
+  "contact": {
+    "label": "Get In Touch",
+    "title": "Contact Us",
+    "subtitle": "Questions about the festival, sponsorship opportunities, or volunteering? We'd love to hear from you.",
+    "name_placeholder": "Your name",
+    "email_placeholder": "Your email",
+    "message_placeholder": "Your message...",
+    "btn_send": "Send Message"
+  },
+  "nav": {
+    "home": "Home",
+    "festival": "Festival",
+    "about": "About",
+    "faq": "FAQ",
+    "volunteer": "Volunteer",
+    "sponsor": "Sponsor",
+    "contact": "Contact"
+  },
+  "festival": {
+    "year_aria": "Festival year selector",
+    "media_featured": "Featured photo",
+    "media_photo": "Photo slot",
+    "media_video": "Video slot",
+    "default_title_suffix": "Festival Highlights",
+    "default_subtitle": "Rakhine Water Festival celebration in Des Moines.",
+    "default_note_prefix": "Add photos, videos, and a short note for",
+    "year_2015_title": "Where It All Began",
+    "year_2015_subtitle": "The first Rakhine Water Festival in Des Moines.",
+    "year_2019_title": "Half a Decade Strong",
+    "year_2019_subtitle": "A milestone year for the community.",
+    "year_2022_title": "Full Force",
+    "year_2022_subtitle": "Back to a full celebration with family and friends.",
+    "year_2024_title": "A Decade of Thingyan",
+    "year_2024_subtitle": "Ten years of water, joy, and community in Iowa.",
+    "year_2025_edition": "Coming Soon",
+    "year_2025_title": "This Year's Festival",
+    "year_2025_subtitle": "July 2025 - Des Moines, Iowa",
+    "year_2026_edition": "Current Year",
+    "year_2026_title": "Current Festival Year",
+    "year_2026_subtitle": "July 2026 - Des Moines, Iowa"
+  },
+  "faq": {
+    "categories": [
+      {
+        "label": "The Festival",
+        "items": [
+          {
+            "question": "What is Thingyan?",
+            "answer": "Thingyan is the traditional Burmese New Year water festival, typically celebrated in April. In Rakhine culture, it marks the end of the old year and the beginning of the new — water is poured and splashed to wash away misfortune and welcome renewal."
+          },
+          {
+            "question": "What should I wear?",
+            "answer": "Come dressed in clothes you don't mind getting wet. Light, casual, and colorful attire is encouraged. Many attendees wear traditional Rakhine or Myanmar dress for the opening ceremony. Water shoes or sandals are recommended."
+          },
+          {
+            "question": "Is the festival free to attend?",
+            "answer": "Yes — the festival is free and open to everyone. Some food stalls and activities may have a small cost. Donations to the Rakhine Community of Iowa are always welcome and go directly toward making the event possible."
+          },
+          {
+            "question": "Can I bring children?",
+            "answer": "Absolutely. The festival is a family-friendly event with activities for all ages. Children are especially welcome at the water area — just bring extra clothes and sunscreen."
+          }
+        ]
+      },
+      {
+        "label": "Location & Parking",
+        "items": [
+          {
+            "question": "Where is the festival held?",
+            "answer": "The festival is held in Des Moines, Iowa. The exact venue for 2026 will be announced soon — check back here or follow us on social media for updates."
+          },
+          {
+            "question": "Is parking available on-site?",
+            "answer": "Parking details will be confirmed once the venue is announced. We'll share information on nearby lots, street parking, and accessible spaces closer to the event."
+          },
+          {
+            "question": "Can I get there by public transit?",
+            "answer": "Des Moines Metro operates bus routes throughout the city. Once the venue is confirmed, we'll share the nearest stop and route information here."
+          }
+        ]
+      },
+      {
+        "label": "Get Involved",
+        "items": [
+          {
+            "question": "How do I volunteer?",
+            "answer": "We welcome volunteers of all experience levels. Fill out the contact form on our Contact page with 'volunteer' in your message and our committee will be in touch with more details."
+          },
+          {
+            "question": "How can I become a sponsor?",
+            "answer": "Sponsorship packages are available for local businesses and organizations of all sizes. Reach out via the Contact page and mention you're interested in sponsoring — we'll send our sponsorship packet."
+          },
+          {
+            "question": "Can I make a donation?",
+            "answer": "Yes — the Rakhine Community of Iowa is a nonprofit and all donations go directly toward organizing the festival. Please contact us for donation details."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -51,6 +51,61 @@
   font-weight: 700;
 }
 
+/* ── Language toggle ─────────────────────────────────────── */
+.langToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  border: 1px solid rgb(240 201 107 / 35%);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 55%);
+  transition: border-color 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.langToggle:hover {
+  border-color: #f0c96b;
+  color: rgb(255 255 255 / 85%);
+}
+
+.langDivider {
+  color: rgb(255 255 255 / 30%);
+  font-size: 0.7rem;
+}
+
+.langActive {
+  color: #f0c96b;
+  font-weight: 700;
+}
+
+.dropdownLangToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  border: none;
+  border-top: 1px solid rgb(240 201 107 / 15%);
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 55%);
+  width: 100%;
+  transition: color 0.2s, background 0.2s;
+}
+
+.dropdownLangToggle:hover {
+  color: #f0c96b;
+  background: rgb(255 255 255 / 3%);
+}
+
 /* ── Hamburger button ────────────────────────────────────── */
 .hamburger {
   display: none;
