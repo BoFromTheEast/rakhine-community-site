@@ -1,10 +1,13 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import Navbar from "./_components/Navbar";
 import Footer from "./_components/Footer";
 import FaqAccordion from "./faq/_components/FaqAccordion";
+import HomeContactForm from "./_components/HomeContactForm";
 import styles from "./page.module.css";
 import { getTranslation, type Locale } from "@/lib/useTranslation";
+import { site } from "@/lib/site";
 import en from "@/locales/en.json";
 import my from "@/locales/my.json";
 
@@ -16,6 +19,11 @@ const tagClassMap: Record<string, string> = {
 };
 
 const dicts = { en, my };
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: site.description,
+};
 
 export default async function Home() {
   const cookieStore = await cookies();
@@ -162,8 +170,8 @@ export default async function Home() {
 
       <section className={styles.faq} id="faq">
         <div className={styles.container}>
-          <p className={styles.sectionLabel}>Questions &amp; Answers</p>
-          <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
+          <p className={styles.sectionLabel}>{t("faq.label")}</p>
+          <h2 className={styles.sectionTitle}>{t("faq.title")}</h2>
           <div className={styles.faqCategories}>
             {faqCategories.map((cat) => (
               <div key={cat.label} className={styles.faqCategory}>
@@ -237,14 +245,13 @@ export default async function Home() {
           <p className={styles.sectionLabel}>{t("contact.label")}</p>
           <h2 className={styles.sectionTitle}>{t("contact.title")}</h2>
           <p className={styles.contactSub}>{t("contact.subtitle")}</p>
-          <form className={styles.contactForm}>
-            <input type="text" placeholder={t("contact.name_placeholder")} />
-            <input type="email" placeholder={t("contact.email_placeholder")} />
-            <textarea placeholder={t("contact.message_placeholder")} />
-            <button className={styles.btnPrimary} type="button">
-              {t("contact.btn_send")}
-            </button>
-          </form>
+          <div className={styles.venueCard}>
+            <p className={styles.venueHeading}>{t("venue.label")}</p>
+            <p className={styles.venueLine}>{site.event.venue.name}</p>
+            <p className={styles.venueLine}>{site.event.venue.line1}</p>
+            <p className={styles.venueSub}>{site.event.venue.note}</p>
+          </div>
+          <HomeContactForm />
         </div>
       </section>
 

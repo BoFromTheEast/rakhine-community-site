@@ -250,6 +250,15 @@
   line-height: 1.6;
 }
 
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
 .selectWrapper {
   position: relative;
 }

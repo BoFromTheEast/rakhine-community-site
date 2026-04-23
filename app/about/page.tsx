@@ -1,26 +1,38 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import Navbar from "../_components/Navbar";
 import Footer from "../_components/Footer";
 import styles from "./page.module.css";
+import { getTranslation, type Locale } from "@/lib/useTranslation";
+import { site } from "@/lib/site";
 
-export default function AboutPage() {
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn the story, mission, and community values behind the Rakhine Water Festival in Des Moines.",
+};
+
+export default async function AboutPage() {
+  const cookieStore = await cookies();
+  const locale = (cookieStore.get("NEXT_LOCALE")?.value ?? "en") as Locale;
+  const { t } = getTranslation(locale);
+
   return (
     <main className={styles.page}>
       <Navbar activePage="about" />
 
       <section className={styles.hero}>
         <span className={styles.ghostText} aria-hidden="true">
-          Thingyan
+          {t("about_page.ghost")}
         </span>
         <div className={styles.heroInner}>
-          <p className={styles.eyebrow}>Our Story</p>
+          <p className={styles.eyebrow}>{t("about_page.eyebrow")}</p>
           <h1 className={styles.title}>
-            Celebrating Rakhine culture in the&nbsp;heart of Iowa
+            {t("about_page.title")}
           </h1>
           <p className={styles.lead}>
-            Every spring, the Rakhine community of Des Moines gathers to mark
-            Thingyan — the Burmese New Year water festival — with food, music,
-            and the spirit of renewal.
+            {t("about_page.lead")}
           </p>
         </div>
       </section>
@@ -28,23 +40,17 @@ export default function AboutPage() {
       <section className={styles.body}>
         <div className={styles.bodyGrid}>
           <div className={styles.bodyLeft}>
-            <p className={styles.sectionLabel}>Background</p>
+            <p className={styles.sectionLabel}>{t("about_page.background_label")}</p>
             <h2 className={styles.sectionTitle}>
-              From neighborhood to community
+              {t("about_page.background_title")}
             </h2>
           </div>
           <div className={styles.bodyRight}>
             <p>
-              What started as a small neighborhood gathering has grown into one
-              of Iowa&rsquo;s most vibrant cultural celebrations — open to
-              families, friends, and neighbors from all walks of life. Each year
-              the event draws more first-time visitors who leave with a deeper
-              appreciation of Rakhine heritage.
+              {t("about_page.body_1")}
             </p>
             <p>
-              Our goal is simple: preserve tradition, create joy across
-              generations, and invite the wider community to experience the
-              food, music, and warmth that define who we are.
+              {t("about_page.body_2")}
             </p>
           </div>
         </div>
@@ -52,36 +58,33 @@ export default function AboutPage() {
         <div className={styles.pillars}>
           <div className={styles.pillar}>
             <span className={styles.pillarNumber}>01</span>
-            <h3 className={styles.pillarTitle}>Tradition</h3>
+            <h3 className={styles.pillarTitle}>{t("about_page.pillar_1_title")}</h3>
             <p className={styles.pillarBody}>
-              Honoring the customs and rituals of Thingyan passed down through
-              generations of Rakhine families.
+              {t("about_page.pillar_1_body")}
             </p>
           </div>
           <div className={styles.pillar}>
             <span className={styles.pillarNumber}>02</span>
-            <h3 className={styles.pillarTitle}>Community</h3>
+            <h3 className={styles.pillarTitle}>{t("about_page.pillar_2_title")}</h3>
             <p className={styles.pillarBody}>
-              Building bridges between the Rakhine diaspora and the people of
-              Iowa through shared celebration.
+              {t("about_page.pillar_2_body")}
             </p>
           </div>
           <div className={styles.pillar}>
             <span className={styles.pillarNumber}>03</span>
-            <h3 className={styles.pillarTitle}>Renewal</h3>
+            <h3 className={styles.pillarTitle}>{t("about_page.pillar_3_title")}</h3>
             <p className={styles.pillarBody}>
-              Welcoming the new year with water, laughter, and a spirit of hope
-              that carries us forward together.
+              {t("about_page.pillar_3_body")}
             </p>
           </div>
         </div>
 
         <div className={styles.cta}>
           <p className={styles.ctaText}>
-            Join us this July in Des Moines, Iowa.
+            {t("about_page.cta_text")} {site.event.city}, {site.event.state}.
           </p>
           <Link href="/festival" className={styles.ctaLink}>
-            View Festival Archive
+            {t("about_page.cta_link")}
           </Link>
         </div>
       </section>

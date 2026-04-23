@@ -111,7 +111,8 @@
     "name_placeholder": "Your name",
     "email_placeholder": "Your email",
     "message_placeholder": "Your message...",
-    "btn_send": "Send Message"
+    "btn_send": "Send Message",
+    "success": "Message sent successfully. We'll reach out soon."
   },
   "nav": {
     "home": "Home",
@@ -200,6 +201,83 @@
           }
         ]
       }
-    ]
+    ],
+    "label": "Questions & Answers",
+    "title": "Frequently Asked Questions"
+  },
+  "form": {
+    "generic_error": "Something went wrong.",
+    "network_error": "Network error. Please try again.",
+    "sending": "Sending...",
+    "friend": "friend"
+  },
+  "venue": {
+    "label": "Venue",
+    "address_label": "Address"
+  },
+  "contact_page": {
+    "ghost": "Hello",
+    "eyebrow": "Contact",
+    "title": "Get in Touch",
+    "body": "Questions about tickets, sponsorship, or volunteering? Send a message and our festival committee will reach out.",
+    "organized_by_label": "Organized by",
+    "organized_by_value": "Rakhine Community of Iowa",
+    "success_title": "Message sent!",
+    "success_body_prefix": "Thank you,",
+    "success_body_suffix": ". We'll get back to you as soon as we can.",
+    "send_another": "Send Another",
+    "form_name": "Name",
+    "form_email": "Email",
+    "form_message": "Message",
+    "form_message_placeholder": "How can we help?"
+  },
+  "about_page": {
+    "ghost": "Thingyan",
+    "eyebrow": "Our Story",
+    "title": "Celebrating Rakhine culture in the heart of Iowa",
+    "lead": "Every spring, the Rakhine community of Des Moines gathers to mark Thingyan - the Burmese New Year water festival - with food, music, and the spirit of renewal.",
+    "background_label": "Background",
+    "background_title": "From neighborhood to community",
+    "body_1": "What started as a small neighborhood gathering has grown into one of Iowa's most vibrant cultural celebrations - open to families, friends, and neighbors from all walks of life.",
+    "body_2": "Our goal is simple: preserve tradition, create joy across generations, and invite the wider community to experience the food, music, and warmth that define who we are.",
+    "pillar_1_title": "Tradition",
+    "pillar_1_body": "Honoring the customs and rituals of Thingyan passed down through generations of Rakhine families.",
+    "pillar_2_title": "Community",
+    "pillar_2_body": "Building bridges between the Rakhine diaspora and the people of Iowa through shared celebration.",
+    "pillar_3_title": "Renewal",
+    "pillar_3_body": "Welcoming the new year with water, laughter, and a spirit of hope that carries us forward together.",
+    "cta_text": "Join us this July in",
+    "cta_link": "View Festival Archive"
+  },
+  "footer": {
+    "brand": "Rakhine Water Festival",
+    "tagline": "Celebrating Thingyan and Rakhine heritage in the heart of Iowa since 2015.",
+    "history_heading": "Our History",
+    "history_body": "The Rakhine community of Des Moines began celebrating Thingyan in 2015 with a small neighborhood gathering. Over a decade later, the festival has grown into one of Iowa's most anticipated cultural events.",
+    "history_link": "View the archive ->",
+    "mission_heading": "Mission & Values",
+    "mission_1": "Preserve Rakhine culture and tradition",
+    "mission_2": "Foster joy and renewal across generations",
+    "mission_3": "Welcome all neighbors and communities",
+    "mission_4": "Operate transparently as a nonprofit",
+    "mission_5": "Invest every dollar back into the festival",
+    "leadership_heading": "Leadership",
+    "leader_1_name": "Festival Director",
+    "leader_1_role": "Committee Chair",
+    "leader_2_name": "Operations Lead",
+    "leader_2_role": "Logistics & Venue",
+    "leader_3_name": "Cultural Director",
+    "leader_3_role": "Ceremonies & Program",
+    "leader_4_name": "Community Outreach",
+    "leader_4_role": "Partnerships & Sponsors",
+    "quick_links": "Quick Links",
+    "link_festival": "Festival Archive",
+    "location_heading": "Location",
+    "committee_name": "Rakhine Water Festival Committee",
+    "rights_reserved": "All rights reserved.",
+    "nonprofit": "A nonprofit community organization.",
+    "link_privacy": "Privacy Policy",
+    "link_terms": "Terms",
+    "link_transparency": "Transparency"
   }
 }

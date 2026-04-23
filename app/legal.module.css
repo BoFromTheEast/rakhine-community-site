@@ -1,0 +1,50 @@
+.page {
+  min-height: 100vh;
+  background: #fdf6ec;
+  color: #1c1c1c;
+}
+
+.main {
+  max-width: 900px;
+  margin: 80px auto 0;
+  padding: 3rem 1.25rem 4rem;
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-family: var(--font-playfair), serif;
+  color: #0b2d4e;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.meta {
+  margin: 0 0 2rem;
+  color: #6d6559;
+  font-size: 0.9rem;
+}
+
+.section {
+  margin: 0 0 1.6rem;
+}
+
+.section h2 {
+  margin: 0 0 0.5rem;
+  color: #0b2d4e;
+  font-size: 1.1rem;
+}
+
+.section p {
+  margin: 0;
+  line-height: 1.75;
+  color: #3f3a31;
+}
+
+.list {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.list li {
+  margin-bottom: 0.45rem;
+  line-height: 1.7;
+}

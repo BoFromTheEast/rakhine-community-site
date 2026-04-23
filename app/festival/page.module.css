@@ -132,6 +132,13 @@
   letter-spacing: 0.02em;
 }
 
+.venuePlaceholder {
+  margin: 0.9rem 0 0;
+  color: #6b6256;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
 /* ── Divider ─────────────────────────────────────────────── */
 .divider {
   width: 40px;

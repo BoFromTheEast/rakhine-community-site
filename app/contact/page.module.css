@@ -106,6 +106,13 @@
   color: #4a4a4a;
 }
 
+.venueNote {
+  margin: 1.1rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #6a6357;
+}
+
 .detailLabel {
   font-size: 0.62rem;
   text-transform: uppercase;
@@ -174,6 +181,15 @@
   min-height: 130px;
   resize: none;
   line-height: 1.6;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
 }
 
 .submit {

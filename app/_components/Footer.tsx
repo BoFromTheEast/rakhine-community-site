@@ -1,106 +1,119 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./Footer.module.css";
+import { useLocale } from "@/lib/LocaleProvider";
+import { useTranslation } from "@/lib/useTranslation";
+import { getCopyrightYear, site } from "@/lib/site";
 
 export default function Footer() {
+  const { locale } = useLocale();
+  const { t } = useTranslation(locale);
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerTop}>
         <div className={styles.footerBrand}>
-          <div className={styles.footerLogo}>Rakhine Water Festival</div>
+          <div className={styles.footerLogo}>{t("footer.brand")}</div>
           <p className={styles.footerTagline}>
-            Celebrating Thingyan and Rakhine heritage in the heart of Iowa
-            since 2015.
+            {t("footer.tagline")}
           </p>
         </div>
 
         <div className={styles.footerCol}>
-          <h4 className={styles.footerHeading}>Our History</h4>
+          <h4 className={styles.footerHeading}>{t("footer.history_heading")}</h4>
           <p className={styles.footerText}>
-            The Rakhine community of Des Moines began celebrating Thingyan in
-            2015 with a small neighborhood gathering. Over a decade later, the
-            festival has grown into one of Iowa&apos;s most anticipated cultural
-            events — drawing hundreds of attendees each spring.
+            {t("footer.history_body")}
           </p>
           <Link href="/festival" className={styles.footerLink}>
-            View the archive →
+            {t("footer.history_link")}
           </Link>
         </div>
 
         <div className={styles.footerCol}>
-          <h4 className={styles.footerHeading}>Mission &amp; Values</h4>
+          <h4 className={styles.footerHeading}>{t("footer.mission_heading")}</h4>
           <ul className={styles.footerList}>
-            <li>Preserve Rakhine culture and tradition</li>
-            <li>Foster joy and renewal across generations</li>
-            <li>Welcome all neighbors and communities</li>
-            <li>Operate transparently as a nonprofit</li>
-            <li>Invest every dollar back into the festival</li>
+            <li>{t("footer.mission_1")}</li>
+            <li>{t("footer.mission_2")}</li>
+            <li>{t("footer.mission_3")}</li>
+            <li>{t("footer.mission_4")}</li>
+            <li>{t("footer.mission_5")}</li>
           </ul>
         </div>
 
         <div className={styles.footerCol}>
-          <h4 className={styles.footerHeading}>Leadership</h4>
+          <h4 className={styles.footerHeading}>{t("footer.leadership_heading")}</h4>
           <ul className={styles.footerLeadership}>
             <li>
-              <span className={styles.leaderName}>Festival Director</span>
-              <span className={styles.leaderRole}>Committee Chair</span>
+              <span className={styles.leaderName}>{t("footer.leader_1_name")}</span>
+              <span className={styles.leaderRole}>{t("footer.leader_1_role")}</span>
             </li>
             <li>
-              <span className={styles.leaderName}>Operations Lead</span>
-              <span className={styles.leaderRole}>Logistics &amp; Venue</span>
+              <span className={styles.leaderName}>{t("footer.leader_2_name")}</span>
+              <span className={styles.leaderRole}>{t("footer.leader_2_role")}</span>
             </li>
             <li>
-              <span className={styles.leaderName}>Cultural Director</span>
-              <span className={styles.leaderRole}>Ceremonies &amp; Program</span>
+              <span className={styles.leaderName}>{t("footer.leader_3_name")}</span>
+              <span className={styles.leaderRole}>{t("footer.leader_3_role")}</span>
             </li>
             <li>
-              <span className={styles.leaderName}>Community Outreach</span>
-              <span className={styles.leaderRole}>
-                Partnerships &amp; Sponsors
-              </span>
+              <span className={styles.leaderName}>{t("footer.leader_4_name")}</span>
+              <span className={styles.leaderRole}>{t("footer.leader_4_role")}</span>
             </li>
           </ul>
         </div>
 
         <div className={styles.footerCol}>
-          <h4 className={styles.footerHeading}>Quick Links</h4>
+          <h4 className={styles.footerHeading}>{t("footer.quick_links")}</h4>
           <ul className={styles.footerNav}>
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/">{t("nav.home")}</Link>
             </li>
             <li>
-              <Link href="/festival">Festival Archive</Link>
+              <Link href="/festival">{t("footer.link_festival")}</Link>
             </li>
             <li>
-              <Link href="/about">About</Link>
+              <Link href="/about">{t("nav.about")}</Link>
             </li>
             <li>
-              <Link href="/get-involved">Get Involved</Link>
+              <Link href="/get-involved">{t("nav.get_involved")}</Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="/contact">{t("nav.contact")}</Link>
             </li>
           </ul>
           <h4 className={`${styles.footerHeading} ${styles.footerHeadingSpaced}`}>
-            Location
+            {t("footer.location_heading")}
           </h4>
           <p className={styles.footerText}>
-            Des Moines, Iowa
+            {site.event.venue.name}
             <br />
-            Every July — Thingyan Season
+            {site.event.venue.line1}
           </p>
+          <ul className={styles.footerNav}>
+            <li>
+              <Link href="/privacy">{t("footer.link_privacy")}</Link>
+            </li>
+            <li>
+              <Link href="/terms">{t("footer.link_terms")}</Link>
+            </li>
+            <li>
+              <Link href="/nonprofit">{t("footer.link_transparency")}</Link>
+            </li>
+          </ul>
         </div>
       </div>
 
       <div className={styles.footerBottom}>
         <p>
-          &copy; 2026{" "}
+          &copy; {getCopyrightYear()}{" "}
           <span className={styles.footerHighlight}>
-            Rakhine Water Festival Committee
+            {t("footer.committee_name")}
           </span>{" "}
-          — Des Moines, Iowa. All rights reserved.
+          - {site.event.city}, {site.event.state}. {t("footer.rights_reserved")}
         </p>
         <p className={styles.footerNonprofit}>
-          A nonprofit community organization.
+          {t("footer.nonprofit")}
         </p>
       </div>
     </footer>
