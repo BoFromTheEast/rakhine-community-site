@@ -95,25 +95,6 @@ export default function Navbar({ activePage }: { activePage: ActivePage }) {
               {label}
             </Link>
           ))}
-          <button
-            type="button"
-            className={styles.dropdownLangToggle}
-            onClick={() => {
-              toggleLocale();
-              setOpen(false);
-            }}
-          >
-            <span className={locale === "en" ? styles.langActive : undefined}>
-              EN
-            </span>
-            <span className={styles.langDivider}>|</span>
-            <span
-              className={locale === "my" ? styles.langActive : undefined}
-              style={{ fontFamily: "var(--font-myanmar), sans-serif" }}
-            >
-              မြန်မာ
-            </span>
-          </button>
         </div>
       )}
     </nav>

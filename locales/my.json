@@ -4,9 +4,10 @@
     "title_main": "ရခိုင်",
     "title_em": "ရေသဘင်ပွဲတော်",
     "subtitle": "ရခိုင်ပြည်နယ်မှသည် အိုင်အိုဝါပြည်နယ်အထိ သယ်ဆောင်လာသော ရိုးရာအမွေအနှစ်ဖြစ်သည့် သင်္ကြန်ပွဲတော်၏ ပျော်ရွှင်မှု၊ စည်းလုံးမှုနှင့် နှစ်သစ်ကူးပြောင်းခြင်းကို အတူတကွ ဆင်နွှဲကြပါစို့။",
-    "date": "July 2026 - Des Moines, Iowa",
-    "btn_tickets": "လက်မှတ် ဝယ်ယူရန်",
-    "btn_learn": "ပိုမို သိရှိရန်"
+    "date_label": "Event Dates",
+    "event_dates": "July 4th and July 5th",
+    "address_label": "Event Address",
+    "address": "Riverview Park, 710 Corning Ave, Des Moines, IA 50313"
   },
   "about": {
     "label": "Our Story",
@@ -33,49 +34,82 @@
   "schedule": {
     "label": "What to Expect",
     "title": "Festival Schedule",
-    "subtitle": "A full day of water, music, food, and cultural celebration — all are welcome.",
-    "items": [
+    "subtitle": "Two days of athletics, water, food, and cultural celebration — all are welcome.",
+    "days": [
       {
-        "time": "10:00 AM",
-        "name": "Opening Ceremony",
-        "description": "Traditional prayers and blessings to welcome the New Year with elders leading the ritual.",
-        "tag": "Cultural",
-        "tagType": "Cultural"
+        "date": "July 4th",
+        "title": "Athletic Events",
+        "items": [
+          {
+            "time": "Morning",
+            "name": "Soccer",
+            "description": "Community soccer matches and friendly team competition.",
+            "tag": "Athletic",
+            "tagType": "Athletic"
+          },
+          {
+            "time": "Afternoon",
+            "name": "Volleyball",
+            "description": "Volleyball games for players and spectators to enjoy.",
+            "tag": "Athletic",
+            "tagType": "Athletic"
+          },
+          {
+            "time": "Afternoon",
+            "name": "Tug of War",
+            "description": "A classic team challenge bringing families and friends together.",
+            "tag": "Athletic",
+            "tagType": "Athletic"
+          }
+        ]
       },
       {
-        "time": "11:00 AM",
-        "name": "Water Splashing Begins",
-        "description": "The main event! Bring your water guns, buckets, and smiles — everyone gets soaked.",
-        "tag": "Water",
-        "tagType": "Water"
-      },
-      {
-        "time": "12:30 PM",
-        "name": "Traditional Food Stalls",
-        "description": "Enjoy authentic Rakhine dishes prepared by community members — mohinga, samosa, and more.",
-        "tag": "Food",
-        "tagType": "Food"
-      },
-      {
-        "time": "2:00 PM",
-        "name": "Live Music and Karaoke",
-        "description": "Traditional and contemporary performances on our main stage, plus open karaoke sessions.",
-        "tag": "Cultural",
-        "tagType": "Cultural"
-      },
-      {
-        "time": "3:30 PM",
-        "name": "Raffle Drawing",
-        "description": "Win exciting prizes! Tickets available at the event. Must be present to win.",
-        "tag": "Raffle",
-        "tagType": "Raffle"
-      },
-      {
-        "time": "5:00 PM",
-        "name": "Closing and Community Dinner",
-        "description": "Join us to wrap up the day with a shared meal and community celebration.",
-        "tag": "Food",
-        "tagType": "Food"
+        "date": "July 5th",
+        "title": "Festival Day",
+        "items": [
+          {
+            "time": "10:00 AM",
+            "name": "Opening Ceremony",
+            "description": "Traditional prayers and blessings to welcome the New Year with elders leading the ritual.",
+            "tag": "Cultural",
+            "tagType": "Cultural"
+          },
+          {
+            "time": "11:00 AM",
+            "name": "Water Splashing Begins",
+            "description": "The main event! Bring your water guns, buckets, and smiles — everyone gets soaked.",
+            "tag": "Water",
+            "tagType": "Water"
+          },
+          {
+            "time": "12:30 PM",
+            "name": "Traditional Food Stalls",
+            "description": "Enjoy authentic Rakhine dishes prepared by community members — mohinga, samosa, and more.",
+            "tag": "Food",
+            "tagType": "Food"
+          },
+          {
+            "time": "2:00 PM",
+            "name": "Live Music and Karaoke",
+            "description": "Traditional and contemporary performances on our main stage, plus open karaoke sessions.",
+            "tag": "Cultural",
+            "tagType": "Cultural"
+          },
+          {
+            "time": "3:30 PM",
+            "name": "Raffle Drawing",
+            "description": "Win exciting prizes! Tickets available at the event. Must be present to win.",
+            "tag": "Raffle",
+            "tagType": "Raffle"
+          },
+          {
+            "time": "5:00 PM",
+            "name": "Closing and Community Dinner",
+            "description": "Join us to wrap up the day with a shared meal and community celebration.",
+            "tag": "Food",
+            "tagType": "Food"
+          }
+        ]
       }
     ]
   },
@@ -141,8 +175,7 @@
     "year_2025_title": "This Year's Festival",
     "year_2025_subtitle": "July 2025 - Des Moines, Iowa",
     "year_2026_edition": "Current Year",
-    "year_2026_title": "Current Festival Year",
-    "year_2026_subtitle": "July 2026 - Des Moines, Iowa"
+    "year_2026_title": "Current Festival Year"
   },
   "faq": {
     "categories": [

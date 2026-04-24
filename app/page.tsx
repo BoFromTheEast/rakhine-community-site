@@ -16,6 +16,7 @@ const tagClassMap: Record<string, string> = {
   Water: styles.tagWater,
   Food: styles.tagFood,
   Raffle: styles.tagCulture,
+  Athletic: styles.tagAthletic,
 };
 
 const dicts = { en, my };
@@ -29,7 +30,7 @@ export default async function Home() {
   const cookieStore = await cookies();
   const locale = (cookieStore.get("NEXT_LOCALE")?.value ?? "en") as Locale;
   const { t } = getTranslation(locale);
-  const scheduleItems = dicts[locale].schedule.items;
+  const scheduleDays = dicts[locale].schedule.days;
   const faqCategories = dicts[locale].faq.categories;
 
   return (
@@ -43,14 +44,15 @@ export default async function Home() {
           <em>{t("hero.title_em")}</em>
         </h1>
         <p className={styles.heroSub}>{t("hero.subtitle")}</p>
-        <div className={styles.heroDate}>{t("hero.date")}</div>
-        <div className={styles.heroButtons}>
-          <Link href="/contact" className={styles.btnPrimary}>
-            {t("hero.btn_tickets")}
-          </Link>
-          <Link href="/festival" className={styles.btnOutline}>
-            {t("hero.btn_learn")}
-          </Link>
+        <div className={styles.heroEventDetails}>
+          <div className={styles.heroEventItem}>
+            <span>{t("hero.date_label")}</span>
+            <strong>{t("hero.event_dates")}</strong>
+          </div>
+          <div className={styles.heroEventItem}>
+            <span>{t("hero.address_label")}</span>
+            <strong>{t("hero.address")}</strong>
+          </div>
         </div>
       </section>
 
@@ -67,15 +69,23 @@ export default async function Home() {
           <div className={styles.aboutVisual}>
             <div className={styles.stat}>
               <div className={styles.statNum}>{t("about.stat_years_num")}</div>
-              <div className={styles.statLabel}>{t("about.stat_years_label")}</div>
+              <div className={styles.statLabel}>
+                {t("about.stat_years_label")}
+              </div>
             </div>
             <div className={styles.stat}>
               <div className={styles.statNum}>{t("about.stat_since_num")}</div>
-              <div className={styles.statLabel}>{t("about.stat_since_label")}</div>
+              <div className={styles.statLabel}>
+                {t("about.stat_since_label")}
+              </div>
             </div>
             <div className={styles.stat}>
-              <div className={styles.statNum}>{t("about.stat_community_num")}</div>
-              <div className={styles.statLabel}>{t("about.stat_community_label")}</div>
+              <div className={styles.statNum}>
+                {t("about.stat_community_num")}
+              </div>
+              <div className={styles.statLabel}>
+                {t("about.stat_community_label")}
+              </div>
             </div>
           </div>
         </div>
@@ -115,21 +125,31 @@ export default async function Home() {
           <p className={styles.sectionLabel}>{t("schedule.label")}</p>
           <h2 className={styles.sectionTitle}>{t("schedule.title")}</h2>
           <p className={styles.sectionBody}>{t("schedule.subtitle")}</p>
-          <div className={styles.scheduleGrid}>
-            {scheduleItems.map((item) => (
-              <article
-                className={styles.eventCard}
-                key={`${item.time}-${item.name}`}
-              >
-                <div className={styles.eventTime}>{item.time}</div>
-                <div className={styles.eventName}>{item.name}</div>
-                <div className={styles.eventDesc}>{item.description}</div>
-                <span
-                  className={`${styles.eventTag} ${tagClassMap[item.tagType] ?? styles.tagCulture}`}
-                >
-                  {item.tag}
-                </span>
-              </article>
+          <div className={styles.scheduleDays}>
+            {scheduleDays.map((day) => (
+              <div className={styles.scheduleDay} key={day.date}>
+                <div className={styles.scheduleDayHeader}>
+                  <div className={styles.scheduleDayDate}>{day.date}</div>
+                  <h3 className={styles.scheduleDayTitle}>{day.title}</h3>
+                </div>
+                <div className={styles.scheduleGrid}>
+                  {day.items.map((item) => (
+                    <article
+                      className={styles.eventCard}
+                      key={`${day.date}-${item.time}-${item.name}`}
+                    >
+                      <div className={styles.eventTime}>{item.time}</div>
+                      <div className={styles.eventName}>{item.name}</div>
+                      <div className={styles.eventDesc}>{item.description}</div>
+                      <span
+                        className={`${styles.eventTag} ${tagClassMap[item.tagType] ?? styles.tagCulture}`}
+                      >
+                        {item.tag}
+                      </span>
+                    </article>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -142,15 +162,24 @@ export default async function Home() {
           <div className={styles.involveGrid}>
             <div className={styles.involveCard}>
               <div className={styles.involveIcon}>✦</div>
-              <h3 className={styles.involveTitle}>{t("involve.volunteer_title")}</h3>
-              <p className={styles.involveBody}>{t("involve.volunteer_body")}</p>
-              <Link href="/get-involved#volunteer" className={styles.involveLink}>
+              <h3 className={styles.involveTitle}>
+                {t("involve.volunteer_title")}
+              </h3>
+              <p className={styles.involveBody}>
+                {t("involve.volunteer_body")}
+              </p>
+              <Link
+                href="/get-involved#volunteer"
+                className={styles.involveLink}
+              >
                 {t("involve.volunteer_link")}
               </Link>
             </div>
             <div className={styles.involveCard}>
               <div className={styles.involveIcon}>◈</div>
-              <h3 className={styles.involveTitle}>{t("involve.sponsor_title")}</h3>
+              <h3 className={styles.involveTitle}>
+                {t("involve.sponsor_title")}
+              </h3>
               <p className={styles.involveBody}>{t("involve.sponsor_body")}</p>
               <Link href="/get-involved#sponsor" className={styles.involveLink}>
                 {t("involve.sponsor_link")}
@@ -158,7 +187,9 @@ export default async function Home() {
             </div>
             <div className={styles.involveCard}>
               <div className={styles.involveIcon}>❋</div>
-              <h3 className={styles.involveTitle}>{t("involve.perform_title")}</h3>
+              <h3 className={styles.involveTitle}>
+                {t("involve.perform_title")}
+              </h3>
               <p className={styles.involveBody}>{t("involve.perform_body")}</p>
               <Link href="/contact" className={styles.involveLink}>
                 {t("involve.perform_link")}
@@ -206,7 +237,9 @@ export default async function Home() {
               </div>
             </div>
             <div>
-              <div className={styles.tierLabel}>{t("sponsors.silver_label")}</div>
+              <div className={styles.tierLabel}>
+                {t("sponsors.silver_label")}
+              </div>
               <div className={styles.sponsorRow}>
                 <div className={`${styles.sponsorSlot} ${styles.silverTier}`}>
                   {t("sponsors.placeholder_sponsor")}
@@ -220,7 +253,9 @@ export default async function Home() {
               </div>
             </div>
             <div>
-              <div className={styles.tierLabel}>{t("sponsors.community_label")}</div>
+              <div className={styles.tierLabel}>
+                {t("sponsors.community_label")}
+              </div>
               <div className={styles.sponsorRow}>
                 <div className={`${styles.sponsorSlot} ${styles.bronzeTier}`}>
                   {t("sponsors.placeholder_supporter")}

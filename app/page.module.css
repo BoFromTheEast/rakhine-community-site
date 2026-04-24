@@ -80,21 +80,36 @@
   z-index: 1;
 }
 
-.heroDate {
-  font-size: 1rem;
-  color: var(--gold-light);
-  letter-spacing: 0.08em;
-  margin-bottom: 2.5rem;
-  font-weight: 500;
-  z-index: 1;
-}
 
-.heroButtons {
+.heroEventDetails {
   display: flex;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
   z-index: 1;
+}
+
+.heroEventItem {
+  width: min(100%, 320px);
+  padding: 0 0.75rem;
+}
+
+.heroEventItem span {
+  display: block;
+  color: rgb(255 255 255 / 78%);
+  font-size: 0.88rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+}
+
+.heroEventItem strong {
+  display: block;
+  color: #fff;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  font-weight: 500;
 }
 
 .btnPrimary {
@@ -224,11 +239,39 @@
   color: rgb(255 255 255 / 60%);
 }
 
+.scheduleDays {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  margin-top: 3rem;
+}
+
+.scheduleDayHeader {
+  border-left: 3px solid var(--gold-light);
+  padding-left: 1rem;
+}
+
+.scheduleDayDate {
+  color: var(--gold-light);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.scheduleDayTitle {
+  color: #fff;
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.2;
+  margin: 0;
+}
+
 .scheduleGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 .eventCard {
@@ -287,6 +330,11 @@
 .tagFood {
   background: rgb(184 49 47 / 20%);
   color: #f08080;
+}
+
+.tagAthletic {
+  background: rgb(111 196 141 / 20%);
+  color: #8fe0aa;
 }
 
 .sponsors {

@@ -29,7 +29,7 @@
   display: flex;
   gap: 2rem;
   list-style: none;
-  margin: 0;
+  margin: 0 0 0 auto;
   padding: 0;
 }
 
@@ -53,14 +53,19 @@
 
 /* ── Language toggle ─────────────────────────────────────── */
 .langToggle {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 120;
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  background: transparent;
-  border: 1px solid rgb(240 201 107 / 35%);
+  background: rgb(11 45 78 / 94%);
+  border: 1px solid rgb(240 201 107 / 45%);
   border-radius: 4px;
+  box-shadow: 0 10px 28px rgb(0 0 0 / 24%);
   cursor: pointer;
-  padding: 0.3rem 0.6rem;
+  padding: 0.55rem 0.75rem;
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -82,28 +87,6 @@
 .langActive {
   color: #f0c96b;
   font-weight: 700;
-}
-
-.dropdownLangToggle {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  background: transparent;
-  border: none;
-  border-top: 1px solid rgb(240 201 107 / 15%);
-  cursor: pointer;
-  padding: 1rem 1.5rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: rgb(255 255 255 / 55%);
-  width: 100%;
-  transition: color 0.2s, background 0.2s;
-}
-
-.dropdownLangToggle:hover {
-  color: #f0c96b;
-  background: rgb(255 255 255 / 3%);
 }
 
 /* ── Hamburger button ────────────────────────────────────── */
@@ -185,6 +168,11 @@
 
   .links {
     display: none;
+  }
+
+  .langToggle {
+    right: 1rem;
+    bottom: 1rem;
   }
 
   .hamburger {
