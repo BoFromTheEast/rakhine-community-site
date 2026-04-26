@@ -42,3 +42,10 @@ next-env.d.ts
 
 # claude.md
 .claude
+
+# local auth/photo data
+/data/*.json
+
+# local uploaded festival images
+/public/uploads/festival/*
+!/public/uploads/festival/.gitkeep
