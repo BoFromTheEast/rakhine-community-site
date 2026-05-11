@@ -80,6 +80,13 @@
   z-index: 1;
 }
 
+:global(:lang(my)) .heroTitle {
+  margin-bottom: 2.5rem;
+}
+
+:global(:lang(my)) .heroSub {
+  margin-top: 1rem;
+}
 
 .heroEventDetails {
   display: flex;
