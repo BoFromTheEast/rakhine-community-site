@@ -19,7 +19,6 @@ const linkDefs: { key: string; href: string; page: ActivePage }[] = [
   { key: "nav.festival", href: "/festival", page: "festival" },
   { key: "nav.about", href: "/about", page: "about" },
   { key: "nav.get_involved", href: "/get-involved", page: "get-involved" },
-  { key: "nav.contact", href: "/contact", page: "contact" },
 ];
 
 export default function Navbar({ activePage }: { activePage: ActivePage }) {

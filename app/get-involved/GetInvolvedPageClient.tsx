@@ -191,6 +191,24 @@ export default function GetInvolvedPageClient() {
         </div>
       </section>
 
+      <section className={styles.pathSection} aria-label="Ways to get involved">
+        <a className={styles.pathCard} href="#volunteer">
+          <span className={styles.pathKicker}>01</span>
+          <strong>Volunteer</strong>
+          <span>Help with setup, food, guests, activities, and cleanup.</span>
+        </a>
+        <a className={styles.pathCard} href="#sponsor">
+          <span className={styles.pathKicker}>02</span>
+          <strong>Sponsor</strong>
+          <span>Support the festival as a business, family, or organization.</span>
+        </a>
+        <a className={styles.pathCard} href="/about#contact">
+          <span className={styles.pathKicker}>03</span>
+          <strong>Perform</strong>
+          <span>Reach out about music, dance, cultural groups, or stage ideas.</span>
+        </a>
+      </section>
+
       {/* ── Volunteer Section ── */}
       <section id="volunteer" className={styles.volSection}>
         <div className={styles.volLayout}>
@@ -371,7 +389,7 @@ export default function GetInvolvedPageClient() {
       </section>
 
       {/* ── Sponsor Section ── */}
-      <section id="sponsor">
+      <section id="sponsor" className={styles.sponsorSection}>
         {/* Tier cards */}
         <div className={styles.tiers}>
           <div className={styles.tiersHeader}>
@@ -399,7 +417,7 @@ export default function GetInvolvedPageClient() {
         {/* Download packet */}
         <div className={styles.packet}>
           <p className={styles.packetText}>Want the full sponsor packet?</p>
-          <a href="/contact" className={styles.packetBtn}>
+          <a href="/about#contact" className={styles.packetBtn}>
             Download Packet
           </a>
         </div>

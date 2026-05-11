@@ -201,6 +201,51 @@
   background: #b57e22;
 }
 
+/* ── Contact ─────────────────────────────────────────────── */
+.contact {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 3rem;
+  padding: 5rem;
+  background: #fdf6ec;
+  border-top: 1px solid #e8dfd4;
+}
+
+.contactIntro {
+  max-width: 460px;
+}
+
+.contactSub {
+  margin: 1rem 0 1.5rem;
+  color: #4a4a4a;
+  font-size: 0.93rem;
+  line-height: 1.8;
+}
+
+.venueDetails {
+  display: grid;
+  gap: 0.85rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #e8dfd4;
+}
+
+.venueDetails p {
+  margin: 0;
+  color: #1c1c1c;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.venueDetails span {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #c8922a;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 /* ── Tablet ──────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .hero {
@@ -208,6 +253,12 @@
   }
 
   .body {
+    padding: 3.5rem 2.5rem;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 2rem;
     padding: 3.5rem 2.5rem;
   }
 
@@ -235,6 +286,10 @@
   }
 
   .body {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .contact {
     padding: 2.5rem 1.25rem;
   }
 

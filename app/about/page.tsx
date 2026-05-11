@@ -3,14 +3,15 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import Navbar from "../_components/Navbar";
 import Footer from "../_components/Footer";
+import HomeContactForm from "../_components/HomeContactForm";
 import styles from "./page.module.css";
 import { getTranslation, type Locale } from "@/lib/useTranslation";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About & Contact",
   description:
-    "Learn the story, mission, and community values behind the Rakhine Water Festival in Des Moines.",
+    "Learn the story, mission, and community values behind the Rakhine Water Festival in Des Moines, and contact the committee.",
 };
 
 export default async function AboutPage() {
@@ -83,10 +84,29 @@ export default async function AboutPage() {
           <p className={styles.ctaText}>
             {t("about_page.cta_text")} {site.event.city}, {site.event.state}.
           </p>
-          <Link href="/festival" className={styles.ctaLink}>
-            {t("about_page.cta_link")}
+          <Link href="#contact" className={styles.ctaLink}>
+            {t("contact.btn_send")}
           </Link>
         </div>
+      </section>
+
+      <section className={styles.contact} id="contact">
+        <div className={styles.contactIntro}>
+          <p className={styles.sectionLabel}>{t("contact.label")}</p>
+          <h2 className={styles.sectionTitle}>{t("contact.title")}</h2>
+          <p className={styles.contactSub}>{t("contact.subtitle")}</p>
+          <div className={styles.venueDetails}>
+            <p>
+              <span>{t("venue.label")}</span>
+              {site.event.venue.name}
+            </p>
+            <p>
+              <span>{t("venue.address_label")}</span>
+              {site.event.venue.line1}
+            </p>
+          </div>
+        </div>
+        <HomeContactForm />
       </section>
       <Footer />
     </main>

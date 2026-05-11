@@ -79,7 +79,7 @@ export default function Footer() {
               <Link href="/get-involved">{t("nav.get_involved")}</Link>
             </li>
             <li>
-              <Link href="/contact">{t("nav.contact")}</Link>
+              <Link href="/about#contact">{t("nav.contact")}</Link>
             </li>
           </ul>
           <h4 className={`${styles.footerHeading} ${styles.footerHeadingSpaced}`}>

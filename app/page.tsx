@@ -191,7 +191,7 @@ export default async function Home() {
                 {t("involve.perform_title")}
               </h3>
               <p className={styles.involveBody}>{t("involve.perform_body")}</p>
-              <Link href="/contact" className={styles.involveLink}>
+              <Link href="/about#contact" className={styles.involveLink}>
                 {t("involve.perform_link")}
               </Link>
             </div>
