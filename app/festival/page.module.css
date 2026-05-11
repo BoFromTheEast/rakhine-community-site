@@ -8,273 +8,675 @@
   overflow-x: hidden;
 }
 
-
-/* ── Floating year rail ──────────────────────────────────── */
-.floatingYears {
-  position: fixed;
-  left: 0;
-  top: 60px;
-  bottom: 0;
-  width: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  padding: 2rem 0;
-  background: transparent;
-  z-index: 20;
-  overflow-y: auto;
-  scrollbar-width: none;
+/* ── Shared utilities ────────────────────────────────────── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.floatingYears::-webkit-scrollbar {
-  display: none;
+.sectionLabel {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c8922a;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
 }
 
-.yearButton {
-  border: 0;
-  background: transparent;
-  color: rgb(11 45 78 / 18%);
+.sectionTitle {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: #0b2d4e;
+  line-height: 1.2;
+  margin: 0 0 2rem;
+}
+
+.sectionHeader {
+  margin-bottom: 3rem;
+}
+
+.btnPrimary {
+  display: inline-block;
+  background: #c8922a;
+  color: #fff;
+  padding: 0.9rem 2.2rem;
+  border: 2px solid #c8922a;
+  border-radius: 2px;
+  text-decoration: none;
   font-size: 0.85rem;
-  font-family: var(--font-playfair), serif;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 0.45rem 0;
-  width: 100%;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.btnPrimary:hover {
+  background: #b07820;
+  border-color: #b07820;
+}
+
+.btnOutline {
+  display: inline-block;
+  background: transparent;
+  color: #fff;
+  padding: 0.9rem 2.2rem;
+  border: 1px solid rgb(255 255 255 / 40%);
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btnOutline:hover {
+  border-color: rgb(255 255 255 / 80%);
+  background: rgb(255 255 255 / 6%);
+}
+
+.btnSecondary {
+  display: inline-block;
+  background: transparent;
+  color: #0b2d4e;
+  padding: 0.85rem 2rem;
+  border: 1px solid #0b2d4e;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   cursor: pointer;
-  text-align: center;
-  transition: color 0.2s ease;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btnSecondary:hover {
+  background: #0b2d4e;
+  color: #fff;
+}
+
+/* ── Hero ────────────────────────────────────────────────── */
+.hero {
   position: relative;
+  min-height: 92vh;
+  background: #071e34;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 10rem 5rem 8rem;
 }
 
-.yearButton:hover {
-  color: rgb(11 45 78 / 45%);
-}
-
-.yearButtonActive {
-  color: #0b2d4e !important;
-  font-weight: 800;
-}
-
-/* ── Content area ────────────────────────────────────────── */
-.content {
-  margin-top: 60px;
-  margin-left: 72px;
-  flex: 1;
-  position: relative;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  padding: 4rem 4rem 4rem 5rem;
-  min-height: calc(100vh - 60px);
-}
-
-/* ── Ghost year watermark ────────────────────────────────── */
-.ghostYear {
+.heroDecor {
   position: absolute;
-  top: 50%;
-  right: -0.05em;
-  transform: translateY(-50%);
-  font-size: clamp(14rem, 22vw, 26rem);
-  font-family: var(--font-playfair), serif;
-  font-weight: 900;
-  color: transparent;
-  -webkit-text-stroke: 1px rgb(11 45 78 / 7%);
-  line-height: 1;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 90% at 80% 50%, rgb(200 146 42 / 9%) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 5% 90%, rgb(11 45 78 / 50%) 0%, transparent 70%);
   pointer-events: none;
-  user-select: none;
-  letter-spacing: -0.04em;
-  z-index: 0;
 }
 
-/* ── Header block ────────────────────────────────────────── */
-.header {
+/* Decorative ring */
+.heroDecor::after {
+  content: "";
+  position: absolute;
+  right: -8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  border: 1px solid rgb(200 146 42 / 10%);
+}
+
+.heroContent {
   position: relative;
   z-index: 1;
   max-width: 680px;
 }
 
-.edition {
-  margin: 0 0 1rem;
+.heroLabel {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
   color: #c8922a;
-  font-size: 0.68rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+}
+
+.heroTitle {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+}
+
+.heroTitleEm {
+  color: #c8922a;
+  font-style: italic;
+}
+
+.heroDesc {
+  color: rgb(255 255 255 / 70%);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  font-weight: 300;
+  margin: 0 0 2rem;
+  max-width: 500px;
+}
+
+.heroMeta {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  color: rgb(255 255 255 / 50%);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  margin: 0 0 2.5rem;
 }
 
-.edition::before {
-  content: "";
+.heroDot {
   display: block;
-  width: 28px;
-  height: 1px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
   background: #c8922a;
   flex-shrink: 0;
 }
 
-.title {
-  margin: 0 0 0.75rem;
-  font-size: clamp(2.4rem, 4.5vw, 4rem);
-  color: #0b2d4e;
-  font-family: var(--font-playfair), serif;
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-}
-
-.subtitle {
-  margin: 0;
-  color: #4a4a4a;
-  font-size: 0.9rem;
-  line-height: 1.8;
-  letter-spacing: 0.02em;
-}
-
-.venuePlaceholder {
-  margin: 0.9rem 0 0;
-  color: #6b6256;
-  font-size: 0.82rem;
-  line-height: 1.6;
-}
-
-/* ── Divider ─────────────────────────────────────────────── */
-.divider {
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(90deg, #c8922a, transparent);
-  margin: 2rem 0;
-  position: relative;
-  z-index: 1;
-}
-
-/* ── Media grid ──────────────────────────────────────────── */
-.mediaGrid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  grid-template-rows: 260px 160px;
-  gap: 0.6rem;
-  max-width: 820px;
-}
-
-.mediaCard {
-  background: #e8dfd4;
-  border: 1px solid rgb(11 45 78 / 8%);
-  border-radius: 3px;
+.heroCtas {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.62rem;
-  color: rgb(11 45 78 / 30%);
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.2s;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.mediaCard::before {
-  content: "";
+/* ── Countdown ───────────────────────────────────────────── */
+.countdown {
+  padding: 5rem 2rem;
+  background: #fdf6ec;
+  border-bottom: 1px solid #e8dfd4;
+  text-align: center;
+}
+
+.countdownHeading {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  color: #0b2d4e;
+  margin: 0 0 3rem;
+}
+
+/* ── Thingyan ────────────────────────────────────────────── */
+.thingyan {
+  padding: 6rem 2rem;
+  background: #fff;
+}
+
+.thingyanGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.thingyanText {
+  max-width: 500px;
+}
+
+.thingyanBody {
+  color: #4a4a4a;
+  font-size: 0.97rem;
+  line-height: 1.85;
+  margin: 0 0 2rem;
+}
+
+.thingyanLink {
+  color: #c8922a;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(200 146 42 / 35%);
+  padding-bottom: 2px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.thingyanLink:hover {
+  color: #0b2d4e;
+  border-color: #0b2d4e;
+}
+
+.thingyanImgWrap {
+  position: relative;
+}
+
+.thingyanImg {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, #e8dfd4 0%, #d8cfc6 100%);
+  border: 1px solid #e0d7cd;
+  border-radius: 3px;
+}
+
+.thingyanImgAccent {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgb(200 146 42 / 5%), transparent 60%);
+  top: -1rem;
+  left: -1rem;
+  width: 60%;
+  height: 60%;
+  border: 2px solid rgb(200 146 42 / 20%);
+  border-radius: 3px;
   pointer-events: none;
 }
 
-.mediaCard:hover {
-  border-color: rgb(200 146 42 / 35%);
+/* ── Highlights ──────────────────────────────────────────── */
+.highlights {
+  padding: 6rem 2rem;
+  background: #fdf6ec;
+  border-top: 1px solid #e8dfd4;
 }
 
-.mediaCard:first-child {
-  grid-row: 1 / 3;
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid #e8dfd4;
+  margin-bottom: 3rem;
 }
 
-.videoCard {
-  background: #ddd5c8;
-  border-color: rgb(200 146 42 / 15%);
+.highlightCard {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid #e8dfd4;
+  background: #fff;
+  transition: background 0.2s;
 }
 
-/* ── Note box ────────────────────────────────────────────── */
-.noteBox {
-  position: relative;
-  z-index: 1;
-  margin-top: 2rem;
-  max-width: 620px;
-  padding: 1rem 1.25rem;
-  background: rgb(200 146 42 / 6%);
-  border: 1px solid rgb(200 146 42 / 20%);
-  border-radius: 3px;
+.highlightCard:last-child {
+  border-right: none;
 }
 
-.noteBox p {
+.highlightCard:hover {
+  background: #fdf6ec;
+}
+
+.highlightIcon {
+  display: block;
+  font-size: 1.3rem;
+  color: #c8922a;
+  margin-bottom: 1.25rem;
+}
+
+.highlightTitle {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.1rem;
+  color: #0b2d4e;
+  margin: 0 0 0.75rem;
+  line-height: 1.3;
+}
+
+.highlightDesc {
+  color: #6b6256;
+  font-size: 0.85rem;
+  line-height: 1.75;
   margin: 0;
-  color: #4a4a4a;
+}
+
+.highlightsCta {
+  text-align: center;
+}
+
+/* ── Gallery ─────────────────────────────────────────────── */
+.gallery {
+  padding: 6rem 2rem;
+  background: #fff;
+  border-top: 1px solid #e8dfd4;
+}
+
+.galleryCta {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+/* ── Timeline / Journey ──────────────────────────────────── */
+.journey {
+  padding: 6rem 0;
+  background: #fdf6ec;
+  border-top: 1px solid #e8dfd4;
+  overflow: hidden;
+}
+
+.journey .container {
+  margin-bottom: 3rem;
+}
+
+.milestoneTrack {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  padding: 0 2rem 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: #c8922a #e8dfd4;
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+.milestoneTrack::-webkit-scrollbar {
+  height: 4px;
+}
+
+.milestoneTrack::-webkit-scrollbar-track {
+  background: #e8dfd4;
+}
+
+.milestoneTrack::-webkit-scrollbar-thumb {
+  background: #c8922a;
+  border-radius: 2px;
+}
+
+.milestone {
+  flex: 0 0 240px;
+  padding: 1.75rem 1.5rem 1.75rem 0;
+  position: relative;
+}
+
+.milestone + .milestone {
+  padding-left: 1.5rem;
+  border-left: 1px solid #e8dfd4;
+}
+
+.milestoneThumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #e8dfd4, #d4c9bc);
+  border: 1px solid #e0d7cd;
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
+}
+
+.milestoneYear {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c8922a;
+  margin-bottom: 0.4rem;
+}
+
+.milestoneTitle {
+  font-family: var(--font-playfair), serif;
+  font-size: 1rem;
+  color: #0b2d4e;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+.milestoneDesc {
   font-size: 0.8rem;
-  line-height: 1.7;
+  color: #6b6256;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.milestoneConnector {
+  display: none;
+}
+
+/* ── Voices ──────────────────────────────────────────────── */
+.voices {
+  padding: 6rem 2rem;
+  background: #0b2d4e;
+  border-top: 1px solid #e8dfd4;
+}
+
+.voices .sectionLabel {
+  color: rgb(200 146 42 / 90%);
+}
+
+.voices .sectionTitle {
+  color: #fff;
+}
+
+.voicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.voiceCard {
+  padding: 2.5rem 2rem;
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: 3px;
+  background: rgb(255 255 255 / 4%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: border-color 0.2s;
+}
+
+.voiceCard:hover {
+  border-color: rgb(200 146 42 / 40%);
+}
+
+.voiceQuoteMark {
+  font-family: var(--font-playfair), serif;
+  font-size: 3.5rem;
+  color: #c8922a;
+  line-height: 1;
+  display: block;
+  margin-bottom: -0.75rem;
+}
+
+.voiceQuote {
+  color: rgb(255 255 255 / 80%);
+  font-size: 0.93rem;
+  line-height: 1.8;
+  margin: 0;
   font-style: italic;
-  letter-spacing: 0.02em;
+}
+
+.voiceAttrib {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(255 255 255 / 10%);
+}
+
+.voiceName {
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.voiceRole {
+  color: rgb(255 255 255 / 45%);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Get Involved CTA ────────────────────────────────────── */
+.involve {
+  padding: 7rem 2rem;
+  background: #fdf6ec;
+  border-top: 1px solid #e8dfd4;
+}
+
+.involveTitle {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: #0b2d4e;
+  line-height: 1.25;
+  margin: 0 0 3.5rem;
+  text-align: center;
+}
+
+.involveTitle em {
+  font-style: italic;
+  color: #c8922a;
+}
+
+.involveGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.involveCard {
+  padding: 2.5rem;
+  background: #fff;
+  border: 1px solid #e8dfd4;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.involveCard:hover {
+  border-color: rgb(200 146 42 / 45%);
+  box-shadow: 0 4px 20px rgb(0 0 0 / 5%);
+}
+
+.involveCardTitle {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.25rem;
+  color: #0b2d4e;
+  margin: 0;
+}
+
+.involveCardDesc {
+  color: #6b6256;
+  font-size: 0.87rem;
+  line-height: 1.75;
+  margin: 0;
+  flex: 1;
+}
+
+.involveCardLink {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #c8922a;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(200 146 42 / 35%);
+  padding-bottom: 2px;
+  align-self: flex-start;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.involveCardLink:hover {
+  color: #0b2d4e;
+  border-color: #0b2d4e;
 }
 
 /* ── Tablet ──────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .content {
-    padding: 3rem 2.5rem 3rem 3rem;
+  .hero {
+    padding: 9rem 2.5rem 6rem;
+    min-height: 80vh;
   }
 
-  .ghostYear {
-    font-size: clamp(10rem, 30vw, 18rem);
+  .thingyanGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .thingyanText {
+    max-width: 100%;
+  }
+
+  .highlightsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .highlightCard {
+    border-bottom: 1px solid #e8dfd4;
+  }
+
+  .highlightCard:nth-child(2) {
+    border-right: none;
+  }
+
+  .highlightCard:nth-child(3),
+  .highlightCard:nth-child(4) {
+    border-bottom: none;
+  }
+
+  .voicesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .involveGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 }
 
 /* ── Mobile ──────────────────────────────────────────────── */
 @media (max-width: 640px) {
-  .floatingYears {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: auto;
-    bottom: 0;
+  .hero {
+    padding: 8rem 1.25rem 5rem;
+    min-height: 70vh;
+    align-items: flex-end;
+  }
+
+  .heroCtas {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btnPrimary,
+  .btnOutline {
     width: 100%;
-    height: 48px;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 0 1rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    border-right: none;
-    border-top: none;
-    gap: 0;
+    text-align: center;
   }
 
-  .yearButton {
-    padding: 0 0.8rem;
-    height: 100%;
-    white-space: nowrap;
-    font-size: 0.72rem;
+  .countdown {
+    padding: 4rem 1.25rem;
   }
 
-  .content {
-    margin-left: 0;
-    margin-top: 60px;
-    margin-bottom: 48px;
-    padding: 2rem 1.25rem;
+  .thingyan,
+  .highlights,
+  .gallery,
+  .voices,
+  .involve {
+    padding: 4rem 1.25rem;
   }
 
-  .ghostYear {
-    font-size: clamp(6rem, 40vw, 10rem);
-    right: 0;
-    top: 30%;
+  .journey {
+    padding: 4rem 0;
   }
 
-  .mediaGrid {
+  .thingyanImgAccent {
+    display: none;
+  }
+
+  .highlightsGrid {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 160px);
   }
 
-  .mediaCard:first-child {
-    grid-row: auto;
+  .highlightCard {
+    border-right: none;
+    border-bottom: 1px solid #e8dfd4;
+  }
+
+  .highlightCard:last-child {
+    border-bottom: none;
+  }
+
+  .milestoneTrack {
+    padding: 0 1.25rem 1.5rem;
+  }
+
+  .milestone {
+    flex: 0 0 200px;
   }
 }
