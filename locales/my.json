@@ -10,16 +10,16 @@
     "address": "Riverview Park, 710 Corning Ave, Des Moines, IA 50313"
   },
   "about": {
-    "label": "Our Story",
-    "title": "A Tradition Born Far From Home",
-    "body1": "Since 2015, the Rakhine community of Des Moines has gathered every year to celebrate Thingyan — the Burmese New Year water festival. What began as a small community gathering has grown into one of Iowa's most vibrant cultural celebrations, honoring our heritage and welcoming neighbors of all backgrounds.",
-    "body2": "The festival is organized by the Rakhine Water Festival Committee, a group of young community members dedicated to keeping this tradition alive for generations to come.",
-    "stat_years_num": "10+",
-    "stat_years_label": "Years of Celebration",
-    "stat_since_num": "Since 2015",
-    "stat_since_label": "Des Moines, Iowa",
-    "stat_community_num": "Community",
-    "stat_community_label": "Open to Everyone"
+    "label": "ကျွန်ုပ်တို့၏ နောက်ခံသမိုင်း",
+    "title": "အမိမြေနှင့် ဝေးကွာသော အရပ်၌ ပေါက်ဖွားလာသည့် ရိုးရာအစဉ်အလာတစ်ခု",
+    "body1": "2015 ခုနှစ်မှ စတင်၍ ဒီမွိုင်းမြို့ (Des Moines) ရှိ ရခိုင်လူမှုအသိုက်အဝန်းသည် မြန်မာ့ရိုးရာ အတာသင်္ကြန်ပွဲတော်ကို ဆင်နွှဲရန် နှစ်စဉ်နှစ်တိုင်း စုပေါင်းလူစုခဲ့ကြပါသည်။ သေးငယ်သော မိသားစုစုပေါင်းမှုလေးအဖြစ် စတင်ခဲ့ရာမှ ယခုအခါတွင်မူ ကျွန်ုပ်တို့၏ ရိုးရာအမွေအနှစ်များကို ဂုဏ်ပြုသော၊ နောက်ခံမတူညီသည့် အိမ်နီးနားချင်းများအားလုံးကို ကြိုဆိုသော အိုင်အိုဝါ (Iowa) ပြည်နယ်၏ အစည်ကားဆုံးနှင့် အတက်ကြွဆုံးသော ယဉ်ကျေးမှုပွဲတော်များထဲမှ တစ်ခုဖြစ်လာခဲ့ပါသည်။",
+    "body2": "ဤပွဲတော်ကို နောင်လာနောက်သား မျိုးဆက်များအထိ ဤရိုးရာအစဉ်အလာကို မပျောက်ပျက်အောင် ထိန်းသိမ်းသွားရန် စိတ်အားထက်သန်သည့် လူငယ်များဖြင့် ဖွဲ့စည်းထားသော \"ရခိုင်သင်္ကြန်ပွဲတော် ကျင်းပရေးကော်မတီ\" မှ ဦးစီးကျင်းပခြင်း ဖြစ်ပါသည်။",
+    "stat_years_num": "10 နှစ်ကျော်",
+    "stat_years_label": "တိုင် ကျင်းပလာခဲ့သော ပွဲတော်",
+    "stat_since_num": "2015 ခုနှစ် မှ",
+    "stat_since_label": "ဒီမွိုင်းမြို့၊ အိုင်အိုဝါပြည်နယ်",
+    "stat_community_num": "လူမှုအသိုက်အဝန်း",
+    "stat_community_label": "လူတိုင်းအတွက် ပွင့်လင်းသော ပွဲတော်တစ်ခု"
   },
   "gallery": {
     "label": "Festival Moments",
@@ -32,80 +32,80 @@
     "btn": "View Full Archive"
   },
   "schedule": {
-    "label": "What to Expect",
-    "title": "Festival Schedule",
-    "subtitle": "Two days of athletics, water, food, and cultural celebration — all are welcome.",
+    "label": "ပွဲတော်တွင် ပါဝင်မည့် အစီအစဉ်များ",
+    "title": "ပွဲတော် အစီအစဉ်ဇယား",
+    "subtitle": "အားကစား၊ ရေကစားခြင်း၊ အစားအသောက်နှင့် ယဉ်ကျေးမှုဆိုင်ရာ အခမ်းအနားများ ပါဝင်မည့် နှစ်ရက်တာ ပွဲတော်သို့ လူတိုင်းကို နွေးထွေးစွာ ဖိတ်ခေါ်အပ်ပါသည်။",
     "days": [
       {
-        "date": "July 4th",
-        "title": "Athletic Events",
+        "date": "ဇူလိုင်လ (၄) ရက်",
+        "title": "အားကစား ပြိုင်ပွဲများ",
         "items": [
           {
-            "time": "Morning",
-            "name": "Soccer",
-            "description": "Community soccer matches and friendly team competition.",
+            "time": "နံနက်ပိုင်း",
+            "name": "ဘောလုံးပွဲ",
+            "description": "လူမှုအသိုက်အဝန်းအတွင်း ချစ်ကြည်ရေး ဘောလုံးပြိုင်ပွဲများနှင့် အဖွဲ့လိုက် ယှဉ်ပြိုင်မှုများ။",
             "tag": "Athletic",
             "tagType": "Athletic"
           },
           {
-            "time": "Afternoon",
-            "name": "Volleyball",
-            "description": "Volleyball games for players and spectators to enjoy.",
+            "time": "မွန်းလွဲပိုင်း",
+            "name": "ဘော်လီဘော",
+            "description": "ကစားသမားများနှင့် ကြည့်ရှုသူများ အတူတကွ ပျော်ရွှင်နိုင်မည့် ဘော်လီဘော ပွဲစဉ်များ။",
             "tag": "Athletic",
             "tagType": "Athletic"
           },
           {
-            "time": "Afternoon",
-            "name": "Tug of War",
-            "description": "A classic team challenge bringing families and friends together.",
+            "time": "မွန်းလွဲပိုင်း",
+            "name": "လွန်ဆွဲပွဲ",
+            "description": "မိသားစုများနှင့် သူငယ်ချင်းများ အတူတကွ စုပေါင်းဆင်နွှဲနိုင်သည့် အစဉ်အလာ အဖွဲ့လိုက် ပြိုင်ပွဲ။",
             "tag": "Athletic",
             "tagType": "Athletic"
           }
         ]
       },
       {
-        "date": "July 5th",
-        "title": "Festival Day",
+        "date": "ဇူလိုင်လ (၅) ရက်",
+        "title": "ပွဲတော်နေ့ အစီအစဉ်",
         "items": [
           {
-            "time": "10:00 AM",
-            "name": "Opening Ceremony",
-            "description": "Traditional prayers and blessings to welcome the New Year with elders leading the ritual.",
+            "time": "နံနက် ၁၀:၀၀ နာရီ",
+            "name": "ဖွင့်ပွဲ အခမ်းအနား",
+            "description": "လူကြီးမိဘများ ဦးဆောင်၍ နှစ်သစ်ကို ကြိုဆိုရန် ရိုးရာဆုတောင်းခြင်းနှင့် ကောင်းမှုပြုခြင်း အခမ်းအနား။",
             "tag": "Cultural",
             "tagType": "Cultural"
           },
           {
-            "time": "11:00 AM",
-            "name": "Water Splashing Begins",
-            "description": "The main event! Bring your water guns, buckets, and smiles — everyone gets soaked.",
+            "time": "နံနက် ၁၁:၀၀ နာရီ",
+            "name": "ရေကစားခြင်း စတင်ခြင်း",
+            "description": "အဓိက အစီအစဉ် ဖြစ်ပါသည်။ ရေပြွတ်များ၊ ရေပုံးများကိုယ်စီဖြင့် ပျော်ရွှင်စွာ ရေစိုခံဆော့ကစားနိုင်ကြပါသည်။",
             "tag": "Water",
             "tagType": "Water"
           },
           {
-            "time": "12:30 PM",
-            "name": "Traditional Food Stalls",
-            "description": "Enjoy authentic Rakhine dishes prepared by community members — mohinga, samosa, and more.",
+            "time": "မွန်းလွဲ ၁၂:၃၀ နာရီ",
+            "name": "ရိုးရာ အစားအစာ အရောင်းဆိုင်များ",
+            "description": "လူမှုအသိုက်အဝန်းဝင်များ ကိုယ်တိုင် ချက်ပြုတ်ထားသော မုန့်ဟင်းခါး၊ စမူဆာနှင့် အခြား စစ်မှန်သော ရခိုင်ရိုးရာ အစားအစာများကို သုံးဆောင်နိုင်ပါသည်။",
             "tag": "Food",
             "tagType": "Food"
           },
           {
-            "time": "2:00 PM",
-            "name": "Live Music and Karaoke",
-            "description": "Traditional and contemporary performances on our main stage, plus open karaoke sessions.",
+            "time": "နေ့လယ် ၂:၀၀ နာရီ",
+            "name": "တေးဂီတ ဖျော်ဖြေပွဲနှင့် ကာရာအိုကေ",
+            "description": "စင်တင် တေးဂီတ ဖျော်ဖြေပွဲများနှင့်အတူ ကာရာအိုကေလည်း အတူတကွ သီဆိုနိုင်ပါသည်။",
             "tag": "Cultural",
             "tagType": "Cultural"
           },
           {
-            "time": "3:30 PM",
-            "name": "Raffle Drawing",
-            "description": "Win exciting prizes! Tickets available at the event. Must be present to win.",
+            "time": "ညနေ ၃:၃၀ နာရီ",
+            "name": "ကံစမ်းမဲ ဖောက်ခြင်း",
+            "description": "စိတ်လှုပ်ရှားဖွယ် ဆုမဲများကို ကံစမ်းနိုင်ပါသည်။ ကံစမ်းမဲ လက်မှတ်များကို ပွဲတော်တွင် ဝယ်ယူရရှိနိုင်ပြီး မဲပေါက်ချိန်တွင် ပွဲတော်၌ ရှိနေသူကိုသာ ဆုချီးမြှင့်ပါမည်။",
             "tag": "Raffle",
             "tagType": "Raffle"
           },
           {
-            "time": "5:00 PM",
-            "name": "Closing and Community Dinner",
-            "description": "Join us to wrap up the day with a shared meal and community celebration.",
+            "time": "ညနေ ၅:၀၀ နာရီ",
+            "name": "ပွဲတော်ပိတ်သိမ်းခြင်းနှင့် စုပေါင်း ညစာစားပွဲ",
+            "description": "တစ်နေ့တာ အစီအစဉ်များကို ရုပ်သိမ်းကာ လူမှုအသိုက်အဝန်း အားလုံး စုပေါင်း၍ ညစာ အတူတကွ သုံးဆောင်ခြင်း။",
             "tag": "Food",
             "tagType": "Food"
           }
@@ -114,17 +114,17 @@
     ]
   },
   "involve": {
-    "label": "Be Part of It",
-    "title": "Get Involved",
+    "label": "အတူတကွ ပါဝင်ဆင်နွှဲစို့",
+    "title": "ပါဝင်ကူညီနိုင်မည့် နည်းလမ်းများ",
     "volunteer_title": "စေတနာ့ဝန်ထမ်း",
-    "volunteer_body": "Help set up, run food stalls, manage the stage, or welcome guests. Every pair of hands makes the festival better.",
+    "volunteer_body": "ပွဲပြင်ဆင်ခြင်း၊ အစားအသောက်ဆိုင်များ ကူညီခြင်း၊ စင်တင်ပိုင်း စီမံခန့်ခွဲခြင်း သို့မဟုတ် ဧည့်သည်တော်များကို ကြိုဆိုခြင်းများတွင် ကူညီပေးနိုင်ပါသည်။ လူတိုင်း၏ ဝိုင်းဝန်းကူညီမှုက ပွဲတော်ကို ပိုမိုပြည့်စုံ ကောင်းမွန်စေပါသည်။",
     "volunteer_link": "စေတနာ့ဝန်ထမ်းအဖြစ် စာရင်းသွင်းရန်",
     "sponsor_title": "စပွန်ဆာပေးရန်",
-    "sponsor_body": "Support the community as a local business or organization. Sponsorship packages are available for all sizes.",
+    "sponsor_body": "ဒေသခံ စီးပွားရေးလုပ်ငန်းတစ်ခု သို့မဟုတ် အဖွဲ့အစည်းတစ်ခုအနေဖြင့် ကျွန်ုပ်တို့၏ လူမှုအသိုက်အဝန်းကို ကူညီပံ့ပိုးပေးနိုင်ပါသည်။ လုပ်ငန်းပမာဏအလိုက် ရွေးချယ်နိုင်သော စပွန်ဆာ အစီအစဉ်များ ရှိပါသည်။",
     "sponsor_link": "စပွန်ဆာအဖြစ် ပါဝင်ရန်",
-    "perform_title": "Perform",
-    "perform_body": "Musicians, dancers, and cultural groups are welcome to perform on our main stage. Reach out to join the lineup.",
-    "perform_link": "Apply to Perform"
+    "perform_title": "ဖျော်ဖြေတင်ဆက်ရန်",
+    "perform_body": "ဂီတပညာရှင်များ၊ အကအဖွဲ့များနှင့် ယဉ်ကျေးမှု အဖွဲ့အစည်းများအားလုံး ကျွန်ုပ်တို့၏ အဓိကစင်မြင့်ထက်တွင် ဖျော်ဖြေတင်ဆက်ရန် ဖိတ်ခေါ်အပ်ပါသည်။ ပါဝင်ဖျော်ဖြေလိုပါက ဆက်သွယ်စုံစမ်းနိုင်ပါသည်။",
+    "perform_link": "ဖျော်ဖြေရန် လျှောက်ထားရန်"
   },
   "sponsors": {
     "label": "Our Supporters",
@@ -284,9 +284,9 @@
   },
   "footer": {
     "brand": "Rakhine Water Festival",
-    "tagline": "၂၀၁၅ မှစတင်၍ Iowa တွင် Thingyan နှင့် ရခိုင်အမွေအနှစ်ကို ဆင်နွှဲနေပါသည်။",
+    "tagline": "2015 မှစတင်၍ Iowa တွင် Thingyan နှင့် ရခိုင်အမွေအနှစ်ကို ဆင်နွှဲနေပါသည်။",
     "history_heading": "သမိုင်း",
-    "history_body": "Des Moines ရခိုင်အသိုင်းအဝိုင်းသည် ၂၀၁၅ ခုနှစ်တွင် Thingyan ပွဲတော်ကို စတင်ကျင်းပခဲ့ပြီး ယခု Iowa တွင် ထင်ရှားသော ယဉ်ကျေးမှုပွဲတော်တစ်ခု ဖြစ်လာခဲ့သည်။",
+    "history_body": "Des Moines ရခိုင်အသိုင်းအဝိုင်းသည် 2015 ခုနှစ်တွင် Thingyan ပွဲတော်ကို စတင်ကျင်းပခဲ့ပြီး ယခု Iowa တွင် ထင်ရှားသော ယဉ်ကျေးမှုပွဲတော်တစ်ခု ဖြစ်လာခဲ့သည်။",
     "history_link": "Archive ကြည့်ရန် ->",
     "mission_heading": "ရည်မှန်းချက်နှင့်တန်ဖိုး",
     "mission_1": "ရခိုင်ယဉ်ကျေးမှုနှင့်ရိုးရာကို ထိန်းသိမ်းခြင်း",

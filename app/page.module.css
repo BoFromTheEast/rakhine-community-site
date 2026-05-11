@@ -217,10 +217,25 @@
   padding-left: 1rem;
 }
 
+:global(:lang(my)) .sectionTitle {
+  line-height: 1.6;
+}
+
+:global(:lang(my)) .stat {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+:global(:lang(my)) .statNum {
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
 .statNum {
   font-family: var(--font-playfair), serif;
   font-size: 2.2rem;
   color: #fff;
+  margin-bottom: 3px;
 }
 
 .statLabel {
