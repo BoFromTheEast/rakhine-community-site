@@ -7,7 +7,52 @@ import styles from "./page.module.css";
 import { useLocale } from "@/lib/LocaleProvider";
 import { useTranslation } from "@/lib/useTranslation";
 import { trackEvent } from "@/lib/analytics";
-import { site } from "@/lib/site";
+
+type PathKey = "volunteer" | "sponsor" | "perform";
+
+const IMPACT_POINTS = [
+  {
+    icon: "heart",
+    title: "Stronger Together",
+    body: "Volunteers are the heart that keeps the festival running.",
+  },
+  {
+    icon: "spark",
+    title: "Sustainable Tradition",
+    body: "Sponsors help fund and grow our cultural celebration.",
+  },
+  {
+    icon: "music",
+    title: "Share Our Culture",
+    body: "Performers bring our music, dance, and heritage to life.",
+  },
+] as const;
+
+const HELP_PATHS: {
+  key: PathKey;
+  title: string;
+  description: string;
+  button: string;
+}[] = [
+  {
+    key: "volunteer",
+    title: "Volunteer",
+    description: "Help with setup, food, games, guest welcome, cleanup, photography, and more.",
+    button: "Sign Up to Volunteer",
+  },
+  {
+    key: "sponsor",
+    title: "Sponsor",
+    description: "Support the festival as a business, family, or organization and help fund the celebration.",
+    button: "Become a Sponsor",
+  },
+  {
+    key: "perform",
+    title: "Perform",
+    description: "Share your music, dance, cultural performances, or stage ideas with our community.",
+    button: "Apply to Perform",
+  },
+];
 
 const ROLES = [
   "Stage & Sound Setup",
@@ -20,49 +65,61 @@ const ROLES = [
 
 const AVAILABILITY = ["Full Day", "Morning Only", "Afternoon Only"] as const;
 
-const TIERS = [
+const SPONSOR_TIERS = [
   {
     price: "$250+",
     name: "Community Friend",
-    benefits: [
-      "Logo on festival website",
-      "Social media mention",
-      "2 complimentary entries",
-    ],
-    featured: false,
+    benefits: "Logo on website, social media mention",
   },
   {
     price: "$500+",
     name: "Festival Partner",
-    benefits: [
-      "Everything in Community Friend",
-      "Logo on event banner",
-      "Booth space at the festival",
-      "5 complimentary entries",
-    ],
-    featured: false,
+    benefits: "Logo on banner, booth space, website recognition",
   },
   {
     price: "$1,000+",
     name: "Presenting Sponsor",
-    benefits: [
-      "Everything in Festival Partner",
-      "Stage recognition",
-      "Featured logo on all materials",
-      "10 complimentary entries",
-      "Speaking opportunity",
-    ],
-    featured: true,
+    benefits: "Stage recognition, featured logo, speaking opportunity",
   },
 ] as const;
 
-const TIER_NAMES = TIERS.map((t) => t.name);
+const PERFORMANCE_NOTES = [
+  "Cultural dances",
+  "Live music",
+  "Youth performances",
+  "Community karaoke",
+  "Traditional showcases",
+] as const;
+
+const PERFORMANCE_TYPES = [
+  "Cultural Dance",
+  "Live Music",
+  "Youth Performance",
+  "Community Karaoke",
+  "Traditional Showcase",
+  "Other Stage Idea",
+] as const;
+
+const FORM_COPY: Record<PathKey, { eyebrow: string; title: string }> = {
+  volunteer: {
+    eyebrow: "Volunteer Sign Up",
+    title: "Be part of the team",
+  },
+  sponsor: {
+    eyebrow: "Sponsorship Inquiry",
+    title: "Help fund the celebration",
+  },
+  perform: {
+    eyebrow: "Performance Interest",
+    title: "Share your talent",
+  },
+};
 
 export default function GetInvolvedPageClient() {
   const { locale } = useLocale();
   const { t } = useTranslation(locale);
+  const [activePath, setActivePath] = useState<PathKey>("volunteer");
 
-  // Volunteer form state
   const [volName, setVolName] = useState("");
   const [volEmail, setVolEmail] = useState("");
   const [volPhone, setVolPhone] = useState("");
@@ -74,7 +131,6 @@ export default function GetInvolvedPageClient() {
   const [volStatus, setVolStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [volErrorMsg, setVolErrorMsg] = useState("");
 
-  // Sponsor form state
   const [orgName, setOrgName] = useState("");
   const [contactName, setContactName] = useState("");
   const [sponsorEmail, setSponsorEmail] = useState("");
@@ -85,6 +141,26 @@ export default function GetInvolvedPageClient() {
   const [submittedOrgName, setSubmittedOrgName] = useState("");
   const [sponsorStatus, setSponsorStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [sponsorErrorMsg, setSponsorErrorMsg] = useState("");
+
+  const [performerName, setPerformerName] = useState("");
+  const [performContact, setPerformContact] = useState("");
+  const [performEmail, setPerformEmail] = useState("");
+  const [performPhone, setPerformPhone] = useState("");
+  const [performanceType, setPerformanceType] = useState("");
+  const [duration, setDuration] = useState("");
+  const [performMessage, setPerformMessage] = useState("");
+  const [submittedPerformer, setSubmittedPerformer] = useState("");
+  const [performStatus, setPerformStatus] = useState<"idle" | "success">("idle");
+
+  function selectPath(path: PathKey) {
+    setActivePath(path);
+    requestAnimationFrame(() => {
+      document.getElementById("involvement-form")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  }
 
   async function handleVolunteerSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -172,429 +248,366 @@ export default function GetInvolvedPageClient() {
     }
   }
 
+  function handlePerformSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSubmittedPerformer(performerName);
+    setPerformStatus("success");
+    setPerformerName("");
+    setPerformContact("");
+    setPerformEmail("");
+    setPerformPhone("");
+    setPerformanceType("");
+    setDuration("");
+    setPerformMessage("");
+  }
+
+  const activeCopy = FORM_COPY[activePath];
+
   return (
     <main className={styles.page}>
       <Navbar activePage="get-involved" />
 
-      {/* ── Hero ── */}
       <section className={styles.hero}>
-        <span className={styles.heroGhostText} aria-hidden="true">
-          Get Involved
-        </span>
-        <div className={styles.heroInner}>
+        <div className={styles.heroContent}>
           <p className={styles.eyebrow}>Join the Community</p>
           <h1 className={styles.heroTitle}>Get Involved</h1>
           <p className={styles.heroLead}>
-            Volunteer your time, sponsor the festival, or perform on stage —
-            every contribution helps keep this tradition alive for our community.
+            Every hour you give, every dollar you share, and every talent you bring helps keep
+            Thingyan alive for generations to come.
           </p>
         </div>
+        <div className={styles.heroVisual} aria-label="Joyful water festival image placeholder">
+          <div className={styles.heroImageText}>
+            <span>Festival Photo</span>
+            <strong>Joyful Thingyan moment</strong>
+          </div>
+        </div>
       </section>
 
-      <section className={styles.pathSection} aria-label="Ways to get involved">
-        <a className={styles.pathCard} href="#volunteer">
-          <span className={styles.pathKicker}>01</span>
-          <strong>Volunteer</strong>
-          <span>Help with setup, food, guests, activities, and cleanup.</span>
-        </a>
-        <a className={styles.pathCard} href="#sponsor">
-          <span className={styles.pathKicker}>02</span>
-          <strong>Sponsor</strong>
-          <span>Support the festival as a business, family, or organization.</span>
-        </a>
-        <a className={styles.pathCard} href="/about#contact">
-          <span className={styles.pathKicker}>03</span>
-          <strong>Perform</strong>
-          <span>Reach out about music, dance, cultural groups, or stage ideas.</span>
-        </a>
-      </section>
-
-      {/* ── Volunteer Section ── */}
-      <section id="volunteer" className={styles.volSection}>
-        <div className={styles.volLayout}>
-          {/* Left info pane */}
-          <aside className={styles.volInfo}>
-            <span className={styles.volGhostText} aria-hidden="true">
-              Volunteer
-            </span>
-            <div className={styles.volInfoInner}>
-              <p className={styles.eyebrow}>Get Involved</p>
-              <h2 className={styles.volTitle}>Help make Thingyan happen</h2>
-              <p className={styles.infoBody}>
-                Volunteers are the backbone of the festival. From setup to
-                cleanup, every pair of hands makes this celebration possible for
-                our whole community.
-              </p>
-              <div className={styles.rolesSection}>
-                <p className={styles.rolesLabel}>Open Roles</p>
-                <ul className={styles.rolesList}>
-                  {ROLES.map((r) => (
-                    <li key={r}>{r}</li>
-                  ))}
-                </ul>
-              </div>
+      <section className={styles.impactBar} aria-label="Community impact">
+        {IMPACT_POINTS.map((point) => (
+          <article className={styles.impactItem} key={point.title}>
+            <span className={styles.impactIcon} data-icon={point.icon} aria-hidden="true" />
+            <div>
+              <h2>{point.title}</h2>
+              <p>{point.body}</p>
             </div>
+          </article>
+        ))}
+      </section>
+
+      <section className={styles.choiceSection} aria-labelledby="help-heading">
+        <div className={styles.sectionHeader}>
+          <p className={styles.eyebrow}>How You Can Help</p>
+          <h2 id="help-heading">Choose your path</h2>
+        </div>
+
+        <div className={styles.choiceGrid}>
+          {HELP_PATHS.map((path, index) => (
+            <button
+              type="button"
+              key={path.key}
+              className={`${styles.choiceCard} ${activePath === path.key ? styles.choiceCardActive : ""}`}
+              onClick={() => selectPath(path.key)}
+              aria-pressed={activePath === path.key}
+            >
+              <span className={styles.choiceNumber}>0{index + 1}</span>
+              <span className={styles.choiceCheck} aria-hidden="true" />
+              <strong>{path.title}</strong>
+              <span>{path.description}</span>
+              <em>{path.button}</em>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section
+        id="involvement-form"
+        className={styles.formShell}
+        aria-labelledby="form-heading"
+      >
+        <div className={styles.tabs} role="tablist" aria-label="Get involved forms">
+          {HELP_PATHS.map((path) => (
+            <button
+              type="button"
+              key={path.key}
+              id={`${path.key}-tab`}
+              className={`${styles.tab} ${activePath === path.key ? styles.tabActive : ""}`}
+              role="tab"
+              aria-selected={activePath === path.key}
+              aria-controls={`${path.key}-panel`}
+              tabIndex={activePath === path.key ? 0 : -1}
+              onClick={() => setActivePath(path.key)}
+            >
+              {path.title}
+            </button>
+          ))}
+        </div>
+
+        <div className={styles.formLayout}>
+          <aside className={styles.formInfo}>
+            <p className={styles.eyebrow}>{activeCopy.eyebrow}</p>
+            <h2 id="form-heading">{activeCopy.title}</h2>
+            {activePath === "volunteer" && (
+              <div id="volunteer-panel" role="tabpanel" aria-labelledby="volunteer-tab">
+                <p className={styles.infoBody}>
+                  Volunteers are the backbone of Thingyan. From setup to cleanup, every pair of
+                  hands makes this celebration possible.
+                </p>
+                <InfoList label="Open Roles" items={ROLES} />
+              </div>
+            )}
+            {activePath === "sponsor" && (
+              <div id="sponsor-panel" role="tabpanel" aria-labelledby="sponsor-tab">
+                <p className={styles.infoBody}>
+                  Sponsors help cover the cost of the venue, stage, sound, food support, cultural
+                  programming, and community activities.
+                </p>
+                <div className={styles.tierList}>
+                  {SPONSOR_TIERS.map((sponsorTier) => (
+                    <article className={styles.tierItem} key={sponsorTier.name}>
+                      <h3>
+                        {sponsorTier.name} <span>{sponsorTier.price}</span>
+                      </h3>
+                      <p>Benefits: {sponsorTier.benefits}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            )}
+            {activePath === "perform" && (
+              <div id="perform-panel" role="tabpanel" aria-labelledby="perform-tab">
+                <p className={styles.infoBody}>
+                  We welcome dancers, singers, musicians, cultural groups, youth performances, and
+                  stage ideas that celebrate our community.
+                </p>
+                <InfoList label="Performance Notes" items={PERFORMANCE_NOTES} />
+              </div>
+            )}
           </aside>
 
-          {/* Right form pane */}
-          <div className={styles.formSection}>
-            {volStatus === "success" ? (
-              <div className={styles.successMsg}>
-                <p className={styles.successTitle}>You&apos;re signed up!</p>
-                <p className={styles.successBody}>
-                  Thank you, {submittedVolName || t("form.friend")}. Our committee will be in touch
-                  with details ahead of the festival.
-                </p>
-                <button
-                  type="button"
-                  className={styles.submit}
-                  onClick={() => setVolStatus("idle")}
-                >
-                  Submit Another
-                </button>
-              </div>
-            ) : (
-              <form className={styles.form} onSubmit={handleVolunteerSubmit}>
-                <div className={styles.field}>
-                  <label htmlFor="volName" className={styles.label}>
-                    Full Name
-                  </label>
-                  <input
-                    id="volName"
-                    type="text"
-                    placeholder="Your full name"
-                    value={volName}
-                    onChange={(e) => setVolName(e.target.value)}
-                    required
+          <div className={styles.formPanel}>
+            {activePath === "volunteer" && (
+              <>
+                {volStatus === "success" ? (
+                  <SuccessMessage
+                    title="You're signed up!"
+                    body={`Thank you, ${submittedVolName || t("form.friend")}. Our committee will be in touch with details ahead of the festival.`}
+                    button="Submit Another"
+                    onReset={() => setVolStatus("idle")}
                   />
-                </div>
-
-                <div className={styles.field}>
-                  <label htmlFor="volEmail" className={styles.label}>
-                    Email
-                  </label>
-                  <input
-                    id="volEmail"
-                    type="email"
-                    placeholder="your@email.com"
-                    value={volEmail}
-                    onChange={(e) => setVolEmail(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label htmlFor="volPhone" className={styles.label}>
-                    Phone{" "}
-                    <span className={styles.labelOptional}>(optional)</span>
-                  </label>
-                  <input
-                    id="volPhone"
-                    type="tel"
-                    placeholder="(555) 000-0000"
-                    value={volPhone}
-                    onChange={(e) => setVolPhone(e.target.value)}
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label htmlFor="availability" className={styles.label}>
-                    Availability
-                  </label>
-                  <div className={styles.selectWrapper}>
-                    <select
-                      id="availability"
-                      value={availability}
-                      onChange={(e) => setAvailability(e.target.value)}
-                      required
-                      style={{
-                        color: availability ? "#fff" : "rgb(255 255 255 / 25%)",
-                      }}
-                    >
-                      <option value="" disabled>
-                        Select availability
-                      </option>
-                      {AVAILABILITY.map((a) => (
-                        <option key={a} value={a} style={{ color: "#1c1c1c" }}>
-                          {a}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div className={styles.field}>
-                  <label htmlFor="role" className={styles.label}>
-                    Preferred Role
-                  </label>
-                  <div className={styles.selectWrapper}>
-                    <select
-                      id="role"
-                      value={role}
-                      onChange={(e) => setRole(e.target.value)}
-                      required
-                      style={{
-                        color: role ? "#fff" : "rgb(255 255 255 / 25%)",
-                      }}
-                    >
-                      <option value="" disabled>
-                        Select a role
-                      </option>
-                      {ROLES.map((r) => (
-                        <option key={r} value={r} style={{ color: "#1c1c1c" }}>
-                          {r}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div className={styles.field}>
-                  <label htmlFor="volNotes" className={styles.label}>
-                    Additional Notes{" "}
-                    <span className={styles.labelOptional}>(optional)</span>
-                  </label>
-                  <textarea
-                    id="volNotes"
-                    placeholder="Anything else we should know?"
-                    value={volNotes}
-                    onChange={(e) => setVolNotes(e.target.value)}
-                  />
-                </div>
-                <input
-                  type="text"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  aria-hidden="true"
-                  value={volWebsite}
-                  onChange={(e) => setVolWebsite(e.target.value)}
-                  className={styles.honeypot}
-                />
-
-                {volStatus === "error" && (
-                  <p className={styles.errorMsg} role="alert">{volErrorMsg}</p>
+                ) : (
+                  <form className={styles.form} onSubmit={handleVolunteerSubmit}>
+                    <TextField id="volName" label="Full Name" value={volName} onChange={setVolName} required />
+                    <TextField id="volEmail" label="Email" type="email" value={volEmail} onChange={setVolEmail} required />
+                    <TextField id="volPhone" label="Phone" optional type="tel" value={volPhone} onChange={setVolPhone} />
+                    <SelectField id="availability" label="Availability" value={availability} onChange={setAvailability} options={AVAILABILITY} required />
+                    <SelectField id="role" label="Preferred Role" value={role} onChange={setRole} options={ROLES} required />
+                    <TextAreaField id="volNotes" label="Additional Notes" optional value={volNotes} onChange={setVolNotes} />
+                    <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" value={volWebsite} onChange={(e) => setVolWebsite(e.target.value)} className={styles.honeypot} />
+                    {volStatus === "error" && <p className={styles.errorMsg} role="alert">{volErrorMsg}</p>}
+                    <button type="submit" className={styles.submit} disabled={volStatus === "loading"}>
+                      {volStatus === "loading" ? "Submitting..." : "Sign Up to Volunteer"}
+                    </button>
+                  </form>
                 )}
+              </>
+            )}
 
-                <button
-                  type="submit"
-                  className={styles.submit}
-                  disabled={volStatus === "loading"}
-                >
-                  {volStatus === "loading" ? "Submitting…" : "Sign Up to Volunteer"}
-                </button>
-              </form>
+            {activePath === "sponsor" && (
+              <>
+                {sponsorStatus === "success" ? (
+                  <SuccessMessage
+                    title="Inquiry received!"
+                    body={`Thank you, ${submittedOrgName || t("form.friend")}. We'll be in touch with the sponsorship packet and next steps shortly.`}
+                    button="Submit Another"
+                    onReset={() => setSponsorStatus("idle")}
+                  />
+                ) : (
+                  <form className={styles.form} onSubmit={handleSponsorSubmit}>
+                    <TextField id="orgName" label="Organization Name" value={orgName} onChange={setOrgName} required />
+                    <TextField id="contactName" label="Contact Name" value={contactName} onChange={setContactName} required />
+                    <TextField id="sponsorEmail" label="Email" type="email" value={sponsorEmail} onChange={setSponsorEmail} required />
+                    <TextField id="sponsorPhone" label="Phone" optional type="tel" value={sponsorPhone} onChange={setSponsorPhone} />
+                    <SelectField id="tier" label="Sponsorship Tier" value={tier} onChange={setTier} options={SPONSOR_TIERS.map((sponsorTier) => sponsorTier.name)} required />
+                    <TextAreaField id="message" label="Message" optional value={message} onChange={setMessage} />
+                    <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" value={sponsorWebsite} onChange={(e) => setSponsorWebsite(e.target.value)} className={styles.honeypot} />
+                    {sponsorStatus === "error" && <p className={styles.errorMsg} role="alert">{sponsorErrorMsg}</p>}
+                    <div className={styles.formActions}>
+                      <button type="submit" className={styles.submit} disabled={sponsorStatus === "loading"}>
+                        {sponsorStatus === "loading" ? "Submitting..." : "Send Sponsor Inquiry"}
+                      </button>
+                      <a className={styles.secondaryAction} href="/about#contact">Download Sponsor Packet</a>
+                    </div>
+                  </form>
+                )}
+              </>
+            )}
+
+            {activePath === "perform" && (
+              <>
+                {performStatus === "success" ? (
+                  <SuccessMessage
+                    title="Performance interest saved"
+                    body={`Thank you, ${submittedPerformer || t("form.friend")}. This is a placeholder for now, and the committee can connect it to a backend later.`}
+                    button="Submit Another"
+                    onReset={() => setPerformStatus("idle")}
+                  />
+                ) : (
+                  <form className={styles.form} onSubmit={handlePerformSubmit}>
+                    <TextField id="performerName" label="Performer / Group Name" value={performerName} onChange={setPerformerName} required />
+                    <TextField id="performContact" label="Contact Name" value={performContact} onChange={setPerformContact} required />
+                    <TextField id="performEmail" label="Email" type="email" value={performEmail} onChange={setPerformEmail} required />
+                    <TextField id="performPhone" label="Phone" optional type="tel" value={performPhone} onChange={setPerformPhone} />
+                    <SelectField id="performanceType" label="Performance Type" value={performanceType} onChange={setPerformanceType} options={PERFORMANCE_TYPES} required />
+                    <TextField id="duration" label="Estimated Duration" value={duration} onChange={setDuration} required />
+                    <TextAreaField id="performMessage" label="Message" optional value={performMessage} onChange={setPerformMessage} />
+                    <button type="submit" className={styles.submit}>Apply to Perform</button>
+                  </form>
+                )}
+              </>
             )}
           </div>
         </div>
       </section>
 
-      {/* ── Sponsor Section ── */}
-      <section id="sponsor" className={styles.sponsorSection}>
-        {/* Tier cards */}
-        <div className={styles.tiers}>
-          <div className={styles.tiersHeader}>
-            <p className={styles.tiersLabel}>Sponsorship Tiers</p>
-            <h2 className={styles.tiersTitle}>Find the right level of support</h2>
-          </div>
-          <div className={styles.tiersGrid}>
-            {TIERS.map((t) => (
-              <div
-                key={t.name}
-                className={`${styles.tierCard} ${t.featured ? styles.tierCardFeatured : ""}`}
-              >
-                <span className={styles.tierPrice}>{t.price}</span>
-                <h3 className={styles.tierName}>{t.name}</h3>
-                <ul className={styles.tierBenefits}>
-                  {t.benefits.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+      <section className={styles.bottomCta}>
+        <div>
+          <p className={styles.eyebrow}>Still deciding?</p>
+          <h2>Not sure where you fit?</h2>
+          <p>We&apos;d love to help you find the best way to get involved.</p>
         </div>
-
-        {/* Download packet */}
-        <div className={styles.packet}>
-          <p className={styles.packetText}>Want the full sponsor packet?</p>
-          <a href="/about#contact" className={styles.packetBtn}>
-            Download Packet
-          </a>
-        </div>
-
-        {/* Inquiry form */}
-        <div className={styles.inquiryLayout}>
-          {/* Left info pane */}
-          <aside className={styles.sponsorInfo}>
-            <span className={styles.sponsorGhostText} aria-hidden="true">
-              Partner
-            </span>
-            <div className={styles.sponsorInfoInner}>
-              <p className={styles.eyebrow}>Sponsorship Inquiry</p>
-              <h2 className={styles.formTitle}>Ready to partner with us?</h2>
-              <p className={styles.infoBody}>
-                Fill out the form and our team will follow up with the full
-                sponsorship packet and next steps. We aim to respond within 3–5
-                business days.
-              </p>
-              <ul className={styles.details}>
-                <li>
-                  <span className={styles.detailLabel}>Organized by</span>
-                  Rakhine Water Festival Committee
-                </li>
-                <li>
-                  <span className={styles.detailLabel}>Response time</span>
-                  3–5 business days
-                </li>
-                <li>
-                  <span className={styles.detailLabel}>Festival</span>
-                  {site.event.seasonLabel} - {site.event.city}, {site.event.state}
-                </li>
-              </ul>
-            </div>
-          </aside>
-
-          {/* Right form pane */}
-          <div className={styles.formSection}>
-            {sponsorStatus === "success" ? (
-              <div className={styles.successMsg}>
-                <p className={styles.successTitle}>Inquiry received!</p>
-                <p className={styles.successBody}>
-                  Thank you, {submittedOrgName || t("form.friend")}. We&apos;ll be in touch with
-                  the sponsorship packet and next steps shortly.
-                </p>
-                <button
-                  type="button"
-                  className={styles.submit}
-                  onClick={() => setSponsorStatus("idle")}
-                >
-                  Submit Another
-                </button>
-              </div>
-            ) : (
-              <form className={styles.form} onSubmit={handleSponsorSubmit}>
-                <div className={styles.field}>
-                  <label htmlFor="orgName" className={styles.label}>
-                    Organization Name
-                  </label>
-                  <input
-                    id="orgName"
-                    type="text"
-                    placeholder="Your organization"
-                    value={orgName}
-                    onChange={(e) => setOrgName(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label htmlFor="contactName" className={styles.label}>
-                    Contact Name
-                  </label>
-                  <input
-                    id="contactName"
-                    type="text"
-                    placeholder="Your full name"
-                    value={contactName}
-                    onChange={(e) => setContactName(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label htmlFor="sponsorEmail" className={styles.label}>
-                    Email
-                  </label>
-                  <input
-                    id="sponsorEmail"
-                    type="email"
-                    placeholder="your@email.com"
-                    value={sponsorEmail}
-                    onChange={(e) => setSponsorEmail(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label htmlFor="sponsorPhone" className={styles.label}>
-                    Phone{" "}
-                    <span className={styles.labelOptional}>(optional)</span>
-                  </label>
-                  <input
-                    id="sponsorPhone"
-                    type="tel"
-                    placeholder="(555) 000-0000"
-                    value={sponsorPhone}
-                    onChange={(e) => setSponsorPhone(e.target.value)}
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label htmlFor="tier" className={styles.label}>
-                    Sponsorship Tier
-                  </label>
-                  <div className={styles.selectWrapper}>
-                    <select
-                      id="tier"
-                      value={tier}
-                      onChange={(e) => setTier(e.target.value)}
-                      required
-                      style={{
-                        color: tier ? "#fff" : "rgb(255 255 255 / 25%)",
-                      }}
-                    >
-                      <option value="" disabled>
-                        Select a tier
-                      </option>
-                      {TIER_NAMES.map((t) => (
-                        <option key={t} value={t} style={{ color: "#1c1c1c" }}>
-                          {t}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div className={styles.field}>
-                  <label htmlFor="message" className={styles.label}>
-                    Message{" "}
-                    <span className={styles.labelOptional}>(optional)</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    placeholder="Questions, special requests, or anything else…"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                  />
-                </div>
-                <input
-                  type="text"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  aria-hidden="true"
-                  value={sponsorWebsite}
-                  onChange={(e) => setSponsorWebsite(e.target.value)}
-                  className={styles.honeypot}
-                />
-
-                {sponsorStatus === "error" && (
-                  <p className={styles.errorMsg} role="alert">{sponsorErrorMsg}</p>
-                )}
-
-                <button
-                  type="submit"
-                  className={styles.submit}
-                  disabled={sponsorStatus === "loading"}
-                >
-                  {sponsorStatus === "loading" ? "Submitting…" : "Send Inquiry"}
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
+        <a href="/contact" className={styles.outlineButton}>Contact the Committee</a>
       </section>
 
       <Footer />
     </main>
+  );
+}
+
+function InfoList({ label, items }: { label: string; items: readonly string[] }) {
+  return (
+    <div className={styles.infoListWrap}>
+      <p className={styles.listLabel}>{label}</p>
+      <ul className={styles.infoList}>
+        {items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function SuccessMessage({
+  title,
+  body,
+  button,
+  onReset,
+}: {
+  title: string;
+  body: string;
+  button: string;
+  onReset: () => void;
+}) {
+  return (
+    <div className={styles.successMsg}>
+      <p className={styles.successTitle}>{title}</p>
+      <p className={styles.successBody}>{body}</p>
+      <button type="button" className={styles.submit} onClick={onReset}>
+        {button}
+      </button>
+    </div>
+  );
+}
+
+function TextField({
+  id,
+  label,
+  value,
+  onChange,
+  type = "text",
+  optional = false,
+  required = false,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  type?: string;
+  optional?: boolean;
+  required?: boolean;
+}) {
+  return (
+    <div className={styles.field}>
+      <label htmlFor={id} className={styles.label}>
+        {label} {optional && <span className={styles.labelOptional}>(optional)</span>}
+      </label>
+      <input
+        id={id}
+        type={type}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        required={required}
+      />
+    </div>
+  );
+}
+
+function TextAreaField({
+  id,
+  label,
+  value,
+  onChange,
+  optional = false,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  optional?: boolean;
+}) {
+  return (
+    <div className={styles.field}>
+      <label htmlFor={id} className={styles.label}>
+        {label} {optional && <span className={styles.labelOptional}>(optional)</span>}
+      </label>
+      <textarea id={id} value={value} onChange={(e) => onChange(e.target.value)} />
+    </div>
+  );
+}
+
+function SelectField({
+  id,
+  label,
+  value,
+  onChange,
+  options,
+  required = false,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  options: readonly string[];
+  required?: boolean;
+}) {
+  return (
+    <div className={styles.field}>
+      <label htmlFor={id} className={styles.label}>
+        {label}
+      </label>
+      <div className={styles.selectWrapper}>
+        <select id={id} value={value} onChange={(e) => onChange(e.target.value)} required={required}>
+          <option value="" disabled>
+            Select {label.toLowerCase()}
+          </option>
+          {options.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
   );
 }
