@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./FestivalCountdown.module.css";
 
 type TimeLeft = { days: number; hours: number; minutes: number; seconds: number };
@@ -24,15 +24,14 @@ const UNITS: { key: keyof TimeLeft; label: string }[] = [
 ];
 
 export default function FestivalCountdown({ targetDate }: { targetDate: string }) {
-  const target = new Date(targetDate);
+  const target = useMemo(() => new Date(targetDate), [targetDate]);
   // null on server — avoids SSR/client mismatch from Date.now() drift
   const [time, setTime] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
-    setTime(getTimeLeft(target));
     const id = setInterval(() => setTime(getTimeLeft(target)), 1000);
     return () => clearInterval(id);
-  }, [targetDate]);
+  }, [target]);
 
   return (
     <div className={styles.grid}>

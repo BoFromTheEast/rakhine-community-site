@@ -25,7 +25,7 @@ export default function Footer() {
           <p className={styles.footerText}>
             {t("footer.history_body")}
           </p>
-          <Link href="/festival" className={styles.footerLink}>
+          <Link href="/#about" className={styles.footerLink}>
             {t("footer.history_link")}
           </Link>
         </div>
@@ -70,7 +70,7 @@ export default function Footer() {
               <Link href="/">{t("nav.home")}</Link>
             </li>
             <li>
-              <Link href="/festival">{t("footer.link_festival")}</Link>
+              <Link href="/#schedule">{t("footer.link_festival")}</Link>
             </li>
             <li>
               <Link href="/about">{t("nav.about")}</Link>

@@ -16,7 +16,6 @@ export type ActivePage =
 
 const linkDefs: { key: string; href: string; page: ActivePage }[] = [
   { key: "nav.home", href: "/", page: "home" },
-  { key: "nav.festival", href: "/festival", page: "festival" },
   { key: "nav.about", href: "/about", page: "about" },
   { key: "nav.get_involved", href: "/get-involved", page: "get-involved" },
 ];
