@@ -5,8 +5,11 @@
     "title_em": "Water Festival",
     "subtitle": "Celebrate renewal, community, and the joy of Thingyan — a tradition carried from Rakhine to the heart of Iowa.",
 
+    "event_info_label": "Event Info",
     "date_label": "Event Dates",
     "event_dates": "July 4th and July 5th",
+    "time_label": "Event Time",
+    "event_time": "9:00 AM - 8:00 PM",
     "address_label": "Event Address",
     "address": "Riverview Park, 710 Corning Ave, Des Moines, IA 50313"
   },
@@ -294,7 +297,7 @@
     "mission_2": "Foster joy and renewal across generations",
     "mission_3": "Welcome all neighbors and communities",
     "mission_4": "Operate transparently as a nonprofit",
-    "mission_5": "Invest every dollar back into the festival",
+    "mission_5": "Invest every dollar back into the community",
     "leadership_heading": "Leadership",
     "leader_1_name": "Festival Director",
     "leader_1_role": "Committee Chair",

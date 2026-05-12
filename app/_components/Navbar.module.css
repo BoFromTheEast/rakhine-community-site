@@ -16,6 +16,7 @@
 
 /* ── Logo ────────────────────────────────────────────────── */
 .logo a {
+  display: block;
   font-family: var(--font-playfair), serif;
   color: #f0c96b;
   font-size: 1.1rem;
@@ -163,16 +164,32 @@
 /* ── Mobile breakpoint ───────────────────────────────────── */
 @media (max-width: 768px) {
   .nav {
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.1rem;
   }
 
   .links {
     display: none;
   }
 
+  .logo {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .logo a {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.98rem;
+  }
+
   .langToggle {
-    right: 1rem;
-    bottom: 1rem;
+    position: static;
+    z-index: auto;
+    flex-shrink: 0;
+    padding: 0.45rem 0.55rem;
+    background: rgb(8 35 62 / 55%);
+    box-shadow: none;
   }
 
   .hamburger {

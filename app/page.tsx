@@ -58,15 +58,11 @@ export default async function Home() {
           <em>{t("hero.title_em")}</em>
         </h1>
         <p className={styles.heroSub}>{t("hero.subtitle")}</p>
-        <div className={styles.heroEventDetails}>
-          <div className={styles.heroEventItem}>
-            <span>{t("hero.date_label")}</span>
-            <strong>{t("hero.event_dates")}</strong>
-          </div>
-          <div className={styles.heroEventItem}>
-            <span>{t("hero.address_label")}</span>
-            <strong>{t("hero.address")}</strong>
-          </div>
+        <div className={styles.heroEventInfo}>
+          <span>{t("hero.event_info_label")}</span>
+          <strong>{t("hero.event_dates")}</strong>
+          <strong>{t("hero.event_time")}</strong>
+          <strong>{t("hero.address")}</strong>
         </div>
       </section>
 

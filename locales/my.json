@@ -4,8 +4,11 @@
     "title_main": "ရခိုင်",
     "title_em": "ရေသဘင်ပွဲတော်",
     "subtitle": "ရခိုင်ပြည်နယ်မှသည် အိုင်အိုဝါပြည်နယ်အထိ သယ်ဆောင်လာသော ရိုးရာအမွေအနှစ်ဖြစ်သည့် သင်္ကြန်ပွဲတော်၏ ပျော်ရွှင်မှု၊ စည်းလုံးမှုနှင့် နှစ်သစ်ကူးပြောင်းခြင်းကို အတူတကွ ဆင်နွှဲကြပါစို့။",
+    "event_info_label": "Event Info",
     "date_label": "Event Dates",
     "event_dates": "July 4th and July 5th",
+    "time_label": "Event Time",
+    "event_time": "9:00 AM - 8:00 PM",
     "address_label": "Event Address",
     "address": "Riverview Park, 710 Corning Ave, Des Moines, IA 50313"
   },

@@ -40,6 +40,8 @@
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180'%3E%3Cpath fill='%23FDF6EC' fill-opacity='1' d='M0,96L48,106.7C96,117,192,139,288,128C384,117,480,75,576,64C672,53,768,75,864,90.7C960,107,1056,117,1152,112C1248,107,1344,85,1392,74.7L1440,64L1440,180L1392,180C1344,180,1248,180,1152,180C1056,180,960,180,864,180C768,180,672,180,576,180C480,180,384,180,288,180C192,180,96,180,48,180L0,180Z'%3E%3C/path%3E%3C/svg%3E");
   background-size: cover;
   background-position: top;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .heroTag {
@@ -88,35 +90,37 @@
   margin-top: 1rem;
 }
 
-.heroEventDetails {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+.heroEventInfo {
+  width: min(100%, 680px);
+  display: grid;
+  gap: 0.55rem;
+  justify-items: center;
+  padding: 1.3rem 1.5rem;
+  border: 1px solid rgb(240 201 107 / 55%);
+  border-radius: 4px;
+  background: rgb(47 86 133 / 96%);
+  box-shadow: 0 18px 40px rgb(0 0 0 / 20%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   z-index: 1;
 }
 
-.heroEventItem {
-  width: min(100%, 320px);
-  padding: 0 0.75rem;
-}
-
-.heroEventItem span {
+.heroEventInfo span {
   display: block;
-  color: rgb(255 255 255 / 78%);
-  font-size: 0.88rem;
-  letter-spacing: 0.14em;
+  color: var(--gold-light);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  margin-bottom: 0.35rem;
   font-weight: 700;
 }
 
-.heroEventItem strong {
+.heroEventInfo strong {
   display: block;
   color: #fff;
-  font-size: 0.98rem;
-  line-height: 1.45;
-  font-weight: 500;
+  font-size: clamp(1rem, 2vw, 1.22rem);
+  line-height: 1.35;
+  font-weight: 800;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 26%);
 }
 
 .btnPrimary {
@@ -908,6 +912,41 @@
 
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 5.1rem 1.25rem 2.7rem;
+  }
+
+  .heroTag {
+    margin-bottom: 1rem;
+  }
+
+  .heroTitle {
+    font-size: 2.25rem;
+    line-height: 1.05;
+    margin-bottom: 0.7rem;
+  }
+
+  .heroSub {
+    margin-bottom: 1.25rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .heroEventInfo {
+    gap: 0.38rem;
+    padding: 0.9rem 0.85rem;
+  }
+
+  .heroEventInfo span {
+    font-size: 0.7rem;
+  }
+
+  .heroEventInfo strong {
+    font-size: 0.96rem;
+    line-height: 1.25;
+  }
+
   .aboutGrid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
