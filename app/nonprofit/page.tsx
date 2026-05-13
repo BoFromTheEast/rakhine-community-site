@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function NonprofitPage() {
   return (
     <main className={styles.page}>
-      <Navbar activePage="about" />
+      <Navbar activePage="get-involved" />
       <article className={styles.main}>
         <h1 className={styles.title}>Nonprofit Transparency</h1>
         <p className={styles.meta}>Last updated: April 23, 2026</p>

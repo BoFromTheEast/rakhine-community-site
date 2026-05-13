@@ -5,6 +5,7 @@ import Navbar from "./_components/Navbar";
 import Footer from "./_components/Footer";
 import FaqAccordion from "./faq/_components/FaqAccordion";
 import FestivalCountdown from "./festival/_components/FestivalCountdown";
+import PosterGallery from "./_components/PosterGallery";
 import styles from "./page.module.css";
 import { getTranslation, type Locale } from "@/lib/useTranslation";
 import { site } from "@/lib/site";
@@ -31,6 +32,11 @@ const previousEventPhotos = [
 
 const posterItems = [
   {
+    title: "Sports & Activities Flyer",
+    detail: "Games, sports, and activity schedule flyer.",
+    imageSrc: "/posters/sports-activities.jpg",
+  },
+  {
     title: "Burmese Invitation Letter",
     detail: "Burmese-language invitation for the community.",
     imageSrc: "/posters/burmese-invitation.jpg",
@@ -39,11 +45,6 @@ const posterItems = [
     title: "English Invitation Flyer",
     detail: "English-language festival invitation and event overview.",
     imageSrc: "/posters/english-invitation.jpg",
-  },
-  {
-    title: "Sports & Activities Flyer",
-    detail: "Games, sports, and activity schedule flyer.",
-    imageSrc: "/posters/sports-activities.jpg",
   },
 ];
 
@@ -142,7 +143,11 @@ export default async function Home() {
                     src={photo.imageSrc}
                     alt={`${photo.title}, ${photo.year}`}
                     fill
-                    sizes={index === 0 ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 50vw, 25vw"}
+                    sizes={
+                      index === 0
+                        ? "(max-width: 768px) 100vw, 50vw"
+                        : "(max-width: 768px) 50vw, 25vw"
+                    }
                   />
                 ) : (
                   <div className={styles.imagePlaceholder} aria-hidden="true" />
@@ -165,31 +170,7 @@ export default async function Home() {
             Download or share the Burmese invitation, English invitation, and
             sports event flyer.
           </p>
-          <div className={styles.posterGrid}>
-            {posterItems.map((poster, index) => (
-              <article className={styles.posterCard} key={poster.title}>
-                <div className={styles.posterPreview}>
-                  {poster.imageSrc ? (
-                    <Image
-                      src={poster.imageSrc}
-                      alt={poster.title}
-                      fill
-                      loading={index === 0 ? "eager" : "lazy"}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
-                    />
-                  ) : (
-                    <div className={styles.posterPlaceholder} aria-hidden="true">
-                      <span>Poster</span>
-                    </div>
-                  )}
-                </div>
-                <div className={styles.posterText}>
-                  <h3>{poster.title}</h3>
-                  <p>{poster.detail}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+          <PosterGallery posters={posterItems} />
         </div>
       </section>
 

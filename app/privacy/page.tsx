@@ -33,7 +33,7 @@ export default function PrivacyPage() {
 
         <section className={styles.section}>
           <h2>Contact</h2>
-          <p>If you have privacy questions, contact hello@rakhinedsm.org.</p>
+          <p>If you have privacy questions, contact committee@arakanrootsandrise.com.</p>
         </section>
       </article>
       <Footer />

@@ -73,13 +73,10 @@ export default function Footer() {
               <Link href="/#schedule">{t("footer.link_festival")}</Link>
             </li>
             <li>
-              <Link href="/about">{t("nav.about")}</Link>
-            </li>
-            <li>
               <Link href="/get-involved">{t("nav.get_involved")}</Link>
             </li>
             <li>
-              <Link href="/about#contact">{t("nav.contact")}</Link>
+              <a href={`mailto:${site.contactEmail}`}>{t("nav.contact")}</a>
             </li>
           </ul>
           <h4 className={`${styles.footerHeading} ${styles.footerHeadingSpaced}`}>

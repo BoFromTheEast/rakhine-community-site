@@ -9,14 +9,12 @@ import styles from "./Navbar.module.css";
 export type ActivePage =
   | "home"
   | "festival"
-  | "about"
   | "contact"
   | "donate"
   | "get-involved";
 
 const linkDefs: { key: string; href: string; page: ActivePage }[] = [
   { key: "nav.home", href: "/", page: "home" },
-  { key: "nav.about", href: "/about", page: "about" },
   { key: "nav.get_involved", href: "/get-involved", page: "get-involved" },
 ];
 

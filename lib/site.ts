@@ -4,7 +4,7 @@ export const site = {
   description:
     "Celebrate Thingyan, the Burmese New Year water festival, with the Rakhine community of Des Moines, Iowa.",
   url: "https://rakhinedsm.org",
-  contactEmail: "hello@rakhinedsm.org",
+  contactEmail: "committee@arakanrootsandrise.com",
   localeDefault: "en",
   event: {
     year: new Date().getFullYear(),

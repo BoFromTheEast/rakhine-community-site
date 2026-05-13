@@ -7,6 +7,7 @@ import styles from "./page.module.css";
 import { useLocale } from "@/lib/LocaleProvider";
 import { useTranslation } from "@/lib/useTranslation";
 import { trackEvent } from "@/lib/analytics";
+import { site } from "@/lib/site";
 
 type PathKey = "volunteer" | "sponsor" | "perform";
 
@@ -296,6 +297,37 @@ export default function GetInvolvedPageClient() {
         ))}
       </section>
 
+      <section className={styles.backgroundSection} aria-labelledby="background-heading">
+        <div className={styles.backgroundGrid}>
+          <div>
+            <p className={styles.eyebrow}>{t("about_page.background_label")}</p>
+            <h2 id="background-heading">{t("about_page.background_title")}</h2>
+          </div>
+          <div className={styles.backgroundCopy}>
+            <p>{t("about_page.body_1")}</p>
+            <p>{t("about_page.body_2")}</p>
+          </div>
+        </div>
+
+        <div className={styles.pillars}>
+          <article className={styles.pillar}>
+            <span>01</span>
+            <h3>{t("about_page.pillar_1_title")}</h3>
+            <p>{t("about_page.pillar_1_body")}</p>
+          </article>
+          <article className={styles.pillar}>
+            <span>02</span>
+            <h3>{t("about_page.pillar_2_title")}</h3>
+            <p>{t("about_page.pillar_2_body")}</p>
+          </article>
+          <article className={styles.pillar}>
+            <span>03</span>
+            <h3>{t("about_page.pillar_3_title")}</h3>
+            <p>{t("about_page.pillar_3_body")}</p>
+          </article>
+        </div>
+      </section>
+
       <section className={styles.choiceSection} aria-labelledby="help-heading">
         <div className={styles.sectionHeader}>
           <p className={styles.eyebrow}>How You Can Help</p>
@@ -437,7 +469,7 @@ export default function GetInvolvedPageClient() {
                       <button type="submit" className={styles.submit} disabled={sponsorStatus === "loading"}>
                         {sponsorStatus === "loading" ? "Submitting..." : "Send Sponsor Inquiry"}
                       </button>
-                      <a className={styles.secondaryAction} href="/about#contact">Download Sponsor Packet</a>
+                      <a className={styles.secondaryAction} href={`mailto:${site.contactEmail}`}>Email Committee</a>
                     </div>
                   </form>
                 )}
@@ -477,7 +509,7 @@ export default function GetInvolvedPageClient() {
           <h2>Not sure where you fit?</h2>
           <p>We&apos;d love to help you find the best way to get involved.</p>
         </div>
-        <a href="/contact" className={styles.outlineButton}>Contact the Committee</a>
+        <a href={`mailto:${site.contactEmail}`} className={styles.outlineButton}>Contact the Committee</a>
       </section>
 
       <Footer />

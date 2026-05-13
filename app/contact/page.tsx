@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  redirect("/about#contact");
+  redirect("/get-involved");
 }
