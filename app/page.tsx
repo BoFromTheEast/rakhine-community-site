@@ -30,9 +30,21 @@ const previousEventPhotos = [
 ].slice(0, 5);
 
 const posterItems = [
-  { title: "2026 Festival Flyer", detail: "Main event announcement", imageSrc: "" },
-  { title: "Volunteer Poster", detail: "Help the festival come together", imageSrc: "" },
-  { title: "Schedule Poster", detail: "Two-day program overview", imageSrc: "" },
+  {
+    title: "Burmese Invitation Letter",
+    detail: "Burmese-language invitation for the community.",
+    imageSrc: "/posters/burmese-invitation.jpg",
+  },
+  {
+    title: "English Invitation Flyer",
+    detail: "English-language festival invitation and event overview.",
+    imageSrc: "/posters/english-invitation.jpg",
+  },
+  {
+    title: "Sports & Activities Flyer",
+    detail: "Games, sports, and activity schedule flyer.",
+    imageSrc: "/posters/sports-activities.jpg",
+  },
 ];
 
 export const metadata: Metadata = {
@@ -150,11 +162,11 @@ export default async function Home() {
           <p className={styles.sectionLabel}>Flyers & Posters</p>
           <h2 className={styles.sectionTitle}>Event Materials</h2>
           <p className={styles.sectionBody}>
-            Add festival flyers, schedule posters, and shareable announcements
-            here as they are ready.
+            Download or share the Burmese invitation, English invitation, and
+            sports event flyer.
           </p>
           <div className={styles.posterGrid}>
-            {posterItems.map((poster) => (
+            {posterItems.map((poster, index) => (
               <article className={styles.posterCard} key={poster.title}>
                 <div className={styles.posterPreview}>
                   {poster.imageSrc ? (
@@ -162,7 +174,8 @@ export default async function Home() {
                       src={poster.imageSrc}
                       alt={poster.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
                     />
                   ) : (
                     <div className={styles.posterPlaceholder} aria-hidden="true">
