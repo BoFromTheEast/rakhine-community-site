@@ -14,10 +14,6 @@
   min-width: 130px;
 }
 
-.unit + .unit {
-  border-left: 1px solid #e8dfd4;
-}
-
 .sep {
   position: absolute;
   left: -0.15rem;
