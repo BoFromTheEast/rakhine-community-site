@@ -2,7 +2,7 @@ export type ScheduleItem = {
   time: string;
   title: string;
   description: string;
-  tag: "Cultural" | "Water" | "Food" | "Raffle";
+  tag: "Cultural" | "Water" | "Food";
 };
 
 export const scheduleItems: ScheduleItem[] = [
@@ -25,11 +25,5 @@ export const scheduleItems: ScheduleItem[] = [
     title: "Traditional Food Stalls",
     description: "Enjoy authentic Rakhine dishes prepared by community members.",
     tag: "Food",
-  },
-  {
-    time: "3:30 PM",
-    title: "Raffle Drawing",
-    description: "Win exciting prizes. Must be present to win.",
-    tag: "Raffle",
   },
 ];

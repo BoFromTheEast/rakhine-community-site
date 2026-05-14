@@ -99,13 +99,6 @@
             "tagType": "Cultural"
           },
           {
-            "time": "ညနေ ၃:၃၀ နာရီ",
-            "name": "ကံစမ်းမဲ ဖောက်ခြင်း",
-            "description": "စိတ်လှုပ်ရှားဖွယ် ဆုမဲများကို ကံစမ်းနိုင်ပါသည်။ ကံစမ်းမဲ လက်မှတ်များကို ပွဲတော်တွင် ဝယ်ယူရရှိနိုင်ပြီး မဲပေါက်ချိန်တွင် ပွဲတော်၌ ရှိနေသူကိုသာ ဆုချီးမြှင့်ပါမည်။",
-            "tag": "Raffle",
-            "tagType": "Raffle"
-          },
-          {
             "time": "ညနေ ၅:၀၀ နာရီ",
             "name": "ပွဲတော်ပိတ်သိမ်းခြင်းနှင့် စုပေါင်း ညစာစားပွဲ",
             "description": "တစ်နေ့တာ အစီအစဉ်များကို ရုပ်သိမ်းကာ လူမှုအသိုက်အဝန်း အားလုံး စုပေါင်း၍ ညစာ အတူတကွ သုံးဆောင်ခြင်း။",
@@ -297,15 +290,6 @@
     "mission_3": "မည်သူမဆို ကြိုဆိုသည့် အသိုင်းအဝိုင်း",
     "mission_4": "အကျိုးအမြတ်မယူသော အဖွဲ့အဖြစ် ပွင့်လင်းမြင်သာစွာ လည်ပတ်ခြင်း",
     "mission_5": "ရရှိငွေအားလုံးကို ပွဲတော်အတွက် ပြန်လည်ရင်းနှီးမြှုပ်နှံခြင်း",
-    "leadership_heading": "ခေါင်းဆောင်မှု",
-    "leader_1_name": "Festival Director",
-    "leader_1_role": "Committee Chair",
-    "leader_2_name": "Operations Lead",
-    "leader_2_role": "Logistics & Venue",
-    "leader_3_name": "Cultural Director",
-    "leader_3_role": "Ceremonies & Program",
-    "leader_4_name": "Community Outreach",
-    "leader_4_role": "Partnerships & Sponsors",
     "quick_links": "အမြန်လင့်ခ်များ",
     "link_festival": "ပွဲစဉ်အစီအစဉ်",
     "location_heading": "နေရာ",

@@ -100,18 +100,11 @@
             "tagType": "Cultural"
           },
           {
-            "time": "3:30 PM",
-            "name": "Raffle Drawing",
-            "description": "Win exciting prizes! Tickets available at the event. Must be present to win.",
-            "tag": "Raffle",
-            "tagType": "Raffle"
-          },
-          {
             "time": "5:00 PM",
-            "name": "Closing and Community Dinner",
-            "description": "Join us to wrap up the day with a shared meal and community celebration.",
-            "tag": "Food",
-            "tagType": "Food"
+            "name": "Closing ",
+            "description": "Join us to wrap up the day with community celebration.",
+            "tag": "Cultural",
+            "tagType": "Cultural"
           }
         ]
       }
@@ -298,15 +291,6 @@
     "mission_3": "Welcome all neighbors and communities",
     "mission_4": "Operate transparently as a nonprofit",
     "mission_5": "Invest every dollar back into the community",
-    "leadership_heading": "Leadership",
-    "leader_1_name": "Festival Director",
-    "leader_1_role": "Committee Chair",
-    "leader_2_name": "Operations Lead",
-    "leader_2_role": "Logistics & Venue",
-    "leader_3_name": "Cultural Director",
-    "leader_3_role": "Ceremonies & Program",
-    "leader_4_name": "Community Outreach",
-    "leader_4_role": "Partnerships & Sponsors",
     "quick_links": "Quick Links",
     "link_festival": "Festival Schedule",
     "location_heading": "Location",

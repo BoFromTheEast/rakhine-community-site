@@ -10,17 +10,14 @@
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.78fr);
-  gap: 3rem;
-  align-items: center;
-  max-width: 1180px;
-  margin: 60px auto 0;
-  padding: 4.5rem 3rem 3rem;
+  margin-top: 60px;
+  padding: 5.5rem 3rem 3rem;
+  background: #0f4a75;
 }
 
 .heroContent {
-  max-width: 640px;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
 .eyebrow {
@@ -60,82 +57,94 @@
   line-height: 0.98;
 }
 
+.hero .heroTitle {
+  max-width: 760px;
+  color: #fff;
+}
+
 .heroLead {
   margin: 0;
   max-width: 610px;
-  color: #4a4a4a;
+  color: rgb(255 255 255 / 74%);
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   line-height: 1.75;
 }
 
-.heroVisual {
-  position: relative;
-  min-height: 320px;
-  border: 1px solid rgb(11 45 78 / 12%);
-  border-radius: 8px;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 72% 28%, rgb(240 201 107 / 56%) 0 8%, transparent 9%),
-    radial-gradient(circle at 20% 72%, rgb(255 255 255 / 42%) 0 7%, transparent 8%),
-    linear-gradient(135deg, rgb(11 45 78 / 92%), rgb(19 80 122 / 76) 48%, rgb(200 146 42 / 54)),
-    #0b2d4e;
-  box-shadow: 0 24px 70px rgb(11 45 78 / 16%);
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
 }
 
-.heroVisual::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(130deg, transparent 0 45%, rgb(255 255 255 / 18%) 46% 47%, transparent 48%),
-    repeating-linear-gradient(98deg, rgb(255 255 255 / 12%) 0 1px, transparent 1px 18px);
-  opacity: 0.8;
-}
-
-.heroVisual::after {
-  content: "";
-  position: absolute;
-  right: 2rem;
-  bottom: 2rem;
-  width: 46%;
-  aspect-ratio: 1;
-  border: 1px solid rgb(255 255 255 / 32%);
+.heroAction {
+  min-height: 44px;
+  padding: 0.78rem 1.35rem;
+  border: 1px solid rgb(240 201 107 / 45%);
   border-radius: 999px;
-  background: rgb(255 255 255 / 12%);
-}
-
-.heroImageText {
-  position: absolute;
-  left: 1.5rem;
-  bottom: 1.5rem;
-  z-index: 1;
-  color: #fff;
-}
-
-.heroImageText span {
-  display: block;
-  margin-bottom: 0.45rem;
+  background: transparent;
   color: #f0c96b;
-  font-size: 0.64rem;
-  letter-spacing: 0.18em;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s,
+    transform 0.1s;
+}
+
+.heroAction:hover,
+.heroActionActive {
+  background: #f0c96b;
+  border-color: #f0c96b;
+  color: #0b2d4e;
+}
+
+.heroAction:active {
+  transform: scale(0.98);
+}
+
+.heroDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.4rem;
+  margin-top: 2.25rem;
+  color: rgb(255 255 255 / 62%);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.heroImageText strong {
-  display: block;
-  max-width: 210px;
-  font-family: var(--font-playfair), serif;
-  font-size: 1.45rem;
-  line-height: 1.1;
+.heroDetails span {
+  position: relative;
+}
+
+.heroDetails span + span::before {
+  content: "";
+  position: absolute;
+  left: -0.78rem;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #c8922a;
+  transform: translateY(-50%);
 }
 
 .impactBar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
+  gap: 1rem;
   max-width: 1180px;
   margin: 0 auto;
-  padding: 0 3rem 2.5rem;
+  padding: 0 3rem 4rem;
+  background: #0f4a75;
+  box-shadow: 0 0 0 100vmax #0f4a75;
+  clip-path: inset(0 -100vmax);
 }
 
 .impactItem {
@@ -143,6 +152,8 @@
   padding: 1.5rem 1.6rem;
   background: #fff;
   border: 1px solid #e8dfd4;
+  border-radius: 6px;
+  box-shadow: 0 18px 42px rgb(11 45 78 / 11%);
 }
 
 .impactItem h2 {
@@ -161,11 +172,12 @@
 
 .backgroundSection {
   max-width: 1180px;
-  margin: 0 auto 4rem;
+  margin: 3rem auto 4rem;
   padding: 3.5rem;
   border: 1px solid #e8dfd4;
   border-radius: 8px;
   background: #fff;
+  box-shadow: 0 16px 46px rgb(11 45 78 / 6%);
 }
 
 .backgroundGrid {
@@ -264,7 +276,7 @@
 .choiceCard {
   position: relative;
   display: flex;
-  min-height: 265px;
+  min-height: 235px;
   flex-direction: column;
   align-items: flex-start;
   padding: 1.5rem;
@@ -285,6 +297,7 @@
 
 .choiceCardActive {
   border-color: #c8922a;
+  background: #fffaf2;
   box-shadow: 0 20px 50px rgb(11 45 78 / 10%);
 }
 
@@ -702,6 +715,13 @@
   line-height: 1.65;
 }
 
+.bottomActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: flex-end;
+}
+
 .outlineButton {
   border: 1px solid #0b2d4e;
   color: #0b2d4e;
@@ -716,13 +736,7 @@
 
 @media (max-width: 980px) {
   .hero {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 3.5rem 2.25rem 2.5rem;
-  }
-
-  .heroVisual {
-    min-height: 260px;
+    padding: 4rem 2.25rem 2.5rem;
   }
 
   .impactBar,
@@ -733,6 +747,7 @@
   }
 
   .backgroundSection {
+    margin-top: 2.5rem;
     margin-bottom: 3.5rem;
     padding: 3.25rem 2.25rem;
   }
@@ -765,11 +780,24 @@
 
 @media (max-width: 680px) {
   .hero {
-    padding: 2.75rem 1.25rem 2rem;
+    padding: 3.25rem 1.25rem 2.25rem;
   }
 
-  .heroVisual {
-    min-height: 220px;
+  .heroActions {
+    gap: 0.6rem;
+  }
+
+  .heroAction {
+    flex: 1 1 100%;
+  }
+
+  .heroDetails {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .heroDetails span + span::before {
+    display: none;
   }
 
   .impactBar,
@@ -779,6 +807,7 @@
   }
 
   .backgroundSection {
+    margin-top: 2rem;
     margin-bottom: 3rem;
     padding: 2.5rem 1.25rem;
   }
@@ -829,6 +858,10 @@
     align-items: flex-start;
     margin: 0 1.25rem 3.25rem;
     padding: 1.35rem;
+  }
+
+  .bottomActions {
+    width: 100%;
   }
 
   .outlineButton {

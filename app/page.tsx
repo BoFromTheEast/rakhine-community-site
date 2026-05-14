@@ -16,19 +16,23 @@ const tagClassMap: Record<string, string> = {
   Cultural: styles.tagCulture,
   Water: styles.tagWater,
   Food: styles.tagFood,
-  Raffle: styles.tagCulture,
   Athletic: styles.tagAthletic,
 };
 
 const dicts = { en, my };
 
 const previousEventPhotos = [
-  { year: "2025", title: "Water Festival Day", imageSrc: "" },
-  { year: "2024", title: "Opening Ceremony", imageSrc: "" },
-  { year: "2023", title: "Community Gathering", imageSrc: "" },
-  { year: "2022", title: "Food and Music", imageSrc: "" },
-  { year: "2019", title: "Festival Memories", imageSrc: "" },
-].slice(0, 5);
+  "/previous-events/celebration-01.jpg",
+  "/previous-events/celebration-02.jpg",
+  "/previous-events/celebration-03.jpg",
+  "/previous-events/celebration-04.jpg",
+  "/previous-events/celebration-05.jpg",
+  "/previous-events/celebration-06.jpg",
+  "/previous-events/celebration-07.jpg",
+  "/previous-events/celebration-08.jpg",
+  "/previous-events/celebration-09.jpg",
+  "/previous-events/celebration-10.jpg",
+];
 
 const posterItems = [
   {
@@ -76,6 +80,18 @@ export default async function Home() {
           <strong>{t("hero.event_dates")}</strong>
           <strong>{t("hero.event_time")}</strong>
           <strong>{t("hero.address")}</strong>
+        </div>
+      </section>
+
+      <section className={styles.posters} id="posters">
+        <div className={styles.container}>
+          <p className={styles.sectionLabel}>Flyers & Posters</p>
+          <h2 className={styles.sectionTitle}>Event Materials</h2>
+          <p className={styles.sectionBody}>
+            Download or share the Burmese invitation, English invitation, and
+            sports event flyer.
+          </p>
+          <PosterGallery posters={posterItems} />
         </div>
       </section>
 
@@ -133,42 +149,23 @@ export default async function Home() {
           <div className={styles.memoryCarousel}>
             <div className={styles.memoryTrack}>
               {[...previousEventPhotos, ...previousEventPhotos].map(
-                (photo, index) => (
+                (imageSrc, index) => (
                   <figure
                     className={styles.memoryCard}
-                    key={`${photo.year}-${photo.title}-${index}`}
+                    key={`${imageSrc}-${index}`}
                     aria-hidden={index >= previousEventPhotos.length}
                   >
-                    {photo.imageSrc ? (
-                      <Image
-                        src={photo.imageSrc}
-                        alt={`${photo.title}, ${photo.year}`}
-                        fill
-                        sizes="(max-width: 768px) 70vw, 28vw"
-                      />
-                    ) : (
-                      <div
-                        className={styles.imagePlaceholder}
-                        aria-hidden="true"
-                      />
-                    )}
+                    <Image
+                      src={imageSrc}
+                      alt="Past Rakhine Water Festival celebration"
+                      fill
+                      sizes="(max-width: 768px) 72vw, 28vw"
+                    />
                   </figure>
                 ),
               )}
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className={styles.posters} id="posters">
-        <div className={styles.container}>
-          <p className={styles.sectionLabel}>Flyers & Posters</p>
-          <h2 className={styles.sectionTitle}>Event Materials</h2>
-          <p className={styles.sectionBody}>
-            Download or share the Burmese invitation, English invitation, and
-            sports event flyer.
-          </p>
-          <PosterGallery posters={posterItems} />
         </div>
       </section>
 

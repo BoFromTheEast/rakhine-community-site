@@ -13,17 +13,14 @@ type PathKey = "volunteer" | "sponsor" | "perform";
 
 const IMPACT_POINTS = [
   {
-    icon: "heart",
     title: "Stronger Together",
     body: "Volunteers are the heart that keeps the festival running.",
   },
   {
-    icon: "spark",
     title: "Sustainable Tradition",
     body: "Sponsors help fund and grow our cultural celebration.",
   },
   {
-    icon: "music",
     title: "Share Our Culture",
     body: "Performers bring our music, dance, and heritage to life.",
   },
@@ -271,16 +268,29 @@ export default function GetInvolvedPageClient() {
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <p className={styles.eyebrow}>Join the Community</p>
-          <h1 className={styles.heroTitle}>Get Involved</h1>
+          <h1 className={styles.heroTitle}>Bring Thingyan to life.</h1>
           <p className={styles.heroLead}>
             Every hour you give, every dollar you share, and every talent you bring helps keep
             Thingyan alive for generations to come.
           </p>
-        </div>
-        <div className={styles.heroVisual} aria-label="Joyful water festival image placeholder">
-          <div className={styles.heroImageText}>
-            <span>Festival Photo</span>
-            <strong>Joyful Thingyan moment</strong>
+          <div className={styles.heroActions} aria-label="Get involved options">
+            {HELP_PATHS.map((path) => (
+              <button
+                type="button"
+                key={path.key}
+                className={`${styles.heroAction} ${
+                  activePath === path.key ? styles.heroActionActive : ""
+                }`}
+                onClick={() => selectPath(path.key)}
+              >
+                {path.title}
+              </button>
+            ))}
+          </div>
+          <div className={styles.heroDetails} aria-label="Event details">
+            <span>July 4-5, {site.event.year}</span>
+            <span>{site.event.venue.name}</span>
+            <span>{site.event.city}, {site.event.state}</span>
           </div>
         </div>
       </section>
@@ -508,7 +518,17 @@ export default function GetInvolvedPageClient() {
           <h2>Not sure where you fit?</h2>
           <p>We&apos;d love to help you find the best way to get involved.</p>
         </div>
-        <a href={`mailto:${site.contactEmail}`} className={styles.outlineButton}>Contact the Committee</a>
+        <div className={styles.bottomActions}>
+          <a href={`mailto:${site.contactEmail}`} className={styles.outlineButton}>Contact the Committee</a>
+          <a
+            href={site.social.instagramUrl}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.outlineButton}
+          >
+            Follow on Instagram
+          </a>
+        </div>
       </section>
 
       <Footer />

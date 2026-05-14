@@ -28,7 +28,7 @@
 .num {
   font-family: var(--font-playfair), serif;
   font-size: clamp(2.8rem, 5vw, 4.2rem);
-  color: #0b2d4e;
+  color: #fff;
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -40,7 +40,7 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #c8922a;
+  color: #f0c96b;
 }
 
 @media (max-width: 640px) {

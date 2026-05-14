@@ -24,6 +24,7 @@ export const site = {
   },
   social: {
     ogImage: "/globe.svg",
+    instagramUrl: "https://www.instagram.com/arakanrootsandrise/",
   },
 } as const;
 

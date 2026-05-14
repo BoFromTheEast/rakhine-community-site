@@ -7,7 +7,7 @@
 
 .footerTop {
   display: grid;
-  grid-template-columns: 1.4fr 1.6fr 1.2fr 1.2fr 1fr;
+  grid-template-columns: 1.4fr 1.6fr 1.2fr 1fr;
   gap: 3rem;
   padding: 4rem 3rem;
   border-bottom: 1px solid rgb(255 255 255 / 7%);
@@ -91,32 +91,6 @@
   position: absolute;
   left: 0;
   color: #c8922a;
-}
-
-.footerLeadership {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.footerLeadership li {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-}
-
-.leaderName {
-  font-size: 0.82rem;
-  color: rgb(255 255 255 / 60%);
-}
-
-.leaderRole {
-  font-size: 0.7rem;
-  color: rgb(255 255 255 / 28%);
-  letter-spacing: 0.04em;
 }
 
 .footerNav {

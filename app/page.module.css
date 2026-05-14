@@ -155,16 +155,17 @@
 }
 
 .countdown {
-  background: var(--cream);
-  border-bottom: 1px solid #e8dfd4;
+  padding: 3rem 2rem;
+  background: var(--deep-blue);
+  border-bottom: 1px solid rgb(255 255 255 / 8%);
   text-align: center;
 }
 
 .countdownHeading {
   font-family: var(--font-playfair), serif;
   font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-  color: var(--deep-blue);
-  margin: 0 0 3rem;
+  color: #fff;
+  margin: 0 0 2rem;
 }
 
 .sectionLabel {
@@ -274,8 +275,8 @@
 .memoryTrack {
   width: max-content;
   display: flex;
-  gap: 1rem;
-  animation: memorySlide 28s linear infinite;
+  gap: 1.25rem;
+  animation: memorySlide 36s linear infinite;
 }
 
 .memoryCarousel:hover .memoryTrack {
@@ -284,12 +285,13 @@
 
 .memoryCard {
   position: relative;
-  flex: 0 0 clamp(220px, 28vw, 340px);
-  aspect-ratio: 4 / 3;
+  flex: 0 0 clamp(320px, 42vw, 540px);
+  aspect-ratio: 16 / 10;
   margin: 0;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 14px;
   background: #e8dfd4;
+  box-shadow: 0 18px 46px rgb(0 0 0 / 18%);
 }
 
 .memoryCard img,
@@ -298,20 +300,6 @@
   height: 100%;
   display: block;
   object-fit: cover;
-}
-
-.imagePlaceholder {
-  width: 100%;
-  height: 100%;
-  background:
-    linear-gradient(135deg, rgb(11 45 78 / 14%), rgb(200 146 42 / 18%)),
-    repeating-linear-gradient(
-      -35deg,
-      #e9e2d7 0,
-      #e9e2d7 14px,
-      #f6efe5 14px,
-      #f6efe5 28px
-    );
 }
 
 @keyframes memorySlide {
@@ -1040,11 +1028,11 @@
   }
 
   .memoryTrack {
-    gap: 0.75rem;
+    gap: 1rem;
   }
 
   .memoryCard {
-    flex-basis: 72vw;
+    flex-basis: 84vw;
   }
 
   .posterGrid {

@@ -42,28 +42,6 @@ export default function Footer() {
         </div>
 
         <div className={styles.footerCol}>
-          <h4 className={styles.footerHeading}>{t("footer.leadership_heading")}</h4>
-          <ul className={styles.footerLeadership}>
-            <li>
-              <span className={styles.leaderName}>{t("footer.leader_1_name")}</span>
-              <span className={styles.leaderRole}>{t("footer.leader_1_role")}</span>
-            </li>
-            <li>
-              <span className={styles.leaderName}>{t("footer.leader_2_name")}</span>
-              <span className={styles.leaderRole}>{t("footer.leader_2_role")}</span>
-            </li>
-            <li>
-              <span className={styles.leaderName}>{t("footer.leader_3_name")}</span>
-              <span className={styles.leaderRole}>{t("footer.leader_3_role")}</span>
-            </li>
-            <li>
-              <span className={styles.leaderName}>{t("footer.leader_4_name")}</span>
-              <span className={styles.leaderRole}>{t("footer.leader_4_role")}</span>
-            </li>
-          </ul>
-        </div>
-
-        <div className={styles.footerCol}>
           <h4 className={styles.footerHeading}>{t("footer.quick_links")}</h4>
           <ul className={styles.footerNav}>
             <li>
@@ -78,15 +56,12 @@ export default function Footer() {
             <li>
               <a href={`mailto:${site.contactEmail}`}>{t("nav.contact")}</a>
             </li>
+            <li>
+              <a href={site.social.instagramUrl} target="_blank" rel="noreferrer">
+                Instagram
+              </a>
+            </li>
           </ul>
-          <h4 className={`${styles.footerHeading} ${styles.footerHeadingSpaced}`}>
-            {t("footer.location_heading")}
-          </h4>
-          <p className={styles.footerText}>
-            {site.event.venue.name}
-            <br />
-            {site.event.venue.line1}
-          </p>
           <ul className={styles.footerNav}>
             <li>
               <Link href="/privacy">{t("footer.link_privacy")}</Link>
