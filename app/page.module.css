@@ -30,20 +30,6 @@
   overflow: hidden;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 180px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180'%3E%3Cpath fill='%23FDF6EC' fill-opacity='1' d='M0,96L48,106.7C96,117,192,139,288,128C384,117,480,75,576,64C672,53,768,75,864,90.7C960,107,1056,117,1152,112C1248,107,1344,85,1392,74.7L1440,64L1440,180L1392,180C1344,180,1248,180,1152,180C1056,180,960,180,864,180C768,180,672,180,576,180C480,180,384,180,288,180C192,180,96,180,48,180L0,180Z'%3E%3C/path%3E%3C/svg%3E");
-  background-size: cover;
-  background-position: top;
-  pointer-events: none;
-  z-index: 0;
-}
-
 .heroTag {
   display: inline-block;
   border: 1px solid rgb(200 146 42 / 60%);
@@ -263,29 +249,47 @@
 }
 
 .memories {
-  background: #fff;
+  background: var(--deep-blue);
 }
 
-.memoryGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 190px;
-  gap: 0.85rem;
+.memories .sectionLabel {
+  color: var(--gold-light);
+}
+
+.memories .sectionTitle {
+  color: #fff;
+}
+
+.memories .sectionBody {
+  color: rgb(255 255 255 / 64%);
+}
+
+.memoryCarousel {
+  width: 100%;
+  overflow: hidden;
   margin-top: 2.5rem;
+  padding-block: 0.25rem;
+}
+
+.memoryTrack {
+  width: max-content;
+  display: flex;
+  gap: 1rem;
+  animation: memorySlide 28s linear infinite;
+}
+
+.memoryCarousel:hover .memoryTrack {
+  animation-play-state: paused;
 }
 
 .memoryCard {
   position: relative;
-  min-height: 0;
+  flex: 0 0 clamp(220px, 28vw, 340px);
+  aspect-ratio: 4 / 3;
   margin: 0;
   overflow: hidden;
   border-radius: 4px;
   background: #e8dfd4;
-}
-
-.memoryCardLarge {
-  grid-column: span 2;
-  grid-row: span 2;
 }
 
 .memoryCard img,
@@ -310,31 +314,14 @@
     );
 }
 
-.memoryCaption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 3rem 1rem 1rem;
-  background: linear-gradient(180deg, transparent, rgb(7 30 52 / 82%));
-  color: #fff;
-}
+@keyframes memorySlide {
+  from {
+    transform: translateX(-50%);
+  }
 
-.memoryCaption span {
-  display: block;
-  margin-bottom: 0.25rem;
-  color: var(--gold-light);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.memoryCaption strong {
-  display: block;
-  font-family: var(--font-playfair), serif;
-  font-size: 1.08rem;
-  line-height: 1.25;
+  to {
+    transform: translateX(0);
+  }
 }
 
 .posters {
@@ -1052,14 +1039,12 @@
     grid-template-columns: 1fr;
   }
 
-  .memoryGrid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 170px;
+  .memoryTrack {
+    gap: 0.75rem;
   }
 
-  .memoryCardLarge {
-    grid-column: span 2;
-    grid-row: span 1;
+  .memoryCard {
+    flex-basis: 72vw;
   }
 
   .posterGrid {
@@ -1106,5 +1091,12 @@
 
   .involveGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memoryTrack {
+    animation: none;
+    transform: none;
   }
 }

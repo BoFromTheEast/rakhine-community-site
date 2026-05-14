@@ -288,7 +288,6 @@ export default function GetInvolvedPageClient() {
       <section className={styles.impactBar} aria-label="Community impact">
         {IMPACT_POINTS.map((point) => (
           <article className={styles.impactItem} key={point.title}>
-            <span className={styles.impactIcon} data-icon={point.icon} aria-hidden="true" />
             <div>
               <h2>{point.title}</h2>
               <p>{point.body}</p>

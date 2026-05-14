@@ -130,34 +130,32 @@ export default async function Home() {
             A small gallery for highlights from previous Rakhine Water Festival
             gatherings.
           </p>
-          <div className={styles.memoryGrid}>
-            {previousEventPhotos.map((photo, index) => (
-              <figure
-                className={`${styles.memoryCard} ${
-                  index === 0 ? styles.memoryCardLarge : ""
-                }`}
-                key={`${photo.year}-${photo.title}`}
-              >
-                {photo.imageSrc ? (
-                  <Image
-                    src={photo.imageSrc}
-                    alt={`${photo.title}, ${photo.year}`}
-                    fill
-                    sizes={
-                      index === 0
-                        ? "(max-width: 768px) 100vw, 50vw"
-                        : "(max-width: 768px) 50vw, 25vw"
-                    }
-                  />
-                ) : (
-                  <div className={styles.imagePlaceholder} aria-hidden="true" />
-                )}
-                <figcaption className={styles.memoryCaption}>
-                  <span>{photo.year}</span>
-                  <strong>{photo.title}</strong>
-                </figcaption>
-              </figure>
-            ))}
+          <div className={styles.memoryCarousel}>
+            <div className={styles.memoryTrack}>
+              {[...previousEventPhotos, ...previousEventPhotos].map(
+                (photo, index) => (
+                  <figure
+                    className={styles.memoryCard}
+                    key={`${photo.year}-${photo.title}-${index}`}
+                    aria-hidden={index >= previousEventPhotos.length}
+                  >
+                    {photo.imageSrc ? (
+                      <Image
+                        src={photo.imageSrc}
+                        alt={`${photo.title}, ${photo.year}`}
+                        fill
+                        sizes="(max-width: 768px) 70vw, 28vw"
+                      />
+                    ) : (
+                      <div
+                        className={styles.imagePlaceholder}
+                        aria-hidden="true"
+                      />
+                    )}
+                  </figure>
+                ),
+              )}
+            </div>
           </div>
         </div>
       </section>

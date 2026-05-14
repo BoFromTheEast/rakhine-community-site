@@ -139,67 +139,10 @@
 }
 
 .impactItem {
-  display: flex;
-  gap: 1rem;
   min-height: 128px;
-  padding: 1.35rem;
+  padding: 1.5rem 1.6rem;
   background: #fff;
   border: 1px solid #e8dfd4;
-}
-
-.impactIcon {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgb(200 146 42 / 35%);
-  border-radius: 999px;
-  flex: 0 0 auto;
-}
-
-.impactIcon::before,
-.impactIcon::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: #c8922a;
-}
-
-.impactIcon::before {
-  width: 16px;
-  height: 1.5px;
-}
-
-.impactIcon::after {
-  width: 1.5px;
-  height: 16px;
-}
-
-.impactIcon[data-icon="heart"]::after {
-  display: none;
-}
-
-.impactIcon[data-icon="heart"]::before {
-  width: 16px;
-  height: 12px;
-  background: transparent;
-  border: 1.5px solid #c8922a;
-  border-top: 0;
-  transform: translate(-50%, -44%) rotate(45deg);
-}
-
-.impactIcon[data-icon="music"]::before {
-  width: 2px;
-  height: 17px;
-  transform: translate(-160%, -58%);
-}
-
-.impactIcon[data-icon="music"]::after {
-  width: 11px;
-  height: 8px;
-  border-radius: 999px;
-  transform: translate(-35%, 12%);
 }
 
 .impactItem h2 {
