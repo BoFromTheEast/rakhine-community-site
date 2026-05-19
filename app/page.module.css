@@ -276,7 +276,8 @@
   width: max-content;
   display: flex;
   gap: 1.25rem;
-  animation: memorySlide 36s linear infinite;
+  animation: memorySlide 40s linear infinite;
+  will-change: transform;
 }
 
 .memoryCarousel:hover .memoryTrack {
@@ -304,11 +305,11 @@
 
 @keyframes memorySlide {
   from {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
 
   to {
-    transform: translateX(0);
+    transform: translateX(calc(-50% - 0.625rem));
   }
 }
 
@@ -983,6 +984,10 @@
 
 
 @media (max-width: 768px) {
+  .page section {
+    padding: 3.75rem 1.25rem;
+  }
+
   .hero {
     min-height: auto;
     padding: 5.1rem 1.25rem 2.7rem;
@@ -1028,11 +1033,28 @@
   }
 
   .memoryTrack {
+    width: 100%;
     gap: 1rem;
+    overflow-x: auto;
+    padding: 0 0 0.75rem;
+    animation: none;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .memoryTrack::-webkit-scrollbar {
+    display: none;
   }
 
   .memoryCard {
-    flex-basis: 84vw;
+    flex: 0 0 min(84vw, 340px);
+    border-radius: 10px;
+    scroll-snap-align: start;
+  }
+
+  .memoryCard[aria-hidden="true"] {
+    display: none;
   }
 
   .posterGrid {

@@ -159,7 +159,8 @@ export default async function Home() {
                       src={imageSrc}
                       alt="Past Rakhine Water Festival celebration"
                       fill
-                      sizes="(max-width: 768px) 72vw, 28vw"
+                      loading={index < 4 ? "eager" : "lazy"}
+                      sizes="(max-width: 768px) 84vw, 28vw"
                     />
                   </figure>
                 ),
