@@ -16,7 +16,7 @@ type YearEntry = {
   note: string;
 };
 
-const START_YEAR = 2015;
+const START_YEAR = 2014;
 const CURRENT_YEAR = site.event.year;
 
 function getOrdinal(value: number): string {
@@ -34,9 +34,9 @@ export default function FestivalPageClient() {
   const { t } = useTranslation(locale);
 
   const yearOverrides: Record<number, Partial<YearEntry>> = {
-    2015: {
-      title: t("festival.year_2015_title"),
-      subtitle: t("festival.year_2015_subtitle"),
+    2014: {
+      title: t("festival.year_2014_title"),
+      subtitle: t("festival.year_2014_subtitle"),
     },
     2019: {
       title: t("festival.year_2019_title"),
@@ -118,7 +118,8 @@ export default function FestivalPageClient() {
           <h1 className={styles.title}>{activeYear.title}</h1>
           <p className={styles.subtitle}>{activeYear.subtitle}</p>
           <p className={styles.venuePlaceholder}>
-            {t("venue.label")}: {site.event.venue.name} - {site.event.venue.line1}
+            {t("venue.label")}: {site.event.venue.name} -{" "}
+            {site.event.venue.line1}
           </p>
         </div>
 
