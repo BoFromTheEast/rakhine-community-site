@@ -1,6 +1,5 @@
 {
   "hero": {
-    "tag": "Thingyan - Des Moines 2026",
     "title_main": "Rakhine",
     "title_em": "Water Festival",
     "subtitle": "Celebrate renewal, community, and the joy of Thingyan — a tradition carried from Rakhine to the heart of Iowa.",
@@ -126,8 +125,11 @@
   "sponsors": {
     "label": "Our Supporters",
     "title": "Festival Sponsors",
-    "body": "We're grateful to the local businesses and organizations that make this festival possible. Interested in sponsoring?",
-    "contact_link": "Get in touch.",
+    "organizer_label": "Presented by",
+    "thank_you_title": "A note of thanks",
+    "thank_you_body": "To our generous sponsors: thank you for standing with the Rakhine community and helping bring this celebration to life. Your support gives families a place to gather, traditions a place to shine, and the next generation a chance to experience the joy of our culture. We are deeply grateful for your partnership and your belief in this community.",
+    "thank_you_signoff": "With gratitude, Arrakan Roots & Rise and the Rakhine Water Festival Committee",
+    "contact_link": "Interested in supporting the festival? Get in touch.",
     "gold_label": "Gold Sponsors",
     "silver_label": "Silver Sponsors",
     "community_label": "Community Supporters",
