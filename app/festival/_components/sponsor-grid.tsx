@@ -1,25 +1,31 @@
-import type { SponsorTier } from "../_data/sponsors";
+import Image from "next/image";
+import type { Sponsor } from "../_data/sponsors";
 import styles from "./sponsor-grid.module.css";
 
 type Props = {
-  tiers: SponsorTier[];
+  sponsors: Sponsor[];
 };
 
-export function SponsorGrid({ tiers }: Props) {
+export function SponsorGrid({ sponsors }: Props) {
   return (
     <section>
       <h2 className={styles.title}>Sponsors</h2>
-      <div className={styles.tiers}>
-        {tiers.map((tier) => (
-          <div key={tier.label}>
-            <p className={styles.tierLabel}>{tier.label}</p>
-            <div className={styles.row}>
-              {tier.slots.map((slot, idx) => (
-                <div className={styles.slot} key={`${tier.label}-${idx}`}>
-                  {slot}
-                </div>
-              ))}
-            </div>
+      <div className={styles.row}>
+        {sponsors.map((sponsor) => (
+          <div className={styles.slot} key={sponsor.name}>
+            {sponsor.logoSrc ? (
+              <Image
+                src={sponsor.logoSrc}
+                alt={sponsor.name}
+                width={180}
+                height={72}
+              />
+            ) : (
+              <>
+                <strong>{sponsor.name}</strong>
+                {sponsor.organization && <span>{sponsor.organization}</span>}
+              </>
+            )}
           </div>
         ))}
       </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import Image from "next/image";
+import Link from "next/link";
 import Navbar from "./_components/Navbar";
 import Footer from "./_components/Footer";
 import FaqAccordion from "./faq/_components/FaqAccordion";
@@ -9,6 +10,7 @@ import PosterGallery from "./_components/PosterGallery";
 import styles from "./page.module.css";
 import { getTranslation, type Locale } from "@/lib/useTranslation";
 import { site } from "@/lib/site";
+import { sponsors } from "./festival/_data/sponsors";
 import en from "@/locales/en.json";
 import my from "@/locales/my.json";
 
@@ -69,7 +71,24 @@ export default async function Home() {
       <Navbar activePage="home" />
 
       <section className={styles.hero} id="home">
-        <div className={styles.heroTag}>{t("hero.tag")}</div>
+        <div className={styles.heroIdentity}>
+          <div className={styles.heroOrganizer}>
+            <div className={styles.heroOrganizerLogo}>
+              <Image
+                src="/organization/arrakan-roots-rise.png"
+                alt="Arrakan Roots & Rise"
+                width={1254}
+                height={1254}
+                sizes="(max-width: 768px) 64px, 88px"
+                priority
+              />
+            </div>
+            <div className={styles.heroOrganizerCopy}>
+              <span>{t("sponsors.organizer_label")}</span>
+              <strong>Arakan Roots &amp; Rise</strong>
+            </div>
+          </div>
+        </div>
         <h1 className={styles.heroTitle}>
           {t("hero.title_main")} <br />
           <em>{t("hero.title_em")}</em>
@@ -201,6 +220,73 @@ export default async function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.sponsors} id="sponsors">
+        <div className={styles.container}>
+          <div className={styles.sponsorLayout}>
+            <div className={styles.sponsorRoster}>
+              <div>
+                <p className={styles.sectionLabel}>{t("sponsors.label")}</p>
+                <h2 className={styles.sectionTitle}>{t("sponsors.title")}</h2>
+              </div>
+
+              <div className={styles.sponsorList}>
+                <p className={styles.sponsorListLabel}>
+                  <span>{t("sponsors.community_label")}</span>
+                  <span>{sponsors.length}</span>
+                </p>
+                <div className={styles.sponsorGrid}>
+                  {sponsors.map((sponsor) => {
+                    const content = (
+                      <>
+                        <strong>{sponsor.name}</strong>
+                        {sponsor.organization && (
+                          <span>{sponsor.organization}</span>
+                        )}
+                      </>
+                    );
+
+                    return sponsor.website ? (
+                      <a
+                        className={styles.sponsorCard}
+                        href={sponsor.website}
+                        target="_blank"
+                        rel="noreferrer"
+                        key={sponsor.name}
+                        aria-label={`Visit ${sponsor.name}`}
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      <article
+                        className={styles.sponsorCard}
+                        key={sponsor.name}
+                      >
+                        {content}
+                      </article>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <aside className={styles.sponsorLetter}>
+              <p className={styles.sponsorLetterLabel}>
+                {t("sponsors.thank_you_title")}
+              </p>
+              <p className={styles.sponsorBody}>
+                {t("sponsors.thank_you_body")}
+              </p>
+              <p className={styles.sponsorSignoff}>
+                {t("sponsors.thank_you_signoff")}
+              </p>
+              <Link href="/contact" className={styles.sponsorContactLink}>
+                {t("sponsors.contact_link")}
+              </Link>
+            </aside>
           </div>
         </div>
       </section>

@@ -30,6 +30,64 @@
   overflow: hidden;
 }
 
+.heroIdentity {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.heroOrganizer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.heroOrganizerLogo {
+  width: 88px;
+  height: 88px;
+  flex: 0 0 88px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #fff;
+  outline: 1px solid rgb(240 201 107 / 45%);
+  outline-offset: 4px;
+  box-shadow: 0 12px 30px rgb(0 0 0 / 18%);
+}
+
+.heroOrganizerLogo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.heroOrganizer span,
+.heroOrganizer strong {
+  display: block;
+}
+
+.heroOrganizer span {
+  margin-bottom: 0.25rem;
+  color: var(--gold-light);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.heroOrganizer strong {
+  color: #fff;
+  font-family: var(--font-playfair), serif;
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
 .heroTag {
   display: inline-block;
   border: 1px solid rgb(200 146 42 / 60%);
@@ -39,7 +97,7 @@
   text-transform: uppercase;
   padding: 0.35rem 1.2rem;
   border-radius: 2px;
-  margin-bottom: 2rem;
+  margin: 0;
   z-index: 1;
 }
 
@@ -589,17 +647,98 @@
 }
 
 .sponsors {
-  background: #fff;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgb(200 146 42 / 5%) 1px, transparent 1px),
+    linear-gradient(rgb(200 146 42 / 5%) 1px, transparent 1px),
+    #fff;
+  background-size: 44px 44px;
 }
 
-.sponsorTiers {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
+.sponsors::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  right: -180px;
+  top: -180px;
+  border: 1px solid rgb(200 146 42 / 18%);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 42px rgb(200 146 42 / 4%),
+    0 0 0 84px rgb(200 146 42 / 3%);
+  pointer-events: none;
+}
+
+.sponsorLayout {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+  gap: 4rem;
+  align-items: stretch;
+}
+
+.sponsorRoster {
+  min-width: 0;
+}
+
+.sponsorRoster .sectionTitle {
+  margin-bottom: 0;
+}
+
+.sponsorBody {
+  margin: 0;
+  color: var(--text-mid);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.sponsorLetter {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  align-self: center;
+  justify-self: end;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--gold);
+}
+
+.sponsorLetterLabel {
+  margin: 0 0 0.65rem;
+  color: var(--gold);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.sponsorSignoff {
+  margin: 0.9rem 0 0;
+  color: var(--deep-blue);
+  font-family: var(--font-playfair), serif;
+  font-size: 0.96rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.sponsorContactLink {
+  display: inline-block;
+  margin-top: 0.7rem;
+  color: var(--gold);
+  font-weight: 700;
+  text-underline-offset: 0.25em;
+}
+
+.sponsorList {
   margin-top: 3rem;
 }
 
-.tierLabel {
+.sponsorListLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   font-size: 0.72rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -609,49 +748,64 @@
   border-bottom: 1px solid #e8e0d4;
 }
 
-.sponsorRow {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  align-items: center;
+.sponsorListLabel span:last-child {
+  display: grid;
+  min-width: 1.7rem;
+  height: 1.7rem;
+  place-items: center;
+  border: 1px solid #e8e0d4;
+  border-radius: 50%;
+  color: #8b8174;
+  font-size: 0.64rem;
 }
 
-.sponsorSlot {
-  border: 1px dashed #d0c8bc;
-  border-radius: 4px;
+.sponsorGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.sponsorCard {
+  position: relative;
+  overflow: hidden;
+  min-height: 112px;
+  padding: 1.25rem;
+  border: 1px solid #e1d7ca;
+  border-radius: 10px;
   display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
   align-items: center;
   justify-content: center;
-  color: #bbb;
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  cursor: pointer;
+  background: rgb(253 246 236 / 60%);
+  text-align: center;
+  text-decoration: none;
   transition:
     border-color 0.2s,
-    color 0.2s;
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
-.sponsorSlot:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+.sponsorCard strong {
+  color: var(--deep-blue);
+  font-family: var(--font-playfair), serif;
+  font-size: 1rem;
+  line-height: 1.3;
 }
 
-.goldTier {
-  width: 220px;
-  height: 80px;
-  font-size: 0.9rem;
-}
-
-.silverTier {
-  width: 160px;
-  height: 60px;
-}
-
-.bronzeTier {
-  width: 120px;
-  height: 50px;
+.sponsorCard span {
+  color: #8a7459;
   font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.sponsorCard:is(a):hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgb(11 45 78 / 9%);
 }
 
 .raffle {
@@ -993,8 +1147,36 @@
     padding: 5.1rem 1.25rem 2.7rem;
   }
 
+  .heroIdentity {
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .heroOrganizer {
+    width: 145px;
+    gap: 0.55rem;
+  }
+
+  .heroOrganizerLogo {
+    width: 64px;
+    height: 64px;
+    flex-basis: 64px;
+    outline-offset: 3px;
+  }
+
+  .heroOrganizer span {
+    font-size: 0.5rem;
+  }
+
+  .heroOrganizer strong {
+    font-size: 0.75rem;
+  }
+
   .heroTag {
-    margin-bottom: 1rem;
+    max-width: 165px;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.62rem;
+    line-height: 1.45;
   }
 
   .heroTitle {
@@ -1026,6 +1208,31 @@
   .aboutGrid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+
+  .sponsorLayout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .sponsorList {
+    margin-top: 2.5rem;
+  }
+
+  .sponsorLetter {
+    max-width: none;
+    justify-self: stretch;
+    padding-left: 1.1rem;
+  }
+
+  .sponsorGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .sponsorCard {
+    min-height: 108px;
+    padding: 1rem 0.75rem;
   }
 
   .scheduleGrid {
