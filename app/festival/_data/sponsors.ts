@@ -7,6 +7,7 @@ export type Sponsor = {
 
 // Add future sponsors here. Every sponsor is displayed at the same size.
 export const sponsors: Sponsor[] = [
+  { name: "JBS" },
   { name: "Ronika Htu", organization: "Rate Mortgage" },
   { name: "Thla Sui", organization: "Country Financial" },
   { name: "Golden Land Food Mart" },
